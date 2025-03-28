@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../config/DataBase/TokenGerator.php';
 
 class getDataBase
 {
-
+    
     private $db;
     private $token;
 
@@ -15,6 +15,7 @@ class getDataBase
         $this->db = $db->getConnection();
         $this->token = new Token();
     }
+
 
     public function loginUser($email, $password)
     {
@@ -42,6 +43,10 @@ class getDataBase
 
     }
 
+    public function logoutUser(){
+        $this->token->logoutUser();
+    }
+
     public function listAllUser()
     {
         $this->token->verificarToken();
@@ -52,6 +57,7 @@ class getDataBase
     }
 
     public function RankingDiarioGeral($data){
+        $this->token->verificarToken();
         $stmt = $this->db->prepare("SELECT * FROM ranking_diario_geral WHERE data = :data_request");
         $stmt->execute([
             ":data_request" => "$data"

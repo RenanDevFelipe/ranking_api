@@ -46,6 +46,13 @@ class Token
 
         $token = str_replace("Bearer ", "", $headers["Authorization"]);
 
+        session_start();
+        if (isset($_SESSION['blacklist'][$token])) {
+            http_response_code(401);
+            echo json_encode(["erro" => "Token inválido ou expirado"]);
+            exit;
+        }
+
         try {
             return JWT::decode($token, new Key($this->secret_key, "HS256"));
         } catch (Exception $e) {
@@ -53,5 +60,26 @@ class Token
             echo json_encode(["erro" => "Token inválido"]);
             exit;
         }
+    }
+
+    public function logoutUser()
+    {
+        $headers = getallheaders();
+
+        if (!isset($headers["Authorization"])) {
+            http_response_code(401);
+            echo json_encode(["erro" => "Token não fornecido"]);
+            exit;
+        }
+
+        $token = str_replace("Bearer ", "", $headers["Authorization"]);
+
+        // Adiciona o token à sessão (blacklist temporária)
+        session_start();
+        $_SESSION['blacklist'][$token] = true;
+
+        echo json_encode(["mensagem" => "Logout realizado com sucesso"]);
+        http_response_code(200);
+        exit;
     }
 }

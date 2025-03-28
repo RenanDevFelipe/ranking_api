@@ -46,4 +46,8 @@ class DataBaseControllers
         $data = $this->service->RankingDiarioGeral($data_request);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function logout(){
+        return $this->service->logoutUser();
+    }
 }

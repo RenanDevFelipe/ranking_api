@@ -27,6 +27,10 @@ elseif ( $uri == "Account/login" ){
     $controller->loginUser($method, $data['email'], $data['password']);
 }
 
+elseif ( $uri == "Account/logout"){
+    $controller->logout();
+}
+
 elseif ( $uri == "Ranking/RankingDiarioGeral" && $method == "POST"){
 
     $data = json_decode(file_get_contents("php://input"), true);
