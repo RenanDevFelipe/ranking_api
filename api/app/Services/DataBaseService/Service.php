@@ -31,7 +31,7 @@ class getDataBase
             $acess_token = $this->token->gerarToken($data);
 
             return ([
-                "acess_token" => $acess_token,
+                "access_token" => $acess_token,
                 "email" => $user['email_user'],
                 "nome" => $user['nome_user'],
                 "id_ixc" => $user["id_ixc_user"]

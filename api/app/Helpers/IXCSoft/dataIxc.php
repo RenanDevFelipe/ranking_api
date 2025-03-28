@@ -10,8 +10,12 @@ class DataApiIxc{
         $this->bodyRequest = new ModelBodyRequest();
     }
 
-    public function ListAllOsTecnicoFin($query){
-        return $this->bodyRequest->BodyRequestModelFinalTecnico($query);
+    public function ListAllOsTecnicoFin($query, $data){
+        return $this->bodyRequest->BodyRequestModelFinalTecnico($query, $data);
+    }
+
+    public function testeAlmox($query){
+        return $this->bodyRequest->BodyAlmoxTecnico($query);
     }
 }
 

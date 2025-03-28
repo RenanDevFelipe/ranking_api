@@ -43,39 +43,41 @@ class ModelBodyRequest
     //     return $data;
     // }
 
-    public function BodyRequestModelFinalTecnico($query)
+    public function BodyRequestModelFinalTecnico($query, $data)
     {
         $data = [
-            "qtype" => $this->qtypeIXC->su_chamado_os() . ".id_tecnico",
-            "query" => $query,
-            "oper" => "=",
-            "page" => "1",
-            "rp" => "1",
-            "sortname" => $this->qtypeIXC->su_chamado_os() . ".id",
-            "sortorder" => "desc",
-            'grid_param' => array(
-                array('TB' => 'su_oss_chamado.status', 'OP' => '=', 'P' => 'F'),
-                array('TB' => 'su_oss_chamado.data_abertura', 'OP' => '>=', 'P' => date("Y-m-d") . " 00:00:00"),
-                array('TB' => 'su_oss_chamado.data_abertura', 'OP' => '<=', 'P' => date("Y-m-d") . " 23:59:59"),
-                array('TB' => 'su_oss_chamado.tipo', 'OP' => '=', 'P' => "C")
-            )
+                "qtype" => "su_oss_chamado.id_tecnico",
+                "query" => $query,
+                "oper" => "=",
+                "page" => "1",
+                "rp" => "1000",
+                "sortname" => "su_oss_chamado.id",
+                "sortorder" => "desc",
+                "grid_param" => json_encode(array(
+                    array("TB" => "su_oss_chamado.data_fechamento", "OP" => ">=", "P" => $data . " 00:00:00"),
+                    array("TB" => "su_oss_chamado.data_fechamento", "OP" => "<=", "P" => $data . " 23:59:59"),
+                    array("TB" => "su_oss_chamado.tipo", "OP" => "=", "P" => "C"),
+                    array("TB" => "su_oss_chamado.status", "OP" => "=", "P" => "F")
+                ))
+                    
+                
         ];
 
         return $data;
     }
 
-    // public function BodyAlmoxTecnico($query){
-    //     $data = [
-    //         "qtype" => $this->qtypeIXC->estoque_produtos_almox_filial().".id_almox",
-    //         "query" => $query,
-    //         "oper" => "=",
-    //         "page" => "1",
-    //         "rp" => "1000",
-    //         "sortname" => $this->qtypeIXC->estoque_produtos_almox_filial().".id",
-    //         "sortorder" => "desc",
-    //         "status" => "S",
-    //     ];
+    public function BodyAlmoxTecnico($query){
+        $data = [
+            "qtype" => $this->qtypeIXC->estoque_produtos_almox_filial().".id_almox",
+            "query" => $query,
+            "oper" => "=",
+            "page" => "1",
+            "rp" => "1000",
+            "sortname" => $this->qtypeIXC->estoque_produtos_almox_filial().".id",
+            "sortorder" => "desc",
+            "status" => "S",
+        ];
 
-    //     return $data;
-    // }
+        return $data;
+    }
 }
