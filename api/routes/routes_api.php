@@ -1,8 +1,11 @@
 <?php 
 
 require_once __DIR__ . '/../app/Controllers/DataBaseControllers/dataBaseContollers.php';
+require_once __DIR__ . "/../app/Controllers/IxcControllers/ixcControlers.php";
 
 $controller = new DataBaseControllers();
+$ixcController = new IxcSoftControlers();
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 $uri = $_SERVER['REQUEST_URI'];
@@ -22,6 +25,13 @@ elseif ( $uri == "Account/login" ){
     }
 
     $controller->loginUser($method, $data['email'], $data['password']);
+}
+
+
+// Rotas Api IXCSoft
+if ( $uri == "IXCSoft/listOSFinTec" && $method == "POST" ){
+    $data = json_decode(file_get_contents("php://input"), true);
+    $ixcController->ListOsFinTecOne($data['query']);
 }
 
 else {

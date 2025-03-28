@@ -3,50 +3,62 @@
 namespace Firebase\JWT;
 
 use InvalidArgumentException;
-use OpenSSLAsymmetricKey;
-use OpenSSLCertificate;
 use TypeError;
 
 class Key
 {
     /**
-     * @param string|resource|OpenSSLAsymmetricKey|OpenSSLCertificate $keyMaterial
-     * @param string $algorithm
+     * @var string|resource|mixed
      */
-    public function __construct(
-        private $keyMaterial,
-        private string $algorithm
-    ) {
+    private $keyMaterial;
+
+    /**
+     * @var string
+     */
+    private $algorithm;
+
+    /**
+     * Construtor da classe Key (compatível com PHP 7.x)
+     *
+     * @param string|resource $keyMaterial
+     * @param string $algorithm
+     * @throws TypeError|InvalidArgumentException
+     */
+    public function __construct($keyMaterial, $algorithm)
+    {
         if (
             !\is_string($keyMaterial)
-            && !$keyMaterial instanceof OpenSSLAsymmetricKey
-            && !$keyMaterial instanceof OpenSSLCertificate
             && !\is_resource($keyMaterial)
         ) {
-            throw new TypeError('Key material must be a string, resource, or OpenSSLAsymmetricKey');
+            throw new TypeError('Key material must be a string or resource');
         }
 
         if (empty($keyMaterial)) {
             throw new InvalidArgumentException('Key material must not be empty');
         }
 
-        if (empty($algorithm)) {
-            throw new InvalidArgumentException('Algorithm must not be empty');
+        if (empty($algorithm) || !\is_string($algorithm)) {
+            throw new InvalidArgumentException('Algorithm must be a non-empty string');
         }
+
+        $this->keyMaterial = $keyMaterial;
+        $this->algorithm = $algorithm;
     }
 
     /**
-     * Return the algorithm valid for this key
+     * Retorna o algoritmo definido para essa chave
      *
      * @return string
      */
-    public function getAlgorithm(): string
+    public function getAlgorithm()
     {
         return $this->algorithm;
     }
 
     /**
-     * @return string|resource|OpenSSLAsymmetricKey|OpenSSLCertificate
+     * Retorna o material da chave
+     *
+     * @return string|resource
      */
     public function getKeyMaterial()
     {

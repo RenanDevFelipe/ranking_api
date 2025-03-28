@@ -1,0 +1,1 @@
+[27-Mar-2025 22:39:18 America/Fortaleza] PHP Parse error:  syntax error, unexpected 'private' (T_PRIVATE), expecting variable (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/Key.php on line 17

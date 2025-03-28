@@ -44,6 +44,7 @@ class getDataBase
 
     public function listAllUser()
     {
+        $this->token->verificarToken();
         $stmt = $this->db->prepare("SELECT * FROM users");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
