@@ -47,6 +47,11 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
+    public function getAllColaborador(){
+        $data = $this->service->AllColaborador();
+        ResponseHelper::jsonResponse($data);
+    }
+
     public function logout(){
         return $this->service->logoutUser();
     }

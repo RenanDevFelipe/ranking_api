@@ -56,6 +56,29 @@ class getDataBase
 
     }
 
+
+    public function AllColaborador(){
+        $this->token->verificarToken();
+        $stmt = $this->db->prepare("SELECT * FROM colaborador");
+        $stmt->execute();
+        $colaboradores  = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total = count($colaboradores);
+
+        if ($total == 0){
+            return ([
+                "error" => "Nenhum Colaborador encontrado"
+            ]);
+            exit;
+        }
+
+        $registros = [
+            "total" => $total,
+            "registros" => $colaboradores
+        ];
+
+        return $registros;
+    }
+
     public function RankingDiarioGeral($data){
         $this->token->verificarToken();
         $stmt = $this->db->prepare("SELECT * FROM ranking_diario_geral WHERE data = :data_request");

@@ -31,6 +31,10 @@ elseif ( $uri == "Account/logout"){
     $controller->logout();
 }
 
+elseif ( $uri == "Colaborador/GetAll"){
+    $controller->getAllColaborador();
+}
+
 elseif ( $uri == "Ranking/RankingDiarioGeral" && $method == "POST"){
 
     $data = json_decode(file_get_contents("php://input"), true);
