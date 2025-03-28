@@ -12,6 +12,10 @@ class QtypeRiquisicoesIXC {
     public function estoque_produtos_almox_filial(){
         return "estoque_produtos_almox_filial";
     }
+
+    public function cliente(){
+        return "cliente";
+    }
 }
 
 ?>

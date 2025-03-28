@@ -14,8 +14,12 @@ class DataApiIxc{
         return $this->bodyRequest->BodyRequestModelFinalTecnico($query, $data);
     }
 
-    public function testeAlmox($query){
-        return $this->bodyRequest->BodyAlmoxTecnico($query);
+    // public function testeAlmox($query){
+    //     return $this->bodyRequest->BodyAlmoxTecnico($query);
+    // }
+
+    public function Cliente($query){
+        return $this->bodyRequest->bodyRequestCliente($query);
     }
 }
 

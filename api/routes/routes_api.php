@@ -1,11 +1,9 @@
 <?php 
 
 require_once __DIR__ . '/../app/Controllers/DataBaseControllers/dataBaseContollers.php';
-require_once __DIR__ . "/../app/Controllers/IxcControllers/ixcControlers.php";
 require_once __DIR__ . "/../app/Services/IXCSoft/Service.php";
 
 $controller = new DataBaseControllers();
-// $ixcController = new IxcSoftControlers();
 $ixcController = new ApiIXC();
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -29,19 +27,57 @@ elseif ( $uri == "Account/login" ){
     $controller->loginUser($method, $data['email'], $data['password']);
 }
 
+elseif ( $uri == "Ranking/RankingDiarioGeral" && $method == "POST"){
+
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE){
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getRankingDiarioGeral($data['data_request']);
+}
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
 
 //Rotas Api IXCSoft
-elseif ( $uri == "IXCSoft/listOSFinTec" && $method == "POST" ){
-    $data = json_decode(file_get_contents("php://input"), true);
-    if ($data == null){
-        echo json_encode([
-            "erro" => "Campo de requisição obrigatório"
-        ]);
 
+
+// ROTA LISTAGEM DE O.S FINALIZADA DO TECNICO DO DIA ESPECIFICADO
+elseif ( $uri == "IXCSoft/listOSFinTec" && $method == "POST" ){
+
+    $data = json_decode(file_get_contents("php://input"), true);
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
         exit;
     }
     
     echo json_encode($ixcController->listarOsClienteTecnico($data['query'], $data['data_fechamento']));
+}
+
+
+// ROTA DO QUE RETORNA O CLIENTE
+elseif ( $uri == "IXCSoft/Cliente" && $method == "POST"){
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE){
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->cliente($data['query']));
 }
 
 

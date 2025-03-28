@@ -36,4 +36,14 @@ class DataBaseControllers
         $data = $this->service->listAllUser();
         ResponseHelper::jsonResponse($data);
     }
+
+    public function getRankingDiarioGeral($data_request){
+        if (!isset($data_request) || empty($data_request)){
+            $message = ["erro" => "campo data_request obrigatório na requisição"];
+            ResponseHelper::jsonResponse($message);
+        }
+
+        $data = $this->service->RankingDiarioGeral($data_request);
+        ResponseHelper::jsonResponse($data);
+    }
 }

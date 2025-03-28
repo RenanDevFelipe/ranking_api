@@ -44,6 +44,19 @@ class ApiIXC
         // return $body;
     }
 
+    public function cliente($query){
+        $this->token->verificarToken();
+        $body = $this->body->Cliente($query);
+        $methodH = $this->methodIXC->listarIXC();
+
+        return $this->request(
+            $this->queryIXC->cliente(),
+            "POST",
+            $body,
+            $methodH
+        );
+    }
+
     // public function testeAlmox($query){
     //     $body = $this->body->testeAlmox($query);
     //     $method = $this->methodIXC->listarIXC();

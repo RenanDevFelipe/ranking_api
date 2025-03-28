@@ -50,4 +50,30 @@ class getDataBase
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    public function RankingDiarioGeral($data){
+        $stmt = $this->db->prepare("SELECT * FROM ranking_diario_geral WHERE data = :data_request");
+        $stmt->execute([
+            ":data_request" => "$data"
+        ]);
+
+        $ranking_d_geral = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total = count($ranking_d_geral);
+
+        if ($total < 1){
+            return [
+                "erro" => "Nenhum dado encontrado referente a Esta data"
+            ];
+            exit;
+        }
+
+        $registros = [
+            "total" => $total,
+            "registros" => $ranking_d_geral
+        ];
+
+        return $registros;
+
+    }
 }
+
