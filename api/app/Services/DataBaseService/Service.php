@@ -52,8 +52,20 @@ class getDataBase
         $this->token->verificarToken();
         $stmt = $this->db->prepare("SELECT * FROM users");
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $users =  $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total = count($users);
 
+        if ($total == 0){
+            return (["erro" => "nenhum usuário encontrado"]);
+            exit;
+        }
+
+        $registros = [
+            "total" => $total,
+            "registros" => $users
+        ];
+
+        return $registros;
     }
 
 
