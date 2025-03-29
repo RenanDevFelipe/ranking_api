@@ -17,7 +17,9 @@ class DataBaseControllers
     {
         if ($method == "POST") {
             if (!isset($email) || !isset($password)) {
-                $message = "E-mail e senha obrigatórios";
+                $message = [
+                    "erro" => "E-mail e senha obrigatórios"
+                ];
                 ResponseHelper::jsonResponse($message);
                 exit;
             }
