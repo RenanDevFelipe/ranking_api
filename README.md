@@ -56,7 +56,7 @@ GET /User/listAll
   {
     "id": 1,
     "nome": "João Silva",
-    "email": "joao@email.com"(...)
+    "email": "joao@email.com"
   }
 ]
 ```
@@ -115,7 +115,7 @@ GET /Colaborador/GetAll
   {
     "id": 1,
     "nome": "Carlos Mendes",
-    "cargo": "Técnico"...
+    "cargo": "Técnico"
   }
 ]
 ```
@@ -141,7 +141,7 @@ POST /Ranking/RankingDiarioGeral
   {
     "usuario": "Ana Souza",
     "pontuacao": 8.8,
-    "data": "2024-03-28"...
+    "data": "2024-03-28"
   }
 ]
 ```
