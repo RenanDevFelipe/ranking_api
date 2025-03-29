@@ -56,7 +56,7 @@ GET /User/listAll
   {
     "id": 1,
     "nome": "João Silva",
-    "email": "joao@email.com"...
+    "email": "joao@email.com"(...)
   }
 ]
 ```
