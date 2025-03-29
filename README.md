@@ -170,7 +170,7 @@ POST /IXCSoft/listOSFinTec
   {
     "id_os": 12345,
     "tecnico": "Carlos Mendes",
-    "status": "F"...
+    "status": "F"
   }
 ]
 ```
