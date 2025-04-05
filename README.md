@@ -146,9 +146,66 @@ POST /Ranking/RankingDiarioGeral
 ]
 ```
 
+### 6. Consultar Ranking Diario por Técnico
+
+```http
+POST /Ranking/RankingDiario
+```
+
+**Corpo da Requisição:**
+
+```json
+{
+    "id": 19,
+    "data_request": "2025-04-02"
+}
+```
+
+**Resposta:**
+
+```json
+[
+{
+    "media_setor": [
+        {
+            "id_setor": 8,
+            "total_registros": 3,
+            "media_diaria": "3.33",
+            "soma_pontuacao": "10.00"
+        },
+        {
+            "id_setor": 9,
+            "total_registros": 1,
+            "media_diaria": "10.00",
+            "soma_pontuacao": "40.00"
+        },
+        {
+            "id_setor": 5,
+            "tota_registros": 3,
+            "media_diaria": "9.61",
+            "soma_pontacao": "28.82"
+        },
+        {
+            "id_setor": 6,
+            "total_registros": 1,
+            "media_diaria": "10.00",
+            "soma_pontuacao": "10.00"
+        },
+        {
+            "id_setor": 7,
+            "total_registros": 1,
+            "media_diaria": "10.00",
+            "soma_pontuacao": "30.00"
+        }
+    ],
+    "media_total": "8.59"
+}
+]
+```
+
 ## Endpoints da API IXCSoft
 
-### 6. Listar O.S Finalizadas do Técnico
+### 7. Listar O.S Finalizadas do Técnico
 
 ```http
 POST /IXCSoft/listOSFinTec
@@ -175,7 +232,7 @@ POST /IXCSoft/listOSFinTec
 ]
 ```
 
-### 7. Consultar Cliente
+### 8. Consultar Cliente
 
 ```http
 POST /IXCSoft/Cliente
