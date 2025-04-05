@@ -57,4 +57,9 @@ class DataBaseControllers
     public function logout(){
         return $this->service->logoutUser();
     }
+
+    public function RankingSucessoTec($id, $data){
+        $data = $this->service->RankinDiarioCalc($id, $data);
+        ResponseHelper::jsonResponse($data);
+    }
 }
