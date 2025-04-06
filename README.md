@@ -256,6 +256,58 @@ POST /IXCSoft/Cliente
 }
 ```
 
+### 9. Consultar Departamento
+
+```http
+GET /Departamento/getAll
+```
+
+**Resposta:**
+
+```json
+{
+    "total": 9,
+    "registros": [
+        {
+            "id_setor": 5,
+            "nome_setor": "Suporte Nível 3"
+        },
+        {
+            "id_setor": 6,
+            "nome_setor": "Estoque"
+        },
+        {
+            "id_setor": 7,
+            "nome_setor": "Recursos Humanos"
+        },
+        {
+            "id_setor": 8,
+            "nome_setor": "Sucesso ao cliente"
+        },
+        {
+            "id_setor": 9,
+            "nome_setor": "Avaliadores suporte Nível 2"
+        },
+        {
+            "id_setor": 21,
+            "nome_setor": "Atendimento"
+        },
+        {
+            "id_setor": 22,
+            "nome_setor": "Suporte Nivel 2"
+        },
+        {
+            "id_setor": 23,
+            "nome_setor": "Infraestrutura"
+        },
+        {
+            "id_setor": 24,
+            "nome_setor": "Câmeras"
+        }
+    ]
+}
+```
+
 ## Tratamento de Erros
 
 Caso uma rota inexistente seja acessada, a API retorna:
