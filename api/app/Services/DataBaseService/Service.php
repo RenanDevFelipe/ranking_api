@@ -92,32 +92,32 @@ class getDataBase
         return $registros;
     }
 
-    public function RankingDiarioGeral($data)
+    // public function RankingDiarioGeral($data)
 
-    {
-        $this->token->verificarToken();
-        $stmt = $this->db->prepare("SELECT * FROM ranking_diario_geral WHERE data = :data_request");
-        $stmt->execute([
-            ":data_request" => $data
-        ]);
+    // {
+    //     $this->token->verificarToken();
+    //     $stmt = $this->db->prepare("SELECT * FROM ranking_diario_geral WHERE data = :data_request");
+    //     $stmt->execute([
+    //         ":data_request" => $data
+    //     ]);
 
-        $ranking_d_geral = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $total = count($ranking_d_geral);
+    //     $ranking_d_geral = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     $total = count($ranking_d_geral);
 
-        if ($total < 1) {
-            return [
-                "erro" => "Nenhum dado encontrado referente a Esta data"
-            ];
-            exit;
-        }
+    //     if ($total < 1) {
+    //         return [
+    //             "erro" => "Nenhum dado encontrado referente a Esta data"
+    //         ];
+    //         exit;
+    //     }
 
-        $registros = [
-            "total" => $total,
-            "registros" => $ranking_d_geral
-        ];
+    //     $registros = [
+    //         "total" => $total,
+    //         "registros" => $ranking_d_geral
+    //     ];
 
-        return $registros;
-    }
+    //     return $registros;
+    // }
 
     public function RankinDiarioCalc($id, $data)
     {
@@ -319,5 +319,31 @@ class getDataBase
         ];
 
         return $registros;
+    }
+
+    public function getAllDepartament()
+    {
+
+        $this->token->verificarToken();
+        
+        $stmt = $this->db->prepare("SELECT * FROM setor");
+        $stmt->execute();
+        $setores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total_setor = $stmt->rowCount();
+
+        if($total_setor < 1) {
+            return ([
+                "erro" => "Nenhum setor encontrado!"
+            ]);
+            exit;
+        }
+
+        $registro = [
+            "total" => $total_setor,
+            "registros" => $setores
+        ];
+
+        return $registro;
+
     }
 }

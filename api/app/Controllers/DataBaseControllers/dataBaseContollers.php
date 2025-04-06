@@ -39,15 +39,15 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
-    public function getRankingDiarioGeral($data_request){
-        if (!isset($data_request) || empty($data_request)){
-            $message = ["erro" => "campo data_request obrigatório na requisição"];
-            ResponseHelper::jsonResponse($message);
-        }
+    // public function getRankingDiarioGeral($data_request){
+    //     if (!isset($data_request) || empty($data_request)){
+    //         $message = ["erro" => "campo data_request obrigatório na requisição"];
+    //         ResponseHelper::jsonResponse($message);
+    //     }
 
-        $data = $this->service->RankingDiarioGeral($data_request);
-        ResponseHelper::jsonResponse($data);
-    }
+    //     $data = $this->service->RankingDiarioGeral($data_request);
+    //     ResponseHelper::jsonResponse($data);
+    // }
 
     public function getAllColaborador(){
         $data = $this->service->AllColaborador();
@@ -60,6 +60,11 @@ class DataBaseControllers
 
     public function RankingSucessoTec($id, $data){
         $data = $this->service->RankinDiarioCalc($id, $data);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function getAllDepartament(){
+        $data = $this->service->getAllDepartament();
         ResponseHelper::jsonResponse($data);
     }
 }
