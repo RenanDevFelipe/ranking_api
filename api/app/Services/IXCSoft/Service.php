@@ -90,6 +90,8 @@ class ApiIXC
 
         $registros = $response['registros'] ?? [];
         $resultadoFinal = [];
+        $total = 0;
+        $total_registros = $response['total'];
 
         foreach ($registros as $os) {
             $id = $os['id'];
@@ -100,10 +102,19 @@ class ApiIXC
             $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
 
             // Passo 3: Buscar checklist no banco de dados
-            $stmt = $this->db->prepare("SELECT check_list FROM avaliacao_n3 WHERE id_os = ?");
+            $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
             $stmt->execute([$id]);
             $checklistResult = $stmt->fetch(PDO::FETCH_ASSOC);
             $checklist = $checklistResult['check_list'] ?? 'Não preenchido';
+            
+            if ($checklistResult > 0){
+                $status = 'Finalizada';
+                $avaliador = $checklistResult['avaliador'];
+                $total++;
+            } else {
+                $status = 'Aberta';
+                $avaliador = '';
+            }
 
             // Junta tudo
             $resultadoFinal[] = [
@@ -114,10 +125,18 @@ class ApiIXC
                 'finalizacao' => $os['data_fechamento'] ?? '',
                 'mensagem' => $os['mensagem_resposta'] ?? '',
                 'checklist' => $checklist,
+                'status' => $status,
+                'avaliador' => $avaliador,
             ];
         }
 
-        return $resultadoFinal;
+
+
+        return ([
+            "total_registros" => $total_registros,
+            "total_os_finalizadas" => $total,
+            "registros" => $resultadoFinal,
+        ]);
     }
 
 
