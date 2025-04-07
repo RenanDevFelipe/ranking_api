@@ -224,11 +224,42 @@ POST /IXCSoft/listOSFinTec
 
 ```json
 [
-  {
-    "id_os": 12345,
-    "tecnico": "Carlos Mendes",
-    "status": "F"
-  }
+    {
+        "id": "539627",
+        "id_cliente": "4731",
+        "id_assunto": "28",
+        "cliente": "ROMILDO DE ARRUDA SILVA",
+        "finalizacao": "2025-03-28 09:59:28",
+        "mensagem": "Cliente  se acesso chegando era seu cabo luga errado  foi colcoado luga certo  feito os teste com cliente ficou tudo ok",
+        "checklist": "Avaliação da OS ID: 539627\r\n\r\nA ordem de serviço estava com o Status em \"Execução\"?\r\nSim (X) Não ( )\r\n\r\nFoi aferida a potência do Sinal, na casa do cliente e na CTO? Frequência 1490nm.\r\nSim (X) Não ( )\r\n\r\nA potência do sinal óptico ficou na margem de sinal permitido = ou < que -25db?\r\nSim (X) Não ( )\r\n\r\nOs Equipamentos e cabos ficaram organizados na parede, de acordo com o Padrão Ti Connect?\r\nSim ( ) Não (X)\r\n\r\nFoi Feito o teste de velocidade?\r\nSim (X) Não ( )\r\n\r\nO teste de velocidade bateu com o plano do cliente?\r\nSim (X) Não ( )\r\n\r\nFoi ativado o Ping e liberado o acesso remoto?\r\nSim (X) Não ( )\r\n\r\nOBS: Nenhuma observação\r\n"
+    },
+    {
+        "id": "539603",
+        "id_cliente": "10223",
+        "id_assunto": "28",
+        "cliente": "IVSON GOMES DE LIMA",
+        "finalizacao": "2025-03-28 08:57:22",
+        "mensagem": "Cliente  se acesso  chegando  aki foi visto conector  do cliente  tava fora da cto foi colocado e colocado nome tbm feito os teste com cliente ficou tudo",
+        "checklist": "Avaliação da OS ID: 539603\r\n\r\nA ordem de serviço estava com o Status em \"Execução\"?\r\nSim (X) Não ( )\r\n\r\nFoi aferida a potência do Sinal, na casa do cliente e na CTO? Frequência 1490nm.\r\nSim (X) Não ( )\r\n\r\nA potência do sinal óptico ficou na margem de sinal permitido = ou < que -25db?\r\nSim (X) Não ( )\r\n\r\nOs Equipamentos e cabos ficaram organizados na parede, de acordo com o Padrão Ti Connect?\r\nSim ( ) Não (X)\r\n\r\nFoi Feito o teste de velocidade?\r\nSim (X) Não ( )\r\n\r\nO teste de velocidade bateu com o plano do cliente?\r\nSim ( ) Não (X)\r\n\r\nFoi ativado o Ping e liberado o acesso remoto?\r\nSim (X) Não ( )\r\n\r\nOBS: Nenhuma observação\r\n"
+    },
+    {
+        "id": "539509",
+        "id_cliente": "11404",
+        "id_assunto": "70",
+        "cliente": "EVELLY KARINA DE ANDRADE BEZERRA",
+        "finalizacao": "2025-03-28 13:51:42",
+        "mensagem": "Mudança de endereço  foi gasto 2 conector verde e azul  uma caixa de acomodação 10 fixa fio feito os teste com cliente ficou tudo ok",
+        "checklist": "Avaliação da OS ID: 539509\r\n\r\nA ordem de serviço estava com o Status em \"Execução\"?\r\nSim (X) Não ( )\r\n\r\nFoi aferida a potência do Sinal, na casa do cliente e na CTO? Frequência 1490nm.\r\nSim (X) Não ( )\r\n\r\nA potência do sinal óptico ficou na margem de sinal permitido = ou < que -25db?\r\nSim (X) Não ( )\r\n\r\nConfigurações do equipamento Canal e Largura\r\nSim (X) Não ( )\r\n\r\nFoi Feito o teste de velocidade?\r\nSim (X) Não ( )\r\n\r\nO teste de velocidade bateu com o plano do cliente?\r\nSim (X) Não ( )\r\n\r\nFoi ativado o Ping e liberado o acesso remoto?\r\nSim (X) Não ( )\r\n\r\nOs Equipamentos e cabos ficaram organizados na parede, de acordo com o Padrão Ti Connect?\r\nSim (X) Não ( )\r\n\r\nO tecnico mandou a localização/id e porta da CTO?\r\nSim (X) Não ( )\r\n\r\nOBS: Nenhuma observação\r\n"
+    },
+    {
+        "id": "538123",
+        "id_cliente": "13265",
+        "id_assunto": "79",
+        "cliente": "SEVERINO ALEXANDRE DA SILVA",
+        "finalizacao": "2025-03-28 15:17:30",
+        "mensagem": "Retirada ok",
+        "checklist": "Não preenchido"
+    }
 ]
 ```
 
