@@ -73,6 +73,17 @@ elseif ( $uri == "Departamento/getAll" && $method == "GET" ){
 
 
 // ROTA LISTAGEM DE O.S FINALIZADA DO TECNICO DO DIA ESPECIFICADO
+// elseif ($uri == "IXCSoft/listOSFinTec" && $method == "POST") {
+
+//     $data = json_decode(file_get_contents("php://input"), true);
+//     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+//         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+//         exit;
+//     }
+
+//     echo json_encode($ixcController->listarOsClienteTecnico($data['query'], $data['data_fechamento']));
+// }
+
 elseif ($uri == "IXCSoft/listOSFinTec" && $method == "POST") {
 
     $data = json_decode(file_get_contents("php://input"), true);
@@ -81,7 +92,7 @@ elseif ($uri == "IXCSoft/listOSFinTec" && $method == "POST") {
         exit;
     }
 
-    echo json_encode($ixcController->listarOsClienteTecnico($data['query'], $data['data_fechamento']));
+    echo json_encode($ixcController->obterChamadosCompletos($data['query'], $data['data_fechamento']));
 }
 
 

@@ -16,6 +16,7 @@ class ApiIXC
     private $methodIXC;
     private $queryIXC;
     private $token;
+    private $db;
 
     public function __construct()
     {
@@ -26,6 +27,8 @@ class ApiIXC
         $this->username = constant("USERNAME");
         $this->password = constant("PASSWORD");
         $this->token = new Token();
+        $db = new Database();
+        $this->db = $db->getConnection();
     }
 
     public function listarOsClienteTecnico($query, $data)
@@ -44,7 +47,8 @@ class ApiIXC
         // return $body;
     }
 
-    public function cliente($query){
+    public function cliente($query)
+    {
         $this->token->verificarToken();
         $body = $this->body->Cliente($query);
         $methodH = $this->methodIXC->listarIXC();
@@ -56,6 +60,10 @@ class ApiIXC
             $methodH
         );
     }
+
+    // public function getOsList(){
+    //     $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = :id")
+    // }
 
     // public function testeAlmox($query){
     //     $body = $this->body->testeAlmox($query);
@@ -71,10 +79,55 @@ class ApiIXC
     // }
 
 
+    public function obterChamadosCompletos($query, $data)
+    {
+        $this->token->verificarToken();
+
+        // Passo 1: Buscar O.S finalizadas
+        $body = $this->body->ListAllOsTecnicoFin($query, $data);
+        $methodH = $this->methodIXC->listarIXC();
+        $response = $this->request($this->queryIXC->su_chamado_os(), "POST", $body, $methodH);
+
+        $registros = $response['registros'] ?? [];
+        $resultadoFinal = [];
+
+        foreach ($registros as $os) {
+            $id = $os['id'];
+            $id_cliente = $os['id_cliente'];
+
+            // Passo 2: Usar a função cliente() que já existe no seu código
+            $clienteResponse = $this->cliente(['id' => $id_cliente]); // 👈 aqui a função cliente() é usada
+            $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
+
+            // Passo 3: Buscar checklist no banco de dados
+            $stmt = $this->db->prepare("SELECT check_list FROM avaliacao_n3 WHERE id_os = ?");
+            $stmt->execute([$id]);
+            $checklistResult = $stmt->fetch(PDO::FETCH_ASSOC);
+            $checklist = $checklistResult['check_list'] ?? 'Não preenchido';
+
+            // Junta tudo
+            $resultadoFinal[] = [
+                'id' => $id,
+                'id_cliente' => $id_cliente,
+                'id_assunto' => $os['id_assunto'],
+                'cliente' => $razao,
+                'finalizacao' => $os['data_fechamento'] ?? '',
+                'mensagem' => $os['mensagem_resposta'] ?? '',
+                'checklist' => $checklist,
+            ];
+        }
+
+        return $resultadoFinal;
+    }
 
 
 
-    private function request($endpoint, $method = "GET", $data = [], $methodHeader) {
+
+
+
+
+    private function request($endpoint, $method = "GET", $data = [], $methodHeader)
+    {
         $url = $this->baseURL . $endpoint;
 
         $ch = curl_init($url);
@@ -113,7 +166,4 @@ class ApiIXC
 
         // return $data;
     }
-
 }
-
-?>
