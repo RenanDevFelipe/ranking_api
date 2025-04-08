@@ -17,6 +17,7 @@ class ApiIXC
     private $queryIXC;
     private $token;
     private $db;
+    private $serviceDB;
 
     public function __construct()
     {
@@ -29,6 +30,7 @@ class ApiIXC
         $this->token = new Token();
         $db = new Database();
         $this->db = $db->getConnection();
+        $this->serviceDB = new getDataBase;
     }
 
     public function listarOsClienteTecnico($query, $data)
@@ -84,23 +86,25 @@ class ApiIXC
         $this->token->verificarToken();
 
         // Passo 1: Buscar O.S finalizadas
-        $OsFinResponse = $this->listarOsClienteTecnico($query, $data);
+        $body = $this->body->ListAllOsTecnicoFin($query, $data);
+        $methodH = $this->methodIXC->listarIXC();
+        $response = $this->request($this->queryIXC->su_chamado_os(), "POST", $body, $methodH);
 
-        $registros = $OsFinResponse['registros'] ?? [];
+        $registros = $response['registros'] ?? [];
         $resultadoFinal = [];
         $total = 0;
-        $total_registros = $OsFinResponse['total'];
+        $total_registros = $response['total'];
 
         foreach ($registros as $os) {
             if ($os['id_assunto'] != 2) {
                 $id = $os['id'];
                 $id_cliente = $os['id_cliente'];
+                $ticket = $os['id_ticket'];
 
                 // Passo 2: Usar a função cliente() que já existe no seu código
                 $clienteResponse = $this->cliente(['id' => $id_cliente]); // 👈 aqui a função cliente() é usada
                 $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
 
-<<<<<<< HEAD
                 // Passo 3: Buscar checklist no banco de dados
                 $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
                 $stmt->execute([$id]);
@@ -110,15 +114,20 @@ class ApiIXC
                 if ($checklistResult > 0) {
                     $status = 'Finalizada';
                     $avaliador = $checklistResult['avaliador'];
+                    $nota_os = $checklistResult['nota_os'];
                     $total++;
                 } else {
                     $status = 'Aberta';
                     $avaliador = '';
+                    $nota_os = '';
                 }
+
+                $nota_sucesso = $this->serviceDB->verificarSucesso($ticket);
 
                 // Junta tudo
                 $resultadoFinal[] = [
                     'id' => $id,
+                    'id_atendimento' => $ticket,
                     'id_cliente' => $id_cliente,
                     'id_assunto' => $os['id_assunto'],
                     'cliente' => $razao,
@@ -128,40 +137,9 @@ class ApiIXC
                     'status' => $status,
                     'avaliador' => $avaliador,
                     'nota_os' => $nota_os,
+                    'registros_sucesso' => $nota_sucesso
                 ];
             }
-=======
-            // Passo 3: Buscar checklist no banco de dados
-            $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
-            $stmt->execute([$id]);
-            $checklistResult = $stmt->fetch(PDO::FETCH_ASSOC);
-            $checklist = $checklistResult['check_list'] ?? 'Não preenchido';
-            
-            if ($checklistResult > 0){
-                $status = 'Finalizada';
-                $avaliador = $checklistResult['avaliador'];
-                $nota_os = $checklistResult['nota_os'];
-                $total++;
-            } else {
-                $status = 'Aberta';
-                $avaliador = '';
-                $nota_os = 0.00;
-            }
-
-            // Junta tudo
-            $resultadoFinal[] = [
-                'id' => $id,
-                'id_cliente' => $id_cliente,
-                'id_assunto' => $os['id_assunto'],
-                'cliente' => $razao,
-                'finalizacao' => $os['data_fechamento'] ?? '',
-                'mensagem' => $os['mensagem_resposta'] ?? '',
-                'checklist' => $checklist,
-                'status' => $status,
-                'avaliador' => $avaliador,
-                'nota_os' => $nota_os,
-            ];
->>>>>>> ccda02df00885552de51525b741c3ec71e2ddb49
         }
 
 

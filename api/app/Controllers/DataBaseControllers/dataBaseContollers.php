@@ -67,4 +67,14 @@ class DataBaseControllers
         $data = $this->service->getAllDepartament();
         ResponseHelper::jsonResponse($data);
     }
+
+    public function verificarSucesso($id){
+        $data = $this->service->verificarSucesso($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function getMediaMensal($date, $id){
+        $data = $this->service->getMediaMensal($date, $id);
+        ResponseHelper::jsonResponse($data);
+    }
 }

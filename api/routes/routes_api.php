@@ -50,10 +50,34 @@ elseif ($uri == "Ranking/RankingDiario" && $method == "POST") {
 
     $controller->RankingSucessoTec($data['id'], $data['data_request']);
 
+
+} elseif ($uri == "Departamento/getAll" && $method == "GET") {
+    $controller->getAllDepartament();
 }
 
-elseif ( $uri == "Departamento/getAll" && $method == "GET" ){
-    $controller->getAllDepartament();
+elseif ($uri == "Ranking/RankingMensal" && $method == "POST") {
+
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getMediaMensal($data['data_request'], $data['id_tecnico']);
+}
+
+/// teste
+
+elseif ($uri == "Ranking/SucessoDiario" && $method == "POST") {
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->verificarSucesso($data['id_atendimento']);
 }
 
 

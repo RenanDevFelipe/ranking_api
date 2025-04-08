@@ -92,6 +92,16 @@ class getDataBase
         return $registros;
     }
 
+    public function getOneColaborador($id){
+        $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
+        $stmt->execute(
+            [":id" => $id]
+        );
+        $colaborador = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $colaborador;
+    }
+
     // public function RankingDiarioGeral($data)
 
     // {
@@ -345,5 +355,117 @@ class getDataBase
 
         return $registro;
 
+    }
+
+    public function getOneDepartament($id){
+        $stmt = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
+        $stmt->execute([
+            ":id" => $id
+        ]);
+        $setor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $setor;
+    }
+
+
+    public function getMediaMensal($date, $id){
+
+        $name_tecnico = $this->getOneColaborador($id);
+
+        $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE DATE_FORMAT(data_finalizacao_os, '%Y-%m') = :data_finalizacao AND id_tecnico = :id");
+        $stmt->execute([
+            ":data_finalizacao" => $date,
+            ":id" => $id
+        ]);
+        $setor_n3 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $id_n3 = $setor_n3[0]['id_setor'];
+        $total_n3 = $stmt->rowCount();
+        $name_setor = $this->getOneDepartament($id_n3);
+
+        $sum_n3 = 0;
+
+        if ($total_n3 < 1){
+            return (["erro" => "nenhum registro encontrado"]);
+        }
+
+        foreach ($setor_n3 as $n3){
+            $sum_n3 += $n3['nota_os'];
+        }
+
+        $media_n3 = $sum_n3 / $total_n3;
+
+        $registros_n3 = [
+            "id_setor" => $id_n3,
+            "setor" => $name_setor['nome_setor'],
+            "total_registros" => $total_n3,
+            "media_mensal" => number_format($media_n3, 2),
+            "soma_pontuacao" => number_format($sum_n3, 2)
+        ];
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $stmt = $this->db->prepare("SELECT * FROM avaliacao_sucesso WHERE DATE_FORMAT(data_avaliacao, '%Y-%m') = :data_avaliacao AND id_tecnico = :id");
+        $stmt->execute([
+            ":id" => $id,
+            ":data_avaliacao" => $date
+        ]);
+        $setor_sucesso = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total_sucesso = $stmt->rowCount();
+        $id_sucesso = $setor_sucesso[0]['id_setor'];
+        $name_setor = $this->getOneDepartament($id_sucesso);
+
+        if ($total_sucesso < 1){
+            return ([
+                "erro" => "Nenhum resultado encontrado",
+                "id_setor" => $id_sucesso,
+                "setor" => $name_setor          
+            ]);
+        }
+
+        $sum_sucesso = 0;
+
+        foreach ($setor_sucesso as $sucesso){
+            $sum_sucesso += $sucesso['ponto_sucesso'];
+        }
+
+        $media_sucesso = $sum_sucesso / $total_sucesso;
+
+        $registros_sucesso = [
+            "id_setor" => $id_sucesso,
+            "setor" => $name_setor['nome_setor'],
+            "total_registros" => $total_sucesso,
+            "media_mensal" => number_format($media_sucesso, 2),
+            "soma_pontuacao" => number_format($sum_sucesso, 2),
+        ];
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        
+
+
+        $total_registros = $total_sucesso + $total_n3;
+
+        $media_mensal = [
+            $registros_n3,
+            $registros_sucesso
+        ];
+
+        return ([
+            "tecnico" => $name_tecnico['nome_colaborador'],
+            "total_registros" => $total_registros,
+            "ranking_setor" => $media_mensal
+        ]);
+    }
+
+
+    /// teste sucesso 
+
+    public function verificarSucesso($id){
+        $stmt = $this->db->prepare("SELECT * FROM avaliacao_sucesso WHERE id_atendimento = :id_atendimento");
+        $stmt->execute([":id_atendimento" => $id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        
+        return $result;
     }
 }
