@@ -84,14 +84,12 @@ class ApiIXC
         $this->token->verificarToken();
 
         // Passo 1: Buscar O.S finalizadas
-        $body = $this->body->ListAllOsTecnicoFin($query, $data);
-        $methodH = $this->methodIXC->listarIXC();
-        $response = $this->request($this->queryIXC->su_chamado_os(), "POST", $body, $methodH);
+        $OsFinResponse = $this->listarOsClienteTecnico($query, $data);
 
-        $registros = $response['registros'] ?? [];
+        $registros = $OsFinResponse['registros'] ?? [];
         $resultadoFinal = [];
         $total = 0;
-        $total_registros = $response['total'];
+        $total_registros = $OsFinResponse['total'];
 
         foreach ($registros as $os) {
             $id = $os['id'];
