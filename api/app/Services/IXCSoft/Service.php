@@ -110,10 +110,12 @@ class ApiIXC
             if ($checklistResult > 0){
                 $status = 'Finalizada';
                 $avaliador = $checklistResult['avaliador'];
+                $nota_os = $checklistResult['nota_os'];
                 $total++;
             } else {
                 $status = 'Aberta';
                 $avaliador = '';
+                $nota_os = 0.00;
             }
 
             // Junta tudo
@@ -127,6 +129,7 @@ class ApiIXC
                 'checklist' => $checklist,
                 'status' => $status,
                 'avaliador' => $avaliador,
+                'nota_os' => $nota_os,
             ];
         }
 
