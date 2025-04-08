@@ -94,40 +94,42 @@ class ApiIXC
         $total_registros = $response['total'];
 
         foreach ($registros as $os) {
-            $id = $os['id'];
-            $id_cliente = $os['id_cliente'];
+            if ($os['id_assunto'] != 2) {
+                $id = $os['id'];
+                $id_cliente = $os['id_cliente'];
 
-            // Passo 2: Usar a função cliente() que já existe no seu código
-            $clienteResponse = $this->cliente(['id' => $id_cliente]); // 👈 aqui a função cliente() é usada
-            $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
+                // Passo 2: Usar a função cliente() que já existe no seu código
+                $clienteResponse = $this->cliente(['id' => $id_cliente]); // 👈 aqui a função cliente() é usada
+                $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
 
-            // Passo 3: Buscar checklist no banco de dados
-            $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
-            $stmt->execute([$id]);
-            $checklistResult = $stmt->fetch(PDO::FETCH_ASSOC);
-            $checklist = $checklistResult['check_list'] ?? 'Não preenchido';
-            
-            if ($checklistResult > 0){
-                $status = 'Finalizada';
-                $avaliador = $checklistResult['avaliador'];
-                $total++;
-            } else {
-                $status = 'Aberta';
-                $avaliador = '';
+                // Passo 3: Buscar checklist no banco de dados
+                $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
+                $stmt->execute([$id]);
+                $checklistResult = $stmt->fetch(PDO::FETCH_ASSOC);
+                $checklist = $checklistResult['check_list'] ?? 'Não preenchido';
+
+                if ($checklistResult > 0) {
+                    $status = 'Finalizada';
+                    $avaliador = $checklistResult['avaliador'];
+                    $total++;
+                } else {
+                    $status = 'Aberta';
+                    $avaliador = '';
+                }
+
+                // Junta tudo
+                $resultadoFinal[] = [
+                    'id' => $id,
+                    'id_cliente' => $id_cliente,
+                    'id_assunto' => $os['id_assunto'],
+                    'cliente' => $razao,
+                    'finalizacao' => $os['data_fechamento'] ?? '',
+                    'mensagem' => $os['mensagem_resposta'] ?? '',
+                    'checklist' => $checklist,
+                    'status' => $status,
+                    'avaliador' => $avaliador,
+                ];
             }
-
-            // Junta tudo
-            $resultadoFinal[] = [
-                'id' => $id,
-                'id_cliente' => $id_cliente,
-                'id_assunto' => $os['id_assunto'],
-                'cliente' => $razao,
-                'finalizacao' => $os['data_fechamento'] ?? '',
-                'mensagem' => $os['mensagem_resposta'] ?? '',
-                'checklist' => $checklist,
-                'status' => $status,
-                'avaliador' => $avaliador,
-            ];
         }
 
 
