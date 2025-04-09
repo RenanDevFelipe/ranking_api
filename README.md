@@ -339,6 +339,68 @@ GET /Departamento/getAll
 }
 ```
 
+### 8. Consultar Media Mensal
+
+```http
+POST /Ranking/RankingMensal
+```
+
+**Corpo da Requisição:**
+
+```json
+{
+    "id_tecnico": 20,
+    "data_request": "2025-04"
+}
+```
+
+**Resposta:**
+
+```json
+{
+    "tecnico": "Jadson Daniel",
+    "total_registros": 38,
+    "media_mensal": "9.91",
+    "media_setor": [
+        {
+            "id_setor": 5,
+            "setor": "Suporte Nível 3",
+            "total_registros": 8,
+            "media_mensal": "9.88",
+            "soma_pontuacao": "79.00"
+        },
+        {
+            "id_setor": 8,
+            "setor": "Sucesso ao cliente",
+            "total_registros": 6,
+            "media_mensal": "10.00",
+            "soma_pontuacao": "60.00"
+        },
+        {
+            "id_setor": 9,
+            "setor": "Avaliadores suporte Nível 2",
+            "total_registros": 8,
+            "media_mensal": "9.69",
+            "soma_pontuacao": "310.00"
+        },
+        {
+            "id_setor": 7,
+            "setor": "Recursos Humanos",
+            "total_registros": 8,
+            "media_mensal": "10.00",
+            "soma_pontuacao": "240.00"
+        },
+        {
+            "id_setor": 6,
+            "setor": "Estoque",
+            "total_registros": 8,
+            "media_mensal": "10.00",
+            "soma_pontuacao": "80.00"
+        }
+    ]
+}
+```
+
 ## Tratamento de Erros
 
 Caso uma rota inexistente seja acessada, a API retorna:
