@@ -407,15 +407,6 @@ POST /Ranking/RankingMensal
 GET /Tutorial/getAll
 ```
 
-**Corpo da Requisição:**
-
-```json
-{
-    "id_tecnico": 20,
-    "data_request": "2025-04"
-}
-```
-
 **Resposta:**
 
 ```json
