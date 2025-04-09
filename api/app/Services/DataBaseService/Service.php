@@ -439,26 +439,137 @@ class getDataBase
         ];
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         
 
+        $stmt = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE DATE_FORMAT(data_finalizacao, '%Y-%m') = :data_finalizacao AND id_tecnico_n2 = :id");
+        $stmt->execute([
+            ":data_finalizacao" => $date,
+            ":id" => $id
+        ]);
+        $setor_n2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total_n2 = $stmt->rowCount();
+        $id_n2 = $setor_n2[0]['id_setor'];
+        $name_setor = $this->getOneDepartament($id_n2);
 
-        $total_registros = $total_sucesso + $total_n3;
+        if ($total_n2 < 1){
+            return ([
+                "erro" => "Nenhum registro econtrado",
+                "id_setor" => $id_n2,
+                "setor" => $name_setor
+            ]);
+        }
 
-        $media_mensal = [
+        $sum_n2 = 0;
+
+        foreach($setor_n2 as $n2){
+            $sum_n2 += $n2['ponto_total'];
+        }
+
+        $media_n2 = $sum_n2 / ($total_n2 * 4);
+
+        $registros_n2 = [
+            "id_setor" => $id_n2,
+            "setor" => $name_setor['nome_setor'],
+            "total_registros" => $total_n2,
+            "media_mensal" => number_format($media_n2, 2),
+            "soma_pontuacao" => number_format($sum_n2, 2) 
+        ];
+
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $stmt = $this->db->prepare("SELECT * FROM avaliacao_rh WHERE DATE_FORMAT(data_avaliacao, '%Y-%m') = :data_avaliacao AND id_tecnico = :id");
+        $stmt->execute([
+            ":data_avaliacao" => $date,
+            ":id" => $id
+        ]);
+        $setor_rh = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total_rh = $stmt->rowCount();
+        $id_rh = $setor_rh[0]['id_setor'];
+        $name_setor = $this->getOneDepartament($id_rh);
+
+        if ($total_rh < 1){
+            return ([
+                "erro" => "Nenhum Registro econtrado",
+                "id_setor" => $id_rh,
+                "setor" => $name_setor['nome_setor']
+            ]);
+        }
+
+        $sum_rh = 0;
+
+        foreach ($setor_rh as $rh){
+            $sum_rh += $rh['pnt_total'];
+        }
+
+        $media_rh = $sum_rh / ($total_rh * 3);
+
+        $registros_rh = [
+            "id_setor" => $id_rh,
+            "setor" => $name_setor['nome_setor'],
+            "total_registros" => $total_rh,
+            "media_mensal" => number_format($media_rh, 2),
+            "soma_pontuacao" => number_format($sum_rh, 2)
+        ];
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $stmt = $this->db->prepare("SELECT * FROM avaliacao_estoque WHERE DATE_FORMAT(data_finalizacao, '%Y-%m') = :data_finalizacao AND id_tecnico_estoque = :id");
+        $stmt->execute([
+            ":data_finalizacao" => $date,
+            ":id" => $id
+        ]);
+        $setor_estoque = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total_estoque = $stmt->rowCount();
+        $id_estoque = $setor_estoque[0]['id_setor_avaliacao'];
+        $name_setor = $this->getOneDepartament($id_estoque);
+
+        if ($total_estoque < 1) {
+            return ([
+                "erro" => "Nenhum registro enocntrado",
+                "id_setor" => $id_estoque,
+                "setor" => $name_setor['nome_setor']
+            ]);
+        }
+
+        $sum_estoque = 0;
+
+        foreach($setor_estoque as $estoque){
+            $sum_estoque += $estoque['pnt_total_estoque'];
+        }
+
+        $media_estoque = $sum_estoque / $total_estoque;
+
+        $registros_estoque = [
+            "id_setor" => $id_estoque,
+            "setor" => $name_setor['nome_setor'],
+            "total_registros" => $total_estoque,
+            "media_mensal" => number_format($media_estoque, 2),
+            "soma_pontuacao" => number_format($sum_estoque, 2),
+        ];
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $media_mensal = ($media_n3 + $media_n2 + $media_rh + $media_sucesso + $media_estoque) / 5;
+
+        $total_registros = $total_sucesso + $total_n3 + $total_n2 + $total_rh + $total_estoque;
+
+        $media_mensal_setor = [
             $registros_n3,
-            $registros_sucesso
+            $registros_sucesso,
+            $registros_n2,
+            $registros_rh,
+            $registros_estoque,
         ];
 
         return ([
             "tecnico" => $name_tecnico['nome_colaborador'],
             "total_registros" => $total_registros,
-            "ranking_setor" => $media_mensal
+            "media_mensal" => number_format($media_mensal, 2),
+            "media_setor" => $media_mensal_setor
         ]);
     }
 
-
-    /// teste sucesso 
 
     public function verificarSucesso($id){
         $stmt = $this->db->prepare("SELECT * FROM avaliacao_sucesso WHERE id_atendimento = :id_atendimento");
@@ -468,4 +579,5 @@ class getDataBase
         
         return $result;
     }
+
 }
