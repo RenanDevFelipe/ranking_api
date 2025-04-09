@@ -339,7 +339,7 @@ GET /Departamento/getAll
 }
 ```
 
-### 8. Consultar Media Mensal
+### 10. Consultar Media Mensal
 
 ```http
 POST /Ranking/RankingMensal
