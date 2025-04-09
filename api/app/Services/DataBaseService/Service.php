@@ -629,6 +629,11 @@ class getDataBase
             $item = $nova_ordem;
         }
 
+        $ranking_mensal = [
+            "total" => $colaboradores['total'],
+            "ranking_mensal" => $ranking_mensal
+        ];
+
         return $ranking_mensal;
     }
 

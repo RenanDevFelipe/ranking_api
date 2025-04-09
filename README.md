@@ -419,395 +419,398 @@ POST /Ranking/GetRankingMensal
 
 ```json
 
-[
-    {
-        "tecnico": "Madson Araújo",
-        "colocacao": 1,
-        "total_registros": 35,
-        "media_mensal": "9.93",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 7,
-                "media_mensal": "9.78",
-                "soma_pontuacao": "68.49"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 4,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "40.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "320.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "9.88",
-                "soma_pontuacao": "79.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Jadson Daniel",
-        "colocacao": 2,
-        "total_registros": 38,
-        "media_mensal": "9.91",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 8,
-                "media_mensal": "9.88",
-                "soma_pontuacao": "79.00"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 6,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "60.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "9.69",
-                "soma_pontuacao": "310.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "João Paulo",
-        "colocacao": 3,
-        "total_registros": 27,
-        "media_mensal": "9.73",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 1,
-                "media_mensal": "8.67",
-                "soma_pontuacao": "8.67"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 2,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "20.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "320.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Luis Eduardo",
-        "colocacao": 4,
-        "total_registros": 33,
-        "media_mensal": "9.30",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 5,
-                "media_mensal": "7.99",
-                "soma_pontuacao": "39.95"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 4,
-                "media_mensal": "8.75",
-                "soma_pontuacao": "35.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "320.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "9.75",
-                "soma_pontuacao": "78.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Marcos Venícios",
-        "colocacao": 5,
-        "total_registros": 49,
-        "media_mensal": "9.03",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 13,
-                "media_mensal": "8.78",
-                "soma_pontuacao": "114.14"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 12,
-                "media_mensal": "6.67",
-                "soma_pontuacao": "80.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "9.69",
-                "soma_pontuacao": "310.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Paulo Ricardo",
-        "colocacao": 6,
-        "total_registros": 44,
-        "media_mensal": "8.80",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 13,
-                "media_mensal": "8.90",
-                "soma_pontuacao": "115.71"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 7,
-                "media_mensal": "5.71",
-                "soma_pontuacao": "40.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "9.38",
-                "soma_pontuacao": "300.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Robson Augusto",
-        "colocacao": 7,
-        "total_registros": 46,
-        "media_mensal": "8.39",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 14,
-                "media_mensal": "8.85",
-                "soma_pontuacao": "123.83"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 8,
-                "media_mensal": "3.13",
-                "soma_pontuacao": "25.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "320.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Rubens Matheus",
-        "colocacao": 8,
-        "total_registros": 40,
-        "media_mensal": "8.08",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 11,
-                "media_mensal": "8.42",
-                "soma_pontuacao": "92.61"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 5,
-                "media_mensal": "2.00",
-                "soma_pontuacao": "10.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "320.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    },
-    {
-        "tecnico": "Gleyson Carlos",
-        "colocacao": 9,
-        "total_registros": 49,
-        "media_mensal": "7.69",
-        "media_setor": [
-            {
-                "id_setor": 5,
-                "setor": "Suporte Nível 3",
-                "total_registros": 15,
-                "media_mensal": "7.79",
-                "soma_pontuacao": "116.78"
-            },
-            {
-                "id_setor": 8,
-                "setor": "Sucesso ao cliente",
-                "total_registros": 10,
-                "media_mensal": "1.00",
-                "soma_pontuacao": "10.00"
-            },
-            {
-                "id_setor": 9,
-                "setor": "Avaliadores suporte Nível 2",
-                "total_registros": 8,
-                "media_mensal": "9.69",
-                "soma_pontuacao": "310.00"
-            },
-            {
-                "id_setor": 7,
-                "setor": "Recursos Humanos",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "240.00"
-            },
-            {
-                "id_setor": 6,
-                "setor": "Estoque",
-                "total_registros": 8,
-                "media_mensal": "10.00",
-                "soma_pontuacao": "80.00"
-            }
-        ]
-    }
-]
+{
+    "total": 9,
+    "ranking_mensal": [
+        {
+            "tecnico": "Madson Araújo",
+            "colocacao": 1,
+            "total_registros": 35,
+            "media_mensal": "9.93",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 7,
+                    "media_mensal": "9.78",
+                    "soma_pontuacao": "68.49"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 4,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "40.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "320.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "9.88",
+                    "soma_pontuacao": "79.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Jadson Daniel",
+            "colocacao": 2,
+            "total_registros": 38,
+            "media_mensal": "9.91",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 8,
+                    "media_mensal": "9.88",
+                    "soma_pontuacao": "79.00"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 6,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "60.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "9.69",
+                    "soma_pontuacao": "310.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "João Paulo",
+            "colocacao": 3,
+            "total_registros": 27,
+            "media_mensal": "9.73",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 1,
+                    "media_mensal": "8.67",
+                    "soma_pontuacao": "8.67"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 2,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "20.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "320.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Luis Eduardo",
+            "colocacao": 4,
+            "total_registros": 33,
+            "media_mensal": "9.30",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 5,
+                    "media_mensal": "7.99",
+                    "soma_pontuacao": "39.95"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 4,
+                    "media_mensal": "8.75",
+                    "soma_pontuacao": "35.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "320.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "9.75",
+                    "soma_pontuacao": "78.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Marcos Venícios",
+            "colocacao": 5,
+            "total_registros": 49,
+            "media_mensal": "9.03",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 13,
+                    "media_mensal": "8.78",
+                    "soma_pontuacao": "114.14"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 12,
+                    "media_mensal": "6.67",
+                    "soma_pontuacao": "80.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "9.69",
+                    "soma_pontuacao": "310.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Paulo Ricardo",
+            "colocacao": 6,
+            "total_registros": 44,
+            "media_mensal": "8.80",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 13,
+                    "media_mensal": "8.90",
+                    "soma_pontuacao": "115.71"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 7,
+                    "media_mensal": "5.71",
+                    "soma_pontuacao": "40.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "9.38",
+                    "soma_pontuacao": "300.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Robson Augusto",
+            "colocacao": 7,
+            "total_registros": 46,
+            "media_mensal": "8.39",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 14,
+                    "media_mensal": "8.85",
+                    "soma_pontuacao": "123.83"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 8,
+                    "media_mensal": "3.13",
+                    "soma_pontuacao": "25.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "320.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Rubens Matheus",
+            "colocacao": 8,
+            "total_registros": 40,
+            "media_mensal": "8.08",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 11,
+                    "media_mensal": "8.42",
+                    "soma_pontuacao": "92.61"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 5,
+                    "media_mensal": "2.00",
+                    "soma_pontuacao": "10.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "320.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        },
+        {
+            "tecnico": "Gleyson Carlos",
+            "colocacao": 9,
+            "total_registros": 49,
+            "media_mensal": "7.69",
+            "media_setor": [
+                {
+                    "id_setor": 5,
+                    "setor": "Suporte Nível 3",
+                    "total_registros": 15,
+                    "media_mensal": "7.79",
+                    "soma_pontuacao": "116.78"
+                },
+                {
+                    "id_setor": 8,
+                    "setor": "Sucesso ao cliente",
+                    "total_registros": 10,
+                    "media_mensal": "1.00",
+                    "soma_pontuacao": "10.00"
+                },
+                {
+                    "id_setor": 9,
+                    "setor": "Avaliadores suporte Nível 2",
+                    "total_registros": 8,
+                    "media_mensal": "9.69",
+                    "soma_pontuacao": "310.00"
+                },
+                {
+                    "id_setor": 7,
+                    "setor": "Recursos Humanos",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "240.00"
+                },
+                {
+                    "id_setor": 6,
+                    "setor": "Estoque",
+                    "total_registros": 8,
+                    "media_mensal": "10.00",
+                    "soma_pontuacao": "80.00"
+                }
+            ]
+        }
+    ]
+}
 
 ```
 
