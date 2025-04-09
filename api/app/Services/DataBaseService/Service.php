@@ -103,6 +103,31 @@ class getDataBase
         return $colaborador;
     }
 
+    public function getColaboradorSetor($setor)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE setor_colaborador = :setor");
+        $stmt->execute(
+            [":setor" => $setor]
+        );
+        $colaboradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total = $stmt->rowCount();
+
+        if ($total == 0) {
+            return ([
+                "error" => "Nenhum Colaborador encontrado"
+            ]);
+            exit;
+        }
+
+        $registros = [
+            "total" => $total,
+            "registros" => $colaboradores
+        ];
+
+
+        return $registros;
+    }
+
     // public function RankingDiarioGeral($data)
 
     // {
@@ -574,6 +599,39 @@ class getDataBase
         ]);
     }
 
+    public function getRankingMensal($date){
+        $this->token->verificarToken();
+        $colaboradores = $this->getColaboradorSetor(22);
+
+        $ranking_mensal = [];
+
+        foreach( $colaboradores['registros'] as $colaborador){
+            $id = $colaborador['id_colaborador'];
+
+            $ranking_mensal[] = $this->getMediaMensal($date, $id);
+        }
+
+        usort($ranking_mensal, function($a, $b) {
+            return $b['media_mensal'] <=> $a['media_mensal'];
+        });
+
+        foreach ($ranking_mensal as $i => &$item) {
+            $nova_ordem = [];
+        
+            foreach ($item as $key => $value) {
+                $nova_ordem[$key] = $value;
+        
+                if ($key === 'tecnico') {
+                    $nova_ordem['colocacao'] = $i + 1;
+                }
+            }
+        
+            $item = $nova_ordem;
+        }
+
+        return $ranking_mensal;
+    }
+
 
     public function verificarSucesso($id)
     {
@@ -587,6 +645,7 @@ class getDataBase
 
     public function getAllTutoriais()
     {
+        $this->token->verificarToken();
         $stmt = $this->db->prepare("SELECT * FROM tutoriais");
         $stmt->execute();
         $tutoriais = $stmt->fetchAll(PDO::FETCH_ASSOC);

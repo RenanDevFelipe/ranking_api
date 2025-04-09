@@ -89,4 +89,9 @@ class DataBaseControllers
         $data = $this->service->getAllTutoriais();
         ResponseHelper::jsonResponse($data);
     }
+
+    public function getRankingMensal($date){
+        $data = $this->service->getRankingMensal($date);
+        ResponseHelper::jsonResponse($data);
+    }
 }
