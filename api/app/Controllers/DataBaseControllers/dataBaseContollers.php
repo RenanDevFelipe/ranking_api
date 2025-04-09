@@ -27,10 +27,10 @@ class DataBaseControllers
             $data = $this->service->loginUser($email, $password);
             ResponseHelper::jsonResponse($data);
         } else {
-           
-               $message = "Requisição inválida";
-               ResponseHelper::jsonResponse($message);
-           }
+
+            $message = "Requisição inválida";
+            ResponseHelper::jsonResponse($message);
+        }
     }
 
     public function getAllUser()
@@ -49,32 +49,44 @@ class DataBaseControllers
     //     ResponseHelper::jsonResponse($data);
     // }
 
-    public function getAllColaborador(){
+    public function getAllColaborador()
+    {
         $data = $this->service->AllColaborador();
         ResponseHelper::jsonResponse($data);
     }
 
-    public function logout(){
+    public function logout()
+    {
         return $this->service->logoutUser();
     }
 
-    public function RankingSucessoTec($id, $data){
+    public function RankingSucessoTec($id, $data)
+    {
         $data = $this->service->RankinDiarioCalc($id, $data);
         ResponseHelper::jsonResponse($data);
     }
 
-    public function getAllDepartament(){
+    public function getAllDepartament()
+    {
         $data = $this->service->getAllDepartament();
         ResponseHelper::jsonResponse($data);
     }
 
-    public function verificarSucesso($id){
+    public function verificarSucesso($id)
+    {
         $data = $this->service->verificarSucesso($id);
         ResponseHelper::jsonResponse($data);
     }
 
-    public function getMediaMensal($date, $id){
+    public function getMediaMensal($date, $id)
+    {
         $data = $this->service->getMediaMensal($date, $id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function getAllTutorias()
+    {
+        $data = $this->service->getAllTutoriais();
         ResponseHelper::jsonResponse($data);
     }
 }

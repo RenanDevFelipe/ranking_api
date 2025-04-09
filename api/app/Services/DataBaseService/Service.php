@@ -92,7 +92,8 @@ class getDataBase
         return $registros;
     }
 
-    public function getOneColaborador($id){
+    public function getOneColaborador($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
         $stmt->execute(
             [":id" => $id]
@@ -335,13 +336,13 @@ class getDataBase
     {
 
         $this->token->verificarToken();
-        
+
         $stmt = $this->db->prepare("SELECT * FROM setor");
         $stmt->execute();
         $setores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $total_setor = $stmt->rowCount();
 
-        if($total_setor < 1) {
+        if ($total_setor < 1) {
             return ([
                 "erro" => "Nenhum setor encontrado!"
             ]);
@@ -354,10 +355,10 @@ class getDataBase
         ];
 
         return $registro;
-
     }
 
-    public function getOneDepartament($id){
+    public function getOneDepartament($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
         $stmt->execute([
             ":id" => $id
@@ -368,7 +369,8 @@ class getDataBase
     }
 
 
-    public function getMediaMensal($date, $id){
+    public function getMediaMensal($date, $id)
+    {
 
         $this->token->verificarToken();
 
@@ -386,11 +388,11 @@ class getDataBase
 
         $sum_n3 = 0;
 
-        if ($total_n3 < 1){
+        if ($total_n3 < 1) {
             return (["erro" => "nenhum registro encontrado"]);
         }
 
-        foreach ($setor_n3 as $n3){
+        foreach ($setor_n3 as $n3) {
             $sum_n3 += $n3['nota_os'];
         }
 
@@ -416,17 +418,17 @@ class getDataBase
         $id_sucesso = $setor_sucesso[0]['id_setor'];
         $name_setor = $this->getOneDepartament($id_sucesso);
 
-        if ($total_sucesso < 1){
+        if ($total_sucesso < 1) {
             return ([
                 "erro" => "Nenhum resultado encontrado",
                 "id_setor" => $id_sucesso,
-                "setor" => $name_setor          
+                "setor" => $name_setor
             ]);
         }
 
         $sum_sucesso = 0;
 
-        foreach ($setor_sucesso as $sucesso){
+        foreach ($setor_sucesso as $sucesso) {
             $sum_sucesso += $sucesso['ponto_sucesso'];
         }
 
@@ -441,7 +443,7 @@ class getDataBase
         ];
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
 
         $stmt = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE DATE_FORMAT(data_finalizacao, '%Y-%m') = :data_finalizacao AND id_tecnico_n2 = :id");
         $stmt->execute([
@@ -453,7 +455,7 @@ class getDataBase
         $id_n2 = $setor_n2[0]['id_setor'];
         $name_setor = $this->getOneDepartament($id_n2);
 
-        if ($total_n2 < 1){
+        if ($total_n2 < 1) {
             return ([
                 "erro" => "Nenhum registro econtrado",
                 "id_setor" => $id_n2,
@@ -463,7 +465,7 @@ class getDataBase
 
         $sum_n2 = 0;
 
-        foreach($setor_n2 as $n2){
+        foreach ($setor_n2 as $n2) {
             $sum_n2 += $n2['ponto_total'];
         }
 
@@ -474,10 +476,10 @@ class getDataBase
             "setor" => $name_setor['nome_setor'],
             "total_registros" => $total_n2,
             "media_mensal" => number_format($media_n2, 2),
-            "soma_pontuacao" => number_format($sum_n2, 2) 
+            "soma_pontuacao" => number_format($sum_n2, 2)
         ];
 
-        
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         $stmt = $this->db->prepare("SELECT * FROM avaliacao_rh WHERE DATE_FORMAT(data_avaliacao, '%Y-%m') = :data_avaliacao AND id_tecnico = :id");
@@ -490,7 +492,7 @@ class getDataBase
         $id_rh = $setor_rh[0]['id_setor'];
         $name_setor = $this->getOneDepartament($id_rh);
 
-        if ($total_rh < 1){
+        if ($total_rh < 1) {
             return ([
                 "erro" => "Nenhum Registro econtrado",
                 "id_setor" => $id_rh,
@@ -500,7 +502,7 @@ class getDataBase
 
         $sum_rh = 0;
 
-        foreach ($setor_rh as $rh){
+        foreach ($setor_rh as $rh) {
             $sum_rh += $rh['pnt_total'];
         }
 
@@ -536,7 +538,7 @@ class getDataBase
 
         $sum_estoque = 0;
 
-        foreach($setor_estoque as $estoque){
+        foreach ($setor_estoque as $estoque) {
             $sum_estoque += $estoque['pnt_total_estoque'];
         }
 
@@ -573,13 +575,28 @@ class getDataBase
     }
 
 
-    public function verificarSucesso($id){
+    public function verificarSucesso($id)
+    {
         $stmt = $this->db->prepare("SELECT * FROM avaliacao_sucesso WHERE id_atendimento = :id_atendimento");
         $stmt->execute([":id_atendimento" => $id]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        
+
         return $result;
     }
 
+    public function getAllTutoriais()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM tutoriais");
+        $stmt->execute();
+        $tutoriais = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $total = $stmt->rowCount();
+
+        $registros = [
+            "total" => $total,
+            "registros" => $tutoriais
+        ];
+
+        return $registros;
+    }
 }

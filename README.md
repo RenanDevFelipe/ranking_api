@@ -401,6 +401,43 @@ POST /Ranking/RankingMensal
 }
 ```
 
+### 11. Consultar Tutoriais
+
+```http
+GET /Tutorial/getAll
+```
+
+**Corpo da Requisição:**
+
+```json
+{
+    "id_tecnico": 20,
+    "data_request": "2025-04"
+}
+```
+
+**Resposta:**
+
+```json
+
+{
+    "total": 1,
+    "registros": [
+        {
+            "id": 1,
+            "title": "provisionar ONU/ONT",
+            "descricao": "como provisionar uma ONU/ONT",
+            "url_view": "https://drive.google.com/file/d/1wnBplehYL_96XrRoWN617HFbL5y4nTZe/view?usp=drivesdk",
+            "url_download": "https://drive.usercontent.google.com/u/0/uc?id=1wnBplehYL_96XrRoWN617HFbL5y4nTZe&export=download",
+            "criado_por": "Ellyson",
+            "data_criacao": "2025-04-08",
+            "name_icon": "picture_as_pdf"
+        }
+    ]
+}
+
+```
+
 ## Tratamento de Erros
 
 Caso uma rota inexistente seja acessada, a API retorna:
