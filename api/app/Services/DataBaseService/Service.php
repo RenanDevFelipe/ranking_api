@@ -370,6 +370,8 @@ class getDataBase
 
     public function getMediaMensal($date, $id){
 
+        $this->token->verificarToken();
+
         $name_tecnico = $this->getOneColaborador($id);
 
         $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE DATE_FORMAT(data_finalizacao_os, '%Y-%m') = :data_finalizacao AND id_tecnico = :id");
