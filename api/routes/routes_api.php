@@ -93,6 +93,12 @@ elseif ( $uri == "Ranking/GetRankingMensal" && $method == "POST"){
     $controller->getRankingMensal($data['data_request']);
 }
 
+elseif ( $uri == "Meta/MetaMensal" ){
+    $data = $getInput->FileContets();
+
+    $controller->getMentaMensal($data['id'], $data['data_request']);
+}
+
 
 
 

@@ -94,4 +94,9 @@ class DataBaseControllers
         $data = $this->service->getRankingMensal($date);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function getMentaMensal($id, $data){
+        $data = $this->service->metaMensal($id, $data);
+        ResponseHelper::jsonResponse($data);
+    }
 }

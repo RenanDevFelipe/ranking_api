@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/../../../config/DataBase/dataBase.php';
 require_once __DIR__ . '/../../../config/DataBase/TokenGerator.php';
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 class getDataBase
 {
@@ -29,12 +32,15 @@ class getDataBase
                 "nome" => $user["nome_user"]
             ];
 
+            $setor = $this->getOneDepartament($user['setor_user']);
+
             $acess_token = $this->token->gerarToken($data);
 
             return ([
                 "access_token" => $acess_token,
                 "email" => $user['email_user'],
                 "nome" => $user['nome_user'],
+                "setor" => $setor,
                 "id_ixc" => $user["id_ixc_user"]
             ]);
         } else {
@@ -591,10 +597,13 @@ class getDataBase
             $registros_estoque,
         ];
 
+        $metaMensal = $this->metaMensal($id, $date);
+
         return ([
             "tecnico" => $name_tecnico['nome_colaborador'],
             "total_registros" => $total_registros,
             "media_mensal" => number_format($media_mensal, 2),
+            "meta_mensal" => $metaMensal,
             "media_setor" => $media_mensal_setor
         ]);
     }
@@ -662,5 +671,32 @@ class getDataBase
         ];
 
         return $registros;
+    }
+
+    public function metaMensal($id, $data){
+        list($ano, $mes) = explode('-', $data);
+
+        $qntDias = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
+        $count_d_batidos = 0;
+
+        foreach (range(1, $qntDias) as $dia) {
+            $diaFormatado = str_pad($dia, 2, '0', STR_PAD_LEFT);
+            $dataCompleta = "$ano-$mes-$diaFormatado";
+
+            $request_qnt_d_batidos = $this->RankinDiarioCalc($id, $dataCompleta);
+
+            if ($request_qnt_d_batidos['media_total'] === "10.00"){
+                $count_d_batidos += 1;
+            }
+        }
+
+        $diasTrabalhados = 26;
+
+        $metaMensal = ($count_d_batidos * 100) / $diasTrabalhados;
+
+        return ([
+            "total_dias_batidos" => $count_d_batidos,
+            "meta_do_mes" => number_format($metaMensal, 2) . "%"
+        ]);
     }
 }
