@@ -27,7 +27,7 @@ if ($uri == "User/listAll" && $method == "GET") {
     $controller->loginUser($method, $data['email'], $data['password']);
 } elseif ($uri == "Account/logout") {
     $controller->logout();
-} elseif ($uri == "Colaborador/GetAll") {
+} elseif ($uri == "Colaborador/GetAll" && $method == "GET") {
     $controller->getAllColaborador();
 } //elseif ($uri == "Ranking/RankingDiarioGeral" && $method == "POST") {
 
