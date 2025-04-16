@@ -608,33 +608,34 @@ class getDataBase
         ]);
     }
 
-    public function getRankingMensal($date){
+    public function getRankingMensal($date)
+    {
         $this->token->verificarToken();
         $colaboradores = $this->getColaboradorSetor(22);
 
         $ranking_mensal = [];
 
-        foreach( $colaboradores['registros'] as $colaborador){
+        foreach ($colaboradores['registros'] as $colaborador) {
             $id = $colaborador['id_colaborador'];
 
             $ranking_mensal[] = $this->getMediaMensal($date, $id);
         }
 
-        usort($ranking_mensal, function($a, $b) {
+        usort($ranking_mensal, function ($a, $b) {
             return $b['media_mensal'] <=> $a['media_mensal'];
         });
 
         foreach ($ranking_mensal as $i => &$item) {
             $nova_ordem = [];
-        
+
             foreach ($item as $key => $value) {
                 $nova_ordem[$key] = $value;
-        
+
                 if ($key === 'tecnico') {
                     $nova_ordem['colocacao'] = $i + 1;
                 }
             }
-        
+
             $item = $nova_ordem;
         }
 
@@ -657,6 +658,37 @@ class getDataBase
         return $result;
     }
 
+
+
+    public function metaMensal($id, $data)
+    {
+        list($ano, $mes) = explode('-', $data);
+
+        $qntDias = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
+        $count_d_batidos = 0;
+
+        foreach (range(1, $qntDias) as $dia) {
+            $diaFormatado = str_pad($dia, 2, '0', STR_PAD_LEFT);
+            $dataCompleta = "$ano-$mes-$diaFormatado";
+
+            $request_qnt_d_batidos = $this->RankinDiarioCalc($id, $dataCompleta);
+
+            if ($request_qnt_d_batidos['media_total'] === "10.00") {
+                $count_d_batidos += 1;
+            }
+        }
+
+        $diasTrabalhados = 26;
+
+        $metaMensal = ($count_d_batidos * 100) / $diasTrabalhados;
+
+        return ([
+            "total_dias_batidos" => $count_d_batidos,
+            "meta_do_mes" => number_format($metaMensal, 2) . "%"
+        ]);
+    }
+
+
     public function getAllTutoriais()
     {
         $this->token->verificarToken();
@@ -673,30 +705,179 @@ class getDataBase
         return $registros;
     }
 
-    public function metaMensal($id, $data){
-        list($ano, $mes) = explode('-', $data);
+    public function getOneTutoriais($id)
+    {
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM tutoriais WHERE id = :id");
+            $success = $stmt->execute([":id" => $id]);
+            $tutorial = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $qntDias = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
-        $count_d_batidos = 0;
-
-        foreach (range(1, $qntDias) as $dia) {
-            $diaFormatado = str_pad($dia, 2, '0', STR_PAD_LEFT);
-            $dataCompleta = "$ano-$mes-$diaFormatado";
-
-            $request_qnt_d_batidos = $this->RankinDiarioCalc($id, $dataCompleta);
-
-            if ($request_qnt_d_batidos['media_total'] === "10.00"){
-                $count_d_batidos += 1;
+            if ($success) {
+                return ([
+                    "status" => "success",
+                    "registro" => $tutorial
+                ]);
+            } else {
+                return ([
+                    "status" => "erro",
+                    "message" => "Erro ao buscar Tutorial"
+                ]);
             }
+        } catch (PDOException $e) {
+            return ([
+                "status" => "erro",
+                "message" => "Erro ao executar no banco de dados"
+            ]);
         }
+    }
 
-        $diasTrabalhados = 26;
+    public function postTutoriais($title, $description, $url_view, $url_download, $criador, $name_icon)
+    {
+        try {
+            $stmt = $this->db->prepare("INSERT INTO tutoriais VALUES (:id,:title,:descricao,:url_view,:url_download,:criador,:data_descricao,:nome_icon)");
 
-        $metaMensal = ($count_d_batidos * 100) / $diasTrabalhados;
+            // Sanitização
+            $title = htmlspecialchars(trim($title));
+            $description = htmlspecialchars(trim($description));
+            $url_view = trim($url_view);
+            $url_download = trim($url_download);
+            $criador = htmlspecialchars(trim($criador));
+            $name_icon = htmlspecialchars(trim($name_icon));
 
-        return ([
-            "total_dias_batidos" => $count_d_batidos,
-            "meta_do_mes" => number_format($metaMensal, 2) . "%"
-        ]);
+            // Validação
+            if (
+                empty($title) || empty($description) ||
+                !filter_var($url_view, FILTER_VALIDATE_URL) ||
+                !filter_var($url_download, FILTER_VALIDATE_URL) ||
+                empty($criador) || empty($name_icon)
+            ) {
+                return (['status' => 'error', 'message' => 'Preencha todos os campos corretamente.']);
+            }
+
+            $success = $stmt->execute([
+                ":id" => null,
+                ":title" => $title,
+                ":descricao" => $description,
+                ":url_view" => $url_view,
+                ":url_download" => $url_download,
+                ":criador" => $criador,
+                ":data_descricao" => date('Y-m-d'),
+                ":nome_icon" => $name_icon
+            ]);
+
+            if ($success) {
+                return ([
+                    "status" => "success",
+                    "message" => "Tutorial inserido com sucesso"
+                ]);
+            } else {
+                return ([
+                    "status" => "erro",
+                    "message" => "Erro ao inserir Tutorial"
+                ]);
+            }
+        } catch (PDOException $e) {
+            return ([
+                "status" => "erro",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ]);
+        }
+    }
+
+    public function deleteTutoriais($id)
+    {
+        try {
+            $stmt = $this->db->prepare("DELETE FROM tutoriais WHERE id = :id");
+            $success = $stmt->execute([
+                ":id" => $id
+            ]);
+
+            if ($success) {
+                return ([
+                    "status" => "success",
+                    "message" => "Tutorial deletado com sucesso!"
+                ]);
+            } else {
+                return ([
+                    "status" => "erro",
+                    "message" => "Erro ao deletar tutorial"
+                ]);
+            }
+        } catch (PDOException $e) {
+            return ([
+                "status" => "erro",
+                "message" => "Erro ao banco de dados " . $e->getMessage()
+            ]);
+        }
+    }
+
+    public function updateTutoriais($id, $title, $description, $url_view, $url_download, $criador, $name_icon)
+    {
+        try {
+            // Verifica se o tutorial existe
+            $checkStmt = $this->db->prepare("SELECT COUNT(*) FROM tutoriais WHERE id = :id");
+            $checkStmt->execute([":id" => $id]);
+            $exists = $checkStmt->fetchColumn();
+
+            if (!$exists) {
+                return ([
+                    "status" => "erro",
+                    "message" => "Tutorial com ID $id não encontrado."
+                ]);
+            }
+
+            // Preparar update
+            $stmt = $this->db->prepare("UPDATE tutoriais 
+            SET title = :title, 
+                descricao = :descricao, 
+                url_view = :url_view, 
+                url_download = :url_download,  
+                name_icon = :nome_icon 
+            WHERE id = :id");
+
+            // Sanitização dos dados
+            $title = htmlspecialchars(trim($title));
+            $description = htmlspecialchars(trim($description));
+            $url_view = trim($url_view);
+            $url_download = trim($url_download);
+            $criador = htmlspecialchars(trim($criador));
+            $name_icon = htmlspecialchars(trim($name_icon));
+            $id = (int) $id;
+
+            $success = $stmt->execute([
+                ":id" => $id,
+                ":title" => $title,
+                ":descricao" => $description,
+                ":url_view" => $url_view,
+                ":url_download" => $url_download,
+                ":nome_icon" => $name_icon
+            ]);
+
+            if ($success) {
+
+
+                $insert = $this->db->prepare("INSERT INTO historico_tutorial (data_edicao, editado_por, id_tutorial) VALUES (:data_edicao, :editado_por, :id_tutorial)");
+                $success = $insert->execute([
+                    ":data_edicao" => date("Y-m-d H:i:s"),
+                    ":editado_por" => $criador,
+                    ":id_tutorial" => $id
+                ]);
+
+                return ([
+                    "status" => "success",
+                    "message" => "Tutorial atualizado com sucesso!"
+                ]);
+            } else {
+                return ([
+                    "status" => "erro",
+                    "message" => "Erro ao atualizar o tutorial."
+                ]);
+            }
+        } catch (PDOException $e) {
+            return ([
+                "status" => "erro",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ]);
+        }
     }
 }

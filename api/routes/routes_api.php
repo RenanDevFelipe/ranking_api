@@ -78,9 +78,60 @@ elseif ($uri == "Ranking/MediaMensal" && $method == "POST") {
 //     $controller->verificarSucesso($data['id_atendimento']);
 // }
 
+////////////////////////////// ############## Tutoriais ################ /////////////////////////////////////////////////////
+
 elseif ( $uri == "Tutorial/getAll" && $method == "POST"){
     $controller->getAllTutorias();
 }
+
+elseif ( $uri == "Tutorial/Post" && $method == "POST" ){
+    $data = $getInput->FileContets();
+
+    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->postTutorial($data['title'], $data['description'], $data['url_view'], $data['url_download'], $data['criador'], $data['icon_name']);
+}
+
+elseif ( $uri == "Tutorial/Delete" && $method == "DELETE" ){
+
+    $data = $getInput->FileContets();
+
+    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->deleteTutorial($data['id']);
+}
+
+elseif ( $uri == "Tutorial/getOne" && $method == "POST" ){
+    $data = $getInput->FileContets();
+
+    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getOneTutorial($data['id']);
+}
+
+elseif ( $uri == "Tutorial/Update" && $method == "PATCH" ){
+    $data = $getInput->FileContets();
+    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+        echo (["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->updateTutorial($data['id'], $data['title'], $data['description'], $data['url_view'], $data['url_download'], $data['criador'], $data['name_icon']);
+}
+
+
+////////////////////////////// ############## Tutoriais ################ /////////////////////////////////////////////////////
+
+
 
 elseif ( $uri == "Ranking/GetRankingMensal" && $method == "POST"){
     $data = $getInput->FileContets();

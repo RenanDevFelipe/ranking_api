@@ -99,4 +99,25 @@ class DataBaseControllers
         $data = $this->service->metaMensal($id, $data);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function postTutorial($title, $description, $url_view, $url_download, $criador, $name_icon){
+        $data = $this->service->postTutoriais($title, $description, $url_view, $url_download, $criador,$name_icon);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function updateTutorial($id, $title, $description, $url_view, $url_download, $criador, $name_icon){
+        $data = $this->service->updateTutoriais($id, $title, $description, $url_view, $url_download, $criador, $name_icon);
+        ResponseHelper::jsonResponse($data);
+    }
+
+
+    public function deleteTutorial($id){
+        $data = $this->service->deleteTutoriais($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function getOneTutorial($id){
+        $data = $this->service->getOneTutoriais($id);
+        ResponseHelper::jsonResponse($data);
+    }
 }
