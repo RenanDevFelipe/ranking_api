@@ -55,6 +55,23 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
+    public function getOneColaborador($id)
+    {
+        $data = $this->service->getOneColaborador($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function postColaborador($method)
+    {
+        $data = $this->service->postColaborador($method);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function deleteColaborador($id){
+        $data = $this->service->deleteColaborador($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
     public function logout()
     {
         return $this->service->logoutUser();

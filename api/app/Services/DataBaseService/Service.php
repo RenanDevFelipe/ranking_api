@@ -100,6 +100,7 @@ class getDataBase
 
     public function getOneColaborador($id)
     {
+        $this->token->verificarToken();
         $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
         $stmt->execute(
             [":id" => $id]
@@ -107,6 +108,128 @@ class getDataBase
         $colaborador = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $colaborador;
+    }
+
+    public function postColaborador($method)
+    {
+        
+        try {
+            if ($method == "POST") {
+
+                $this->token->verificarToken();
+
+                // $id_colaborador = $_POST['id_colaborador'] ?? null;
+                $id_ixc = $_POST['id_ixc'] ?? null;
+                $nome   = $_POST['nome_colaborador'] ?? null;
+                $setor  = $_POST['setor_colaborador'] ?? null;
+
+                $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_ixc = :id_ixc");
+                $stmt->execute([
+                    ":id_ixc" => $id_ixc
+                ]);
+
+                if ($stmt->rowCount() > 0) {
+                    return ([
+                        "status" => "error",
+                        "message" => "Colaborador já está cadastrado!"
+                    ]);
+                    exit;
+                }
+
+                if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+                    $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+                    $nomeImagem = uniqid('colaborador_') . '.' . $extensao;
+                    $caminho = 'ticonnecte.com.br/ranking_api/api/uploads/' . $nomeImagem;
+                
+                    if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $caminho)) {
+                        return [
+                            "status" => "error",
+                            "message" => "Erro ao salvar a imagem"
+                        ];
+                    }
+                
+                    // CORRIGIDO: Removido o else que dava erro sempre
+                    $stmt = $this->db->prepare("INSERT INTO colaborador (id_ixc, nome_colaborador, setor_colaborador, url_image) VALUES (:id, :nome, :setor, :url_image)");
+                    $success = $stmt->execute([
+                        ":id" => $id_ixc,
+                        ":nome" => $nome,
+                        ":setor" => $setor,
+                        ":url_image" => $caminho
+                    ]);
+                
+                    if ($success) {
+                        return [
+                            "status" => "success",
+                            "message" => "Colaborador cadastrado com sucesso",
+                            "url_imagem" => $caminho
+                        ];
+                    } else {
+                        return [
+                            "status" => "error",
+                            "message" => "Erro ao cadastrar Colaborador"
+                        ];
+                    }
+                }
+
+
+
+            } elseif ($method == "PATCH") {
+                $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
+
+                return ([
+                    "teste" => "Method PATCH"
+                ]);
+            } else {
+                return ([
+                    "status" => "error",
+                    "message" => "Riquisição inválida"
+                ]);
+            }
+        } catch (PDOException $e) {
+            return ([
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ]);
+        }
+    }
+
+    public function deleteColaborador($id)
+    {
+        $this->token->verificarToken();
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
+            $stmt->execute([":id" => $id]);
+            $exists = $stmt->rowCount();
+
+            if ($exists < 1) {
+                return ([
+                    "status" => "success",
+                    "message" => "Colaborador não encontrado"
+                ]);
+
+                exit;
+            }
+
+            $stmt = $this->db->prepare("DELETE FROM colaborador WHERE id_colaborador = :id");
+            $success = $stmt->execute([":id" => $id]);
+
+            if ($success) {
+                return ([
+                    "status" => "success",
+                    "message" => "Colaborador deletado!"
+                ]);
+            } else {
+                return ([
+                    "status" => "erro",
+                    "message" => "Erro ao deletar colaborador"
+                ]);
+            }
+        } catch (PDOException $e) {
+            return ([
+                "status" => "erro",
+                "message" => "Erro no banco de datos: " . $e->getMessage()
+            ]);
+        }
     }
 
     public function getColaboradorSetor($setor)
@@ -133,33 +256,6 @@ class getDataBase
 
         return $registros;
     }
-
-    // public function RankingDiarioGeral($data)
-
-    // {
-    //     $this->token->verificarToken();
-    //     $stmt = $this->db->prepare("SELECT * FROM ranking_diario_geral WHERE data = :data_request");
-    //     $stmt->execute([
-    //         ":data_request" => $data
-    //     ]);
-
-    //     $ranking_d_geral = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //     $total = count($ranking_d_geral);
-
-    //     if ($total < 1) {
-    //         return [
-    //             "erro" => "Nenhum dado encontrado referente a Esta data"
-    //         ];
-    //         exit;
-    //     }
-
-    //     $registros = [
-    //         "total" => $total,
-    //         "registros" => $ranking_d_geral
-    //     ];
-
-    //     return $registros;
-    // }
 
     public function RankinDiarioCalc($id, $data)
     {

@@ -1,5 +1,9 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 require_once __DIR__ . '/../app/Controllers/DataBaseControllers/dataBaseContollers.php';
 require_once __DIR__ . "/../app/Services/IXCSoft/Service.php";
 require_once __DIR__ . "/../app/Helpers/DataBaseHelpers/CaptureInput.php";
@@ -25,22 +29,41 @@ if ($uri == "User/listAll" && $method == "GET") {
     }
 
     $controller->loginUser($method, $data['email'], $data['password']);
-} elseif ($uri == "Account/logout") {
+} 
+elseif ($uri == "Account/logout") {
     $controller->logout();
-} elseif ($uri == "Colaborador/GetAll" && $method == "GET") {
+} 
+elseif ($uri == "Colaborador/GetAll" && $method == "GET") {
     $controller->getAllColaborador();
-} //elseif ($uri == "Ranking/RankingDiarioGeral" && $method == "POST") {
+}
 
-//     $data = json_decode(file_get_contents("php://input"), true);
+elseif ( $uri == "Colaborador/getOne" && $method == "POST" ){
+    $data = $getInput->FileContets();
 
-//     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
-//         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
-//         exit;
-//     }
 
-//     $controller->getRankingDiarioGeral($data['data_request']);} 
+    if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
 
-elseif ($uri == "Ranking/RankingDiario" && $method == "POST") {
+    $controller->getOneColaborador($data['id']);
+
+}
+
+elseif ( $uri == "Colaborador/Post" ){
+    $controller->postColaborador($method);
+}
+
+elseif ($uri == "Colaborador/Delete" && $method = "DELETE") {
+    $data = $getInput->FileContets();
+
+    if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->deleteColaborador($data['id']);
+} elseif ($uri == "Ranking/RankingDiario" && $method == "POST") {
     $data = $getInput->FileContets();
 
     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
@@ -51,9 +74,7 @@ elseif ($uri == "Ranking/RankingDiario" && $method == "POST") {
     $controller->RankingSucessoTec($data['id'], $data['data_request']);
 } elseif ($uri == "Departamento/getAll" && $method == "GET") {
     $controller->getAllDepartament();
-} 
-
-elseif ($uri == "Ranking/MediaMensal" && $method == "POST") {
+} elseif ($uri == "Ranking/MediaMensal" && $method == "POST") {
 
     $data = $getInput->FileContets();
 
@@ -65,62 +86,42 @@ elseif ($uri == "Ranking/MediaMensal" && $method == "POST") {
     $controller->getMediaMensal($data['data_request'], $data['id_tecnico']);
 }
 
-/// teste
-
-// elseif ($uri == "Ranking/SucessoDiario" && $method == "POST") {
-//     $data = $getInput->FileContets();
-
-//     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
-//         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
-//         exit;
-//     }
-
-//     $controller->verificarSucesso($data['id_atendimento']);
-// }
 
 ////////////////////////////// ############## Tutoriais ################ /////////////////////////////////////////////////////
 
-elseif ( $uri == "Tutorial/getAll" && $method == "POST"){
+elseif ($uri == "Tutorial/getAll" && $method == "POST") {
     $controller->getAllTutorias();
-}
-
-elseif ( $uri == "Tutorial/Post" && $method == "POST" ){
+} elseif ($uri == "Tutorial/Post" && $method == "POST") {
     $data = $getInput->FileContets();
 
-    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
         exit;
     }
 
     $controller->postTutorial($data['title'], $data['description'], $data['url_view'], $data['url_download'], $data['criador'], $data['icon_name']);
-}
-
-elseif ( $uri == "Tutorial/Delete" && $method == "DELETE" ){
+} elseif ($uri == "Tutorial/Delete" && $method == "DELETE") {
 
     $data = $getInput->FileContets();
 
-    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
         exit;
     }
 
     $controller->deleteTutorial($data['id']);
-}
-
-elseif ( $uri == "Tutorial/getOne" && $method == "POST" ){
+} elseif ($uri == "Tutorial/getOne" && $method == "POST") {
     $data = $getInput->FileContets();
 
-    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
         exit;
     }
 
     $controller->getOneTutorial($data['id']);
-}
-
-elseif ( $uri == "Tutorial/Update" && $method == "PATCH" ){
+} elseif ($uri == "Tutorial/Update" && $method == "PATCH") {
     $data = $getInput->FileContets();
-    if ( $data == null && json_last_error() !== JSON_ERROR_NONE){
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
         echo (["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
         exit;
     }
@@ -133,18 +134,16 @@ elseif ( $uri == "Tutorial/Update" && $method == "PATCH" ){
 
 
 
-elseif ( $uri == "Ranking/GetRankingMensal" && $method == "POST"){
+elseif ($uri == "Ranking/GetRankingMensal" && $method == "POST") {
     $data = $getInput->FileContets();
 
     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
         exit;
     }
-    
-    $controller->getRankingMensal($data['data_request']);
-}
 
-elseif ( $uri == "Meta/MetaMensal" ){
+    $controller->getRankingMensal($data['data_request']);
+} elseif ($uri == "Meta/MetaMensal") {
     $data = $getInput->FileContets();
 
     $controller->getMentaMensal($data['id'], $data['data_request']);
