@@ -664,3 +664,1056 @@ Stack trace:
 #4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
 #5 {main}
   thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[07-Apr-2025 15:40:54 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 65
+[07-Apr-2025 16:46:27 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(52): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(108): ApiIXC->cliente(15598)
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[07-Apr-2025 16:46:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(52): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(108): ApiIXC->cliente(15598)
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[07-Apr-2025 16:47:30 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(84): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(95): ApiIXC->obterChamadosCompletos(114, '2025-03-28')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[07-Apr-2025 17:02:57 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(84): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(95): ApiIXC->obterChamadosCompletos('114', '2024-03-28')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[07-Apr-2025 17:21:45 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$checklist' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 107
+[07-Apr-2025 18:20:31 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(84): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(95): ApiIXC->obterChamadosCompletos(114, '2025-04-07')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[08-Apr-2025 11:16:10 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 114
+[08-Apr-2025 11:16:10 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 114
+[08-Apr-2025 11:16:18 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 114
+[08-Apr-2025 11:16:19 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 114
+[08-Apr-2025 12:18:14 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(84): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(108): ApiIXC->obterChamadosCompletos(198, '2025-03-11')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[08-Apr-2025 15:06:30 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' id_tecnico = ?' at line 1 in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:352
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(352): PDO->prepare('SELECT * FROM a...')
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(77): getDataBase->getMediaMensal('2025-04', 20)
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(67): DataBaseControllers->getMediaMensal('2025-04', 20)
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 352
+[08-Apr-2025 15:24:10 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(86): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(119): ApiIXC->obterChamadosCompletos(198, '2025-03-11')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[08-Apr-2025 18:34:37 America/Fortaleza] PHP Fatal error:  Uncaught Error: Unsupported operand types in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:413
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(77): getDataBase->getMediaMensal('2025-04', 20)
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(67): DataBaseControllers->getMediaMensal('2025-04', 20)
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 413
+[08-Apr-2025 18:35:20 America/Fortaleza] PHP Fatal error:  Uncaught Error: Unsupported operand types in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:413
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(77): getDataBase->getMediaMensal('2025-04', 20)
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(67): DataBaseControllers->getMediaMensal('2025-04', 20)
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 413
+[08-Apr-2025 18:38:45 America/Fortaleza] PHP Fatal error:  Uncaught Error: Unsupported operand types in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:413
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(77): getDataBase->getMediaMensal('2025-04', 20)
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(67): DataBaseControllers->getMediaMensal('2025-04', 20)
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 413
+[09-Apr-2025 00:01:16 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ticonnec_ranking_php_quality.tutorias' doesn't exist in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:590
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(590): PDO->prepare('SELECT * FROM t...')
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(89): getDataBase->getAllTutoriais()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(80): DataBaseControllers->getAllTutorias()
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 590
+[09-Apr-2025 00:11:47 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(74): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[09-Apr-2025 00:31:30 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 593
+[09-Apr-2025 00:31:59 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 593
+[09-Apr-2025 00:32:21 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 593
+[09-Apr-2025 00:32:45 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 593
+[09-Apr-2025 00:33:17 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 593
+[09-Apr-2025 11:06:47 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(603): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(94): getDataBase->getRankingMensal('2025/04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(93): DataBaseControllers->getRankingMensal('2025/04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[09-Apr-2025 11:06:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(603): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(94): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(93): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[09-Apr-2025 15:45:37 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(86): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(131): ApiIXC->obterChamadosCompletos(198, '2025-03-12')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[09-Apr-2025 16:46:23 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(86): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(131): ApiIXC->obterChamadosCompletos(198, '2025-03-12')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[09-Apr-2025 17:47:04 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(603): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(94): getDataBase->getRankingMensal('2025-03')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(93): DataBaseControllers->getRankingMensal('2025-03')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[09-Apr-2025 17:47:13 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php(86): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(131): ApiIXC->obterChamadosCompletos(198, '2025-03-29')
+#3 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#4 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[11-Apr-2025 18:37:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(160): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(65): getDataBase->RankinDiarioCalc(20, '2025-04-05')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(51): DataBaseControllers->RankingSucessoTec(20, '2025-04-05')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[13-Apr-2025 20:47:26 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:26 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:26 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:26 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:28 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:28 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:41 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:41 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:41 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:47:41 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:12 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:12 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:27 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:27 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:27 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:48:27 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:07 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:07 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:08 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:08 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:35 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:35 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:35 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:51:35 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:53:10 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:53:10 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:53:10 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:53:10 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:55:48 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:55:48 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:55:48 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:55:48 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:57:06 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:57:06 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:57:06 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:57:06 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:58:44 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:58:44 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:58:44 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 20:58:44 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:00:40 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:00:40 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:00:40 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:00:40 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:04:31 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:04:31 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:04:31 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:04:31 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:24 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:24 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:24 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:24 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:32 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:32 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:32 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:08:32 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:05 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:05 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:05 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:05 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:15 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:15 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:15 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:15 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:41 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:41 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:41 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:10:41 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:11:51 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:11:51 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:11:51 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:11:51 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:00 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:00 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:01 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:01 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:22 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:22 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:23 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:16:23 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:03 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:03 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:03 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:03 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:04 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:04 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:14 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:14 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:14 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:14 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:22 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:22 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:22 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:22 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:35 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:35 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:35 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:17:35 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:17 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:17 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:17 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:17 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:23 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:23 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:23 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:18:23 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:19:10 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:19:10 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:19:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:19:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:14 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:14 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:14 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:14 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:39 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:39 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:39 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:39 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:55 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:55 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:55 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:20:55 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:21:00 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:21:00 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:05 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:05 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:06 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:06 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:20 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:20 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:20 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:20 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:28 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:28 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:28 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:22:28 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:24:20 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:24:20 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:24:20 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:24:20 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:25:54 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:25:54 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:25:54 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:25:54 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:24 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:24 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:24 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:24 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:30 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:30 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:30 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:26:30 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:33:37 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:33:37 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:33:37 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:33:37 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:36 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:36 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:36 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:36 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:49 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:49 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:49 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:34:49 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:10 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:10 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:12 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:12 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:16 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:16 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:16 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:16 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:27 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:27 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:27 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:35:27 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:18 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:18 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:18 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:18 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:39 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:39 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:39 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:36:39 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:22 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:22 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:22 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:22 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:28 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:28 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:29 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:40:29 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:45 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:45 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:45 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:45 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:49 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:49 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:50 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 21:43:50 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:22:50 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:22:50 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:22:50 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:22:50 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:32:39 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:32:39 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:32:39 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:32:39 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:26 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:26 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:26 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[13-Apr-2025 22:39:26 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 11:29:59 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 11:29:59 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 11:33:55 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 11:33:55 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:18:19 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:18:19 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:18:27 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:18:27 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:19:42 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:19:42 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:19:43 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:19:43 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:19:44 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:19:44 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:20:44 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:20:44 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:21:29 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:21:29 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:22:26 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:22:26 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:25:10 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:25:10 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:25:19 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:25:19 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:25:23 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:25:23 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:06 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:06 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:10 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:10 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:12 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:12 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:25 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:25 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:30 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:30 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:32 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:32 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:38 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:26:38 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:27:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:27:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:27:11 America/Fortaleza] PHP Warning:  include_once(/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 12:27:11 America/Fortaleza] PHP Warning:  include_once(): Failed opening '/home1/ticonnec/public_html/ranking_api/api/routes/../../Helpers/DataBaseHelpers/Headers.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 3
+[14-Apr-2025 13:20:01 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 7
+[14-Apr-2025 13:20:01 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 8
+[14-Apr-2025 13:20:01 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 9
+[14-Apr-2025 13:20:01 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 10
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Use of undefined constant n - assumed 'n' (this will throw an Error in a future version of PHP) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 682
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 7
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 8
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 9
+[14-Apr-2025 13:20:39 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 10
+[14-Apr-2025 13:20:58 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 7
+[14-Apr-2025 13:20:58 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 8
+[14-Apr-2025 13:20:58 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 9
+[14-Apr-2025 13:20:58 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:682) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 10
+[14-Apr-2025 13:25:42 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:685) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 7
+[14-Apr-2025 13:25:42 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:685) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 8
+[14-Apr-2025 13:25:42 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:685) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 9
+[14-Apr-2025 13:25:42 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:685) in /home1/ticonnec/public_html/ranking_api/api/app/Helpers/DataBaseHelpers/ResponseHelper.php on line 10
+[14-Apr-2025 13:46:57 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 693
+[14-Apr-2025 13:46:58 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 693
+[14-Apr-2025 13:46:58 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 693
+[14-Apr-2025 13:46:58 America/Fortaleza] PHP Warning:  Division by zero in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 693
+[15-Apr-2025 09:42:58 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:24:23 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:24:35 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:25:15 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:25:27 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:27:31 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:27:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:28:18 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:28:24 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:28:49 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:28:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:29:11 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:29:15 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:29:59 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:32:26 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:32:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 11:32:35 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:23:11 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:34:51 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:36:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:37:08 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:37:10 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:37:12 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:37:13 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:37:14 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:37:16 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(369): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[15-Apr-2025 13:40:01 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(662): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(89): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(82): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[16-Apr-2025 09:18:04 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[16-Apr-2025 14:32:26 America/Fortaleza] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 96
+[16-Apr-2025 14:33:20 America/Fortaleza] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 96
+[16-Apr-2025 14:35:40 America/Fortaleza] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 96
+[16-Apr-2025 14:36:27 America/Fortaleza] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 96
+[16-Apr-2025 14:36:50 America/Fortaleza] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 96
+[16-Apr-2025 14:36:56 America/Fortaleza] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 96
+[17-Apr-2025 09:47:57 America/Fortaleza] PHP Fatal error:  Cannot use try without catch or finally in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 114
+[17-Apr-2025 09:48:19 America/Fortaleza] PHP Fatal error:  Cannot use try without catch or finally in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 114
+[17-Apr-2025 10:52:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:52:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:52:44 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:52:44 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:53:02 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:53:02 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:53:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:53:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:55:50 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 10:55:50 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:06:52 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:06:52 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:07:26 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:07:26 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:08:36 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:08:36 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:08:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:08:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:09:43 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:09:43 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:12:56 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(31): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 11:12:56 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(351): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(53): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 14:27:11 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(385): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(82): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(68): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 14:27:11 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(33): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 16:39:27 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(432): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(88): getDataBase->getAllDepartament()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(79): DataBaseControllers->getAllDepartament()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 18:05:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(103): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(60): getDataBase->getOneColaborador('20')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(49): DataBaseControllers->getOneColaborador('20')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 21:52:58 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'getDataBase' not found in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php:13
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(11): DataBaseControllers->__construct()
+#1 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#2 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 13
+[17-Apr-2025 21:53:56 America/Fortaleza] PHP Warning:  move_uploaded_file(ticonnecte.com.br/ranking_api/api/uploads/colaborador_6801a2a43d6cc.jpg): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 144
+[17-Apr-2025 21:53:56 America/Fortaleza] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php41Ob1e' to 'ticonnecte.com.br/ranking_api/api/uploads/colaborador_6801a2a43d6cc.jpg' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 144
+[17-Apr-2025 22:17:09 America/Fortaleza] PHP Warning:  move_uploaded_file(/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8158999b.jpg): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148
+[17-Apr-2025 22:17:09 America/Fortaleza] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php3v7WCR' to '/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8158999b.jpg' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148
+[17-Apr-2025 22:17:41 America/Fortaleza] PHP Warning:  move_uploaded_file(/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8351c019.jpg): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148
+[17-Apr-2025 22:17:41 America/Fortaleza] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php5LulJ1' to '/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8351c019.jpg' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148

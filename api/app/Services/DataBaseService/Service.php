@@ -112,84 +112,121 @@ class getDataBase
 
     public function postColaborador($method)
     {
-        
         try {
-            if ($method == "POST") {
+            if ($method !== "POST") {
+                return [
+                    "status" => "error",
+                    "message" => "Método inválido"
+                ];
+            }
 
-                $this->token->verificarToken();
+            $this->token->verificarToken();
 
-                // $id_colaborador = $_POST['id_colaborador'] ?? null;
-                $id_ixc = $_POST['id_ixc'] ?? null;
-                $nome   = $_POST['nome_colaborador'] ?? null;
-                $setor  = $_POST['setor_colaborador'] ?? null;
+            $action = $_POST['action'] ?? null; // create ou update
+            $id_colaborador = $_POST['id_colaborador'] ?? null;
+            $id_ixc = $_POST['id_ixc'] ?? null;
+            $nome   = $_POST['nome_colaborador'] ?? null;
+            $setor  = $_POST['setor_colaborador'] ?? null;
 
+            if (!$action || !$id_ixc || !$nome || !$setor) {
+                return [
+                    "status" => "error",
+                    "message" => "Parâmetros obrigatórios ausentes"
+                ];
+            }
+
+            // Upload de imagem
+            $urlImagem = null;
+            if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+                $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+                $nomeImagem = uniqid('colaborador_') . '.' . $extensao;
+
+                // Caminho absoluto no servidor
+                $caminho = __DIR__ . '/../../../uploads/' . $nomeImagem;
+                // Caminho salvo no banco/retornado
+                $urlImagem = 'ticonnecte.com.br/ranking_api/api/uploads/' . $nomeImagem;
+
+                if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $caminho)) {
+                    return [
+                        "status" => "error",
+                        "message" => "Erro ao salvar a imagem"
+                    ];
+                }
+            }
+
+            if ($action === 'create') {
+                // Verifica se já existe
                 $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_ixc = :id_ixc");
-                $stmt->execute([
-                    ":id_ixc" => $id_ixc
-                ]);
+                $stmt->execute([":id_ixc" => $id_ixc]);
 
                 if ($stmt->rowCount() > 0) {
-                    return ([
+                    return [
                         "status" => "error",
                         "message" => "Colaborador já está cadastrado!"
-                    ]);
-                    exit;
+                    ];
                 }
 
-                if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-                    $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-                    $nomeImagem = uniqid('colaborador_') . '.' . $extensao;
-                    $caminho = 'ticonnecte.com.br/ranking_api/api/uploads/' . $nomeImagem;
-                
-                    if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $caminho)) {
-                        return [
-                            "status" => "error",
-                            "message" => "Erro ao salvar a imagem"
-                        ];
-                    }
-                
-                    // CORRIGIDO: Removido o else que dava erro sempre
-                    $stmt = $this->db->prepare("INSERT INTO colaborador (id_ixc, nome_colaborador, setor_colaborador, url_image) VALUES (:id, :nome, :setor, :url_image)");
-                    $success = $stmt->execute([
-                        ":id" => $id_ixc,
-                        ":nome" => $nome,
-                        ":setor" => $setor,
-                        ":url_image" => $caminho
-                    ]);
-                
-                    if ($success) {
-                        return [
-                            "status" => "success",
-                            "message" => "Colaborador cadastrado com sucesso",
-                            "url_imagem" => $caminho
-                        ];
-                    } else {
-                        return [
-                            "status" => "error",
-                            "message" => "Erro ao cadastrar Colaborador"
-                        ];
-                    }
-                }
-
-
-
-            } elseif ($method == "PATCH") {
-                $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
-
-                return ([
-                    "teste" => "Method PATCH"
+                // Insere
+                $stmt = $this->db->prepare("INSERT INTO colaborador (id_ixc, nome_colaborador, setor_colaborador, url_image) VALUES (:id, :nome, :setor, :url)");
+                $stmt->execute([
+                    ":id" => $id_ixc,
+                    ":nome" => $nome,
+                    ":setor" => $setor,
+                    ":url" => $urlImagem
                 ]);
-            } else {
-                return ([
-                    "status" => "error",
-                    "message" => "Riquisição inválida"
-                ]);
+
+                return [
+                    "status" => "success",
+                    "message" => "Colaborador cadastrado com sucesso",
+                    "url_imagem" => $urlImagem
+                ];
             }
-        } catch (PDOException $e) {
-            return ([
+
+            if ($action === 'update') {
+                $stmt = $this->db->prepare("SELECT * FROM colaborador WHERE id_colaborador = :id");
+                $stmt->execute([":id" => $id_colaborador]);
+
+                if ($stmt->rowCount() === 0) {
+                    return [
+                        "status" => "error",
+                        "message" => "Colaborador não encontrado"
+                    ];
+                }
+
+                $sql = "UPDATE colaborador SET nome_colaborador = :nome, setor_colaborador = :setor";
+                if ($urlImagem) {
+                    $sql .= ", url_image = :url";
+                }
+                $sql .= " WHERE id_colaborador = :id";
+
+                $params = [
+                    ":nome" => $nome,
+                    ":setor" => $setor,
+                    ":id" => $id_colaborador
+                ];
+                if ($urlImagem) {
+                    $params[":url"] = $urlImagem;
+                }
+
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute($params);
+
+                return [
+                    "status" => "success",
+                    "message" => "Colaborador atualizado com sucesso",
+                    "url_imagem" => $urlImagem
+                ];
+            }
+
+            return [
                 "status" => "error",
-                "message" => "Erro no banco de dados: " . $e->getMessage()
-            ]);
+                "message" => "Ação inválida"
+            ];
+        } catch (Exception $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro: " . $e->getMessage()
+            ];
         }
     }
 

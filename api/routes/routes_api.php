@@ -63,6 +63,7 @@ elseif ($uri == "Colaborador/Delete" && $method = "DELETE") {
     }
 
     $controller->deleteColaborador($data['id']);
+    
 } elseif ($uri == "Ranking/RankingDiario" && $method == "POST") {
     $data = $getInput->FileContets();
 
@@ -89,7 +90,7 @@ elseif ($uri == "Colaborador/Delete" && $method = "DELETE") {
 
 ////////////////////////////// ############## Tutoriais ################ /////////////////////////////////////////////////////
 
-elseif ($uri == "Tutorial/getAll" && $method == "POST") {
+elseif ($uri == "Tutorial/getAll" && $method == "GET") {
     $controller->getAllTutorias();
 } elseif ($uri == "Tutorial/Post" && $method == "POST") {
     $data = $getInput->FileContets();
