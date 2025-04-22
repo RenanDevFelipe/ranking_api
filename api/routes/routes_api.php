@@ -100,7 +100,7 @@ elseif ($uri == "Tutorial/getAll" && $method == "GET") {
         exit;
     }
 
-    $controller->postTutorial($data['title'], $data['description'], $data['url_view'], $data['url_download'], $data['criador'], $data['icon_name']);
+    $controller->postTutorial($data['title'], $data['descricao'], $data['url_view'], $data['url_download'], $data['criado_por'], $data['name_icon']);
 } elseif ($uri == "Tutorial/Delete" && $method == "DELETE") {
 
     $data = $getInput->FileContets();
@@ -127,7 +127,7 @@ elseif ($uri == "Tutorial/getAll" && $method == "GET") {
         exit;
     }
 
-    $controller->updateTutorial($data['id'], $data['title'], $data['description'], $data['url_view'], $data['url_download'], $data['criador'], $data['name_icon']);
+    $controller->updateTutorial($data['id'], $data['title'], $data['descricao'], $data['url_view'], $data['url_download'], $data['criado_por'], $data['name_icon']);
 }
 
 
@@ -135,7 +135,7 @@ elseif ($uri == "Tutorial/getAll" && $method == "GET") {
 
 
 
-elseif ($uri == "Ranking/GetRankingMensal" && $method == "POST") {
+elseif ($uri == "Ranking/RankingMensal" && $method == "POST") {
     $data = $getInput->FileContets();
 
     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {

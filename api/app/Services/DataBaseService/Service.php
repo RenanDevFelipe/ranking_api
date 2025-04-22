@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../../config/DataBase/dataBase.php';
 require_once __DIR__ . '/../../../config/DataBase/TokenGerator.php';
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 class getDataBase
@@ -72,6 +72,27 @@ class getDataBase
         ];
 
         return $registros;
+    }
+
+    public function postUser($method)
+    {
+        try {
+
+            if($method !== "POST"){
+                return [
+                    "status" => "error",
+                    "message" => "Riquisição inválida"
+                ];
+            }
+
+            $action = $_POST['action'] ?? null;
+
+        } catch (PDOException $e){
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
     }
 
 
@@ -739,6 +760,11 @@ class getDataBase
             "meta_mensal" => $metaMensal,
             "media_setor" => $media_mensal_setor
         ]);
+    }
+
+    public function getRankingDiario($date)
+    {
+        $colaboradores = $this->getColaboradorSetor(22);
     }
 
     public function getRankingMensal($date)
