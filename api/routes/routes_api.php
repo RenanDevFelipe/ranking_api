@@ -64,7 +64,7 @@ elseif ($uri == "Colaborador/Delete" && $method = "DELETE") {
 
     $controller->deleteColaborador($data['id']);
     
-} elseif ($uri == "Ranking/RankingDiario" && $method == "POST") {
+} elseif ($uri == "Ranking/mediaDiaria" && $method == "POST") {
     $data = $getInput->FileContets();
 
     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
@@ -73,9 +73,24 @@ elseif ($uri == "Colaborador/Delete" && $method = "DELETE") {
     }
 
     $controller->RankingSucessoTec($data['id'], $data['data_request']);
-} elseif ($uri == "Departamento/getAll" && $method == "GET") {
+}
+
+elseif ( $uri == "Ranking/RankingDiario" && $method == "POST" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getRankingDiario($data['data_request']);
+}
+
+elseif ($uri == "Departamento/getAll" && $method == "GET") {
     $controller->getAllDepartament();
-} elseif ($uri == "Ranking/MediaMensal" && $method == "POST") {
+} 
+elseif ($uri == "Ranking/MediaMensal" && $method == "POST") {
 
     $data = $getInput->FileContets();
 

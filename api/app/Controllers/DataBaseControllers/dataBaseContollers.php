@@ -112,6 +112,12 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
+    public function getRankingDiario($date)
+    {
+        $data = $this->service->getRankingDiario($date);
+        ResponseHelper::jsonResponse($data);
+    }
+
     public function getMentaMensal($id, $data){
         $data = $this->service->metaMensal($id, $data);
         ResponseHelper::jsonResponse($data);
