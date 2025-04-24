@@ -67,7 +67,8 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
-    public function deleteColaborador($id){
+    public function deleteColaborador($id)
+    {
         $data = $this->service->deleteColaborador($id);
         ResponseHelper::jsonResponse($data);
     }
@@ -107,7 +108,8 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
-    public function getRankingMensal($date){
+    public function getRankingMensal($date)
+    {
         $data = $this->service->getRankingMensal($date);
         ResponseHelper::jsonResponse($data);
     }
@@ -118,29 +120,55 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
-    public function getMentaMensal($id, $data){
+    public function getMentaMensal($id, $data)
+    {
         $data = $this->service->metaMensal($id, $data);
         ResponseHelper::jsonResponse($data);
     }
 
-    public function postTutorial($title, $description, $url_view, $url_download, $criador, $name_icon){
-        $data = $this->service->postTutoriais($title, $description, $url_view, $url_download, $criador,$name_icon);
+    public function postTutorial($title, $description, $url_view, $url_download, $criador, $name_icon)
+    {
+        $data = $this->service->postTutoriais($title, $description, $url_view, $url_download, $criador, $name_icon);
         ResponseHelper::jsonResponse($data);
     }
 
-    public function updateTutorial($id, $title, $description, $url_view, $url_download, $criador, $name_icon){
+    public function updateTutorial($id, $title, $description, $url_view, $url_download, $criador, $name_icon)
+    {
         $data = $this->service->updateTutoriais($id, $title, $description, $url_view, $url_download, $criador, $name_icon);
         ResponseHelper::jsonResponse($data);
     }
 
 
-    public function deleteTutorial($id){
+    public function deleteTutorial($id)
+    {
         $data = $this->service->deleteTutoriais($id);
         ResponseHelper::jsonResponse($data);
     }
 
-    public function getOneTutorial($id){
+    public function getOneTutorial($id)
+    {
         $data = $this->service->getOneTutoriais($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function postAssuntoOS($method)
+    {
+        $data = $this->service->postAssuntoOs($method);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function getAllAssuntoOs(){
+        $data = $this->service->getAllAssuntoOs();
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function getOneAssuntoOs($id){
+        $data = $this->service->getOneAssuntoOs($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function deleteAssuntoOs($id){
+        $data = $this->service->deleteAssuntoOs($id);
         ResponseHelper::jsonResponse($data);
     }
 }

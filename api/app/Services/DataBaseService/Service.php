@@ -78,7 +78,7 @@ class getDataBase
     {
         try {
 
-            if($method !== "POST"){
+            if ($method !== "POST") {
                 return [
                     "status" => "error",
                     "message" => "Riquisição inválida"
@@ -86,8 +86,7 @@ class getDataBase
             }
 
             $action = $_POST['action'] ?? null;
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return [
                 "status" => "error",
                 "message" => "Erro no banco de dados: " . $e->getMessage()
@@ -315,7 +314,7 @@ class getDataBase
         return $registros;
     }
 
-    
+
     public function getAllDepartament()
     {
 
@@ -563,13 +562,13 @@ class getDataBase
 
     public function getRankingDiario($date)
     {
-        try{
+        try {
 
             $colaboradores = $this->getColaboradorSetor(22);
 
             $ranking_Diario = [];
 
-            foreach ($colaboradores['registros'] as $colaborador){
+            foreach ($colaboradores['registros'] as $colaborador) {
                 $id = $colaborador['id_colaborador'];
 
                 $ranking_Diario[] = $this->RankinDiarioCalc($id, $date);
@@ -581,15 +580,15 @@ class getDataBase
 
             foreach ($ranking_Diario as $i => &$item) {
                 $nova_ordem = [];
-    
+
                 foreach ($item as $key => $value) {
                     $nova_ordem[$key] = $value;
-    
+
                     if ($key === 'colaborador') {
                         $nova_ordem['colocacao'] = $i + 1;
                     }
                 }
-    
+
                 $item = $nova_ordem;
             }
 
@@ -597,8 +596,7 @@ class getDataBase
                 "status" => "success",
                 "ranking_diario" => $ranking_Diario
             ];
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return [
                 "status" => "error",
                 "message" => "Erro no banco de dados: " . $e->getMessage()
@@ -710,9 +708,9 @@ class getDataBase
             $setor_nivel3 = [
                 "id_setor" => 5,
                 "setor" => $setor_Ni3['nome_setor'],
-                "tota_registros" => $total_n3,
+                "total_registros" => $total_n3,
                 "media_diaria" => number_format($media_n3, 2),
-                "soma_pontacao" => number_format($sum_ponts_n3, 2)
+                "soma_pontuacao" => number_format($sum_ponts_n3, 2)
             ];
         } else {
             foreach ($setor_n3 as $registro) {
@@ -724,9 +722,9 @@ class getDataBase
             $setor_nivel3 = [
                 "id_setor" => $id_setor_n3,
                 "setor" => $setor_Ni3['nome_setor'],
-                "tota_registros" => $total_n3,
+                "total_registros" => $total_n3,
                 "media_diaria" => number_format($media_n3, 2),
-                "soma_pontacao" => number_format($sum_ponts_n3, 2)
+                "soma_pontuacao" => number_format($sum_ponts_n3, 2)
             ];
         }
 
@@ -805,12 +803,14 @@ class getDataBase
         /// media total diaria ///
 
         $media_total_diaria = ($media_sucesso + $media_n2 + $media_n3 + $media_estoque + $media_rh) / 5;
+        $total_avaliacoes = ($total_estoque + $total_n2 + $total_n3 + $total_rh + $total_sucesso);
 
         /// media total diaria ///
 
 
         $registros = [
             "colaborador" => $colaborador['nome_colaborador'],
+            "total_registros" => $total_avaliacoes, 
             "media_total" => number_format($media_total_diaria, 2),
             "media_setor" => [
                 $sucesso,
@@ -820,7 +820,7 @@ class getDataBase
                 $setor_rh
             ]
 
-            
+
         ];
 
         return $registros;
@@ -1095,6 +1095,187 @@ class getDataBase
                 "status" => "erro",
                 "message" => "Erro no banco de dados: " . $e->getMessage()
             ]);
+        }
+    }
+
+
+    public function getOneAssuntoOs($id)
+    {
+        try {
+
+            $stmt = $this->db->prepare("SELECT * FROM assunto_os WHERE id = :id");
+            $stmt->execute([":id" => $id]);
+            $registro = $stmt->fetch(PDO::FETCH_ASSOC);
+            $total = $stmt->rowCount();
+
+            return [
+                "total" => $total,
+                "registro" => $registro
+            ];
+        } catch (PDOException $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
+    }
+
+    public function getAllAssuntoOs()
+    {
+        try{
+
+            $stmt = $this->db->prepare("SELECT * FROM assunto_os");
+            $stmt->execute();
+            $total = $stmt->rowCount();
+            $registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if( $total < 1 ){
+                return [
+                    "status" => "error",
+                    "message" => "Nenhum resultado encontrado"
+                ];
+                exit;
+            }
+            
+            return [
+                "total" => $total,
+                "registros" => $registros
+            ];
+
+
+        } catch (PDOException $e){
+            return[
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
+    }
+
+    public function postAssuntoOs($method)
+    {
+        try {
+
+            if ($method !== "POST") {
+                return [
+                    "status" => "error",
+                    "message" => "Requisição inválida!"
+                ];
+            }
+
+            $this->token->verificarToken();
+
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $action = $_POST['action'];
+
+            if (!empty($id) || !empty($name) || !empty($action)) {
+
+                if ($action === "create") {
+
+                    $verification = $this->getOneAssuntoOs($id);
+
+                    if ($verification['total'] > 0) {
+                        return [
+                            "status" => "error",
+                            "message" => "Assunto já está cadastrado"
+                        ];
+                    }
+
+                    $stmt = $this->db->prepare("INSERT INTO assunto_os (id, name) VALUES (:id, :name)");
+                    $success = $stmt->execute([
+                        ":id" => $id,
+                        ":name" => $name
+                    ]);
+
+                    if ($success) {
+                        return [
+                            "status" => "success",
+                            "message" => "Assunto cadastrado!"
+                        ];
+                    } else {
+                        return [
+                            "status" => "error",
+                            "message" => "Erro ao cadastrar assunto"
+                        ];
+                    }
+                } elseif ($action === "update") {
+
+                    $verification = $this->getOneAssuntoOs($id);
+
+                    if ($verification['total'] < 1) {
+                        return [
+                            "status" => "error",
+                            "message" => "Assunto não encontrado"
+                        ];
+                    }
+
+                    $update = $this->db->prepare("UPDATE assunto_os SET id = :id, name = :name");
+                    $success = $update->execute([
+                        ":id" => $id,
+                        ":name" => $name
+                    ]);
+
+                    if ($success){
+                        return [
+                            "status" => "success",
+                            "message" => "Assunto atualizado!"
+                        ];
+                    } else {
+                        return[
+                            "status" => "error",
+                            "message" => "Erro ao atualizar assunto!"
+                        ];
+                    }
+
+                }
+            } else {
+                return [
+                    "status" => "error",
+                    "message" => "Preencha todos os campos!"
+                ];
+            }
+        } catch (PDOException $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
+    }
+
+    public function deleteAssuntoOs($id)
+    {
+        try {
+
+            $verification = $this->getOneAssuntoOs($id);
+
+            if ($verification['total'] < 1){
+                return[
+                    "status" => "error",
+                    "message" => "Registro não encontrado"
+                ];
+            }
+
+            $delete = $this->db->prepare("DELETE FROM assunto_os WHERE id = :id");
+            $success = $delete->execute([":id" => $id]);
+
+            if ( $success ){
+                return[
+                    "status" => "success",
+                    "message" => "Assunto deletado!"
+                ];
+            } else {
+                return [
+                    "status" => "error",
+                    "message" => "Erro ao deletar assunto!"
+                ];
+            }
+
+
+        } catch (PDOException $e){
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
         }
     }
 }

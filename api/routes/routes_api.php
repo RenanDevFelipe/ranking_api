@@ -159,10 +159,35 @@ elseif ($uri == "Ranking/RankingMensal" && $method == "POST") {
     }
 
     $controller->getRankingMensal($data['data_request']);
+
+
 } elseif ($uri == "Meta/MetaMensal") {
     $data = $getInput->FileContets();
 
     $controller->getMentaMensal($data['id'], $data['data_request']);
+}
+
+
+elseif ( $uri == "Assunto/Post" )
+{
+    $controller->postAssuntoOS($method);
+}
+
+elseif ( $uri == "Assunto/getAll" )
+{
+    $controller->getAllAssuntoOs();
+}
+
+elseif ( $uri == "Assunto/Delete" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->deleteAssuntoOs($data['id']);
 }
 
 
