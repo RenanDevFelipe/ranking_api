@@ -171,4 +171,17 @@ class DataBaseControllers
         $data = $this->service->deleteAssuntoOs($id);
         ResponseHelper::jsonResponse($data);
     }
+
+
+    public function postChecklistField($method)
+    {
+        $data = $this->service->checklistFieldPost($method);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function checklistFieldGetFiltred($id)
+    {
+        $data = $this->service->checklistFieldGetFiltred($id);
+        ResponseHelper::jsonResponse($data);
+    }
 }

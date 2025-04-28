@@ -810,7 +810,7 @@ class getDataBase
 
         $registros = [
             "colaborador" => $colaborador['nome_colaborador'],
-            "total_registros" => $total_avaliacoes, 
+            "total_registros" => $total_avaliacoes,
             "media_total" => number_format($media_total_diaria, 2),
             "media_setor" => [
                 $sucesso,
@@ -925,6 +925,7 @@ class getDataBase
     public function getOneTutoriais($id)
     {
         try {
+            $this->token->verificarToken();
             $stmt = $this->db->prepare("SELECT * FROM tutoriais WHERE id = :id");
             $success = $stmt->execute([":id" => $id]);
             $tutorial = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -951,6 +952,7 @@ class getDataBase
     public function postTutoriais($title, $description, $url_view, $url_download, $criador, $name_icon)
     {
         try {
+            $this->token->verificarToken();
             $stmt = $this->db->prepare("INSERT INTO tutoriais VALUES (:id,:title,:descricao,:url_view,:url_download,:criador,:data_descricao,:nome_icon)");
 
             // Sanitização
@@ -1004,6 +1006,7 @@ class getDataBase
     public function deleteTutoriais($id)
     {
         try {
+            $this->token->verificarToken();
             $stmt = $this->db->prepare("DELETE FROM tutoriais WHERE id = :id");
             $success = $stmt->execute([
                 ":id" => $id
@@ -1031,6 +1034,7 @@ class getDataBase
     public function updateTutoriais($id, $title, $description, $url_view, $url_download, $criador, $name_icon)
     {
         try {
+            $this->token->verificarToken();
             // Verifica se o tutorial existe
             $checkStmt = $this->db->prepare("SELECT COUNT(*) FROM tutoriais WHERE id = :id");
             $checkStmt->execute([":id" => $id]);
@@ -1103,15 +1107,23 @@ class getDataBase
     {
         try {
 
+            $this->token->verificarToken();
+
             $stmt = $this->db->prepare("SELECT * FROM assunto_os WHERE id = :id");
             $stmt->execute([":id" => $id]);
             $registro = $stmt->fetch(PDO::FETCH_ASSOC);
             $total = $stmt->rowCount();
 
-            return [
-                "total" => $total,
-                "registro" => $registro
-            ];
+            if ($total > 0) {
+                return [
+                    "total" => $total,
+                    "registro" => $registro
+                ];
+            } else {
+                return [
+                    "error" => "Nenhum Registro encontrado"
+                ];
+            }
         } catch (PDOException $e) {
             return [
                 "status" => "error",
@@ -1122,29 +1134,29 @@ class getDataBase
 
     public function getAllAssuntoOs()
     {
-        try{
+        try {
+
+            $this->token->verificarToken();
 
             $stmt = $this->db->prepare("SELECT * FROM assunto_os");
             $stmt->execute();
             $total = $stmt->rowCount();
             $registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            if( $total < 1 ){
+            if ($total < 1) {
                 return [
                     "status" => "error",
                     "message" => "Nenhum resultado encontrado"
                 ];
                 exit;
             }
-            
+
             return [
                 "total" => $total,
                 "registros" => $registros
             ];
-
-
-        } catch (PDOException $e){
-            return[
+        } catch (PDOException $e) {
+            return [
                 "status" => "error",
                 "message" => "Erro no banco de dados: " . $e->getMessage()
             ];
@@ -1154,6 +1166,7 @@ class getDataBase
     public function postAssuntoOs($method)
     {
         try {
+
 
             if ($method !== "POST") {
                 return [
@@ -1209,24 +1222,24 @@ class getDataBase
                         ];
                     }
 
-                    $update = $this->db->prepare("UPDATE assunto_os SET id = :id, name = :name");
+                    $update = $this->db->prepare("UPDATE assunto_os SET id = :id, name = :name WHERE id = :id_up");
                     $success = $update->execute([
                         ":id" => $id,
-                        ":name" => $name
+                        ":name" => $name,
+                        ":id_up" => $id
                     ]);
 
-                    if ($success){
+                    if ($success) {
                         return [
                             "status" => "success",
                             "message" => "Assunto atualizado!"
                         ];
                     } else {
-                        return[
+                        return [
                             "status" => "error",
                             "message" => "Erro ao atualizar assunto!"
                         ];
                     }
-
                 }
             } else {
                 return [
@@ -1246,10 +1259,12 @@ class getDataBase
     {
         try {
 
+            $this->token->verificarToken();
+
             $verification = $this->getOneAssuntoOs($id);
 
-            if ($verification['total'] < 1){
-                return[
+            if ($verification['total'] < 1) {
+                return [
                     "status" => "error",
                     "message" => "Registro não encontrado"
                 ];
@@ -1258,8 +1273,8 @@ class getDataBase
             $delete = $this->db->prepare("DELETE FROM assunto_os WHERE id = :id");
             $success = $delete->execute([":id" => $id]);
 
-            if ( $success ){
-                return[
+            if ($success) {
+                return [
                     "status" => "success",
                     "message" => "Assunto deletado!"
                 ];
@@ -1269,12 +1284,115 @@ class getDataBase
                     "message" => "Erro ao deletar assunto!"
                 ];
             }
+        } catch (PDOException $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
+    }
 
+
+    public function checklistFieldPost($method)
+    {
+        try {
+
+            if ($method == "POST") {
+
+                $this->token->verificarToken();
+
+                $checklist_id = $_POST['checklist_id'] ?? null;
+                $label = $_POST['label'] ?? null;
+                $type = $_POST['type'] ?? null;
+                $max_score = $_POST['max_score'] ?? null;
+                $action = $_POST['action'];
+
+                if (!empty($checklist_id) || !empty($label) ||  !empty($type)) {
+                    if ($action === "create") {
+                        $add = $this->db->prepare("INSERT INTO checklist_fields (checklist_id, label, type, max_score) VALUES (:id, :label, :type, :max_score)");
+                        $success = $add->execute([
+                            ":id" => $checklist_id,
+                            ":label" => $label,
+                            ":type" => $type,
+                            ":max_score" => $max_score
+                        ]);
+
+                        if ($success) {
+                            return [
+                                "status" => "success",
+                                "message" => "Field adicionado com sucesso"
+                            ];
+                        } else {
+                            return [
+                                "status" => "error",
+                                "message" => "Erro ao adicionar field"
+                            ];
+                        }
+                    }
+
+                    elseif ($action === "update"){
+                        $update = $this->db->prepare("UPDATE checklist_fields  SET checklist_id = :id, label = :label, type = :type, max_score = :max_score");
+                        $success = $update->execute([
+                            ":id" => $checklist_id,
+                            ":label" => $label,
+                            ":type" => $type,
+                            ":max_score" => $max_score
+                        ]);
+
+                        if ($success){
+                            return [
+                                "status" => "success",
+                                "message" => "Field atualizado"
+                            ];
+                        } else {
+                            return [
+                                "status" => "error",
+                                "message" => "Erro ao editar Field"
+                            ];
+                        }
+                    }
+                }
+            } else {
+                return [
+                    "status" => "error",
+                    "message" => "Requisição inválida"
+                ];
+            }
+        } catch (PDOException $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
+    }
+
+    public function checklistFieldGetFiltred($id)
+    {
+        try {
+
+            $this->token->verificarToken();
+
+            $getAll = $this->db->prepare("SELECT * FROM checklist_fields WHERE checklist_id = :id");
+            $getAll->execute([":id" => $id]);
+            $count = $getAll->rowCount();
+            $checklist = $getAll->fetchAll(PDO::FETCH_ASSOC);
+
+            if( $count < 1 ){
+                return[
+                    "total" => $count,
+                    "message" => "Nenhuma Field vinculada a esse assunto!"
+                ];
+                exit;
+            }
+
+            return[
+                "checklist" => $checklist
+            ];
 
         } catch (PDOException $e){
             return [
                 "status" => "error",
-                "message" => "Erro no banco de dados: " . $e->getMessage()
+                "message" => "Erro no banco de Dados: " . $e->getMessage()
             ];
         }
     }

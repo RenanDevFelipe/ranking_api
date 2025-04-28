@@ -1717,3 +1717,619 @@ Stack trace:
 [17-Apr-2025 22:17:09 America/Fortaleza] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php3v7WCR' to '/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8158999b.jpg' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148
 [17-Apr-2025 22:17:41 America/Fortaleza] PHP Warning:  move_uploaded_file(/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8351c019.jpg): failed to open stream: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148
 [17-Apr-2025 22:17:41 America/Fortaleza] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php5LulJ1' to '/home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/../uploads/colaborador_6801a8351c019.jpg' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 148
+[17-Apr-2025 22:33:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(80): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 22:53:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(234): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(71): getDataBase->deleteColaborador(31)
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(65): DataBaseControllers->deleteColaborador(31)
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[17-Apr-2025 23:37:48 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$id_ixc' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 127
+[17-Apr-2025 23:37:48 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$id_ixc' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 127
+[17-Apr-2025 23:37:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'getDataBase' not found in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php:13
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(11): DataBaseControllers->__construct()
+#1 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#2 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 13
+[17-Apr-2025 23:37:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'getDataBase' not found in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php:13
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(11): DataBaseControllers->__construct()
+#1 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#2 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 13
+[17-Apr-2025 23:38:10 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$id_ixc' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 127
+[17-Apr-2025 23:38:10 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$id_ixc' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 127
+[17-Apr-2025 23:38:18 America/Fortaleza] PHP Parse error:  syntax error, unexpected ',' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 126
+[19-Apr-2025 11:15:00 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 10:57:25 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 10:58:09 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 10:58:29 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 10:58:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:04:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(827): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 11:20:51 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'getDataBase' not found in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php:13
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(11): DataBaseControllers->__construct()
+#1 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#2 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 13
+[22-Apr-2025 11:21:11 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 86
+[22-Apr-2025 11:23:03 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:23:38 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:24:14 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:24:40 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:25:03 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:25:13 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:25:43 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:25:48 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:25:49 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:26:12 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 11:26:13 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 83
+[22-Apr-2025 12:12:13 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(843): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 12:28:45 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(843): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 12:29:22 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(843): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 12:29:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(843): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 12:30:17 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(843): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(106): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(94): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 15:18:15 America/Fortaleza] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC), expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 767
+[22-Apr-2025 16:13:28 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:13:39 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:13:42 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:16:57 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:16:59 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:20:56 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:27:22 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:27:24 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:27:43 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 768
+[22-Apr-2025 16:30:36 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 16:30:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 16:30:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 16:30:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 16:46:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 16:47:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 16:48:45 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(772): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(146): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:43:05 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:44:37 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  Illegal string offset 'nota_os' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[22-Apr-2025 23:45:51 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 700
+[23-Apr-2025 11:04:22 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 11:04:22 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 11:04:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 11:04:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 12:19:21 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 13:08:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 13:08:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 14:20:55 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 14:20:55 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 14:23:21 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 14:23:21 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 14:33:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(611): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(575): getDataBase->RankinDiarioCalc(6, '2025-04-15')
+#3 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(117): getDataBase->getRankingDiario('2025-04-15')
+#4 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(87): DataBaseControllers->getRankingDiario('2025-04-15')
+#5 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#6 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 15:38:25 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 15:38:30 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 19:40:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[23-Apr-2025 19:40:53 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 09:59:33 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(611): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(575): getDataBase->RankinDiarioCalc(6, '2025-04-19')
+#3 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(117): getDataBase->getRankingDiario('2025-04-19')
+#4 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(87): DataBaseControllers->getRankingDiario('2025-04-19')
+#5 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#6 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 10:13:47 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 10:13:47 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(611): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(575): getDataBase->RankinDiarioCalc(6, '2025-04-24')
+#3 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(117): getDataBase->getRankingDiario('2025-04-24')
+#4 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(87): DataBaseControllers->getRankingDiario('2025-04-24')
+#5 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#6 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 12:06:23 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 12:06:23 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 12:57:02 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1049
+[24-Apr-2025 12:57:02 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1049
+[24-Apr-2025 12:57:15 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1049
+[24-Apr-2025 12:57:15 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1049
+[24-Apr-2025 14:09:45 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1111
+[24-Apr-2025 14:09:45 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1111
+[24-Apr-2025 14:10:16 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 14:10:16 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 14:10:26 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(111): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 14:10:26 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(101): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(37): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 14:10:33 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1108
+[24-Apr-2025 16:13:19 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 163
+[24-Apr-2025 16:59:03 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(1163): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(156): getDataBase->postAssuntoOs('POST')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(171): DataBaseControllers->postAssuntoOS('POST')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[24-Apr-2025 17:15:22 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$registros' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 811
+[24-Apr-2025 17:15:22 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$registros' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 811
+[24-Apr-2025 20:28:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(113): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(161): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176

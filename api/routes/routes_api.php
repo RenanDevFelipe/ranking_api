@@ -1,9 +1,5 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
 require_once __DIR__ . '/../app/Controllers/DataBaseControllers/dataBaseContollers.php';
 require_once __DIR__ . "/../app/Services/IXCSoft/Service.php";
 require_once __DIR__ . "/../app/Helpers/DataBaseHelpers/CaptureInput.php";
@@ -173,9 +169,20 @@ elseif ( $uri == "Assunto/Post" )
     $controller->postAssuntoOS($method);
 }
 
-elseif ( $uri == "Assunto/getAll" )
+elseif ( $uri == "Assunto/getAll" && $method == "GET")
 {
     $controller->getAllAssuntoOs();
+}
+
+elseif ( $uri == "Assunto/getOne" && $method == "POST")
+{
+    $data = $getInput->FileContets();
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getOneAssuntoOs($data['id']);
 }
 
 elseif ( $uri == "Assunto/Delete" )
@@ -188,6 +195,25 @@ elseif ( $uri == "Assunto/Delete" )
     }
 
     $controller->deleteAssuntoOs($data['id']);
+}
+
+
+elseif ( $uri == "Checklist/Post" )
+{
+    $controller->postChecklistField($method);
+}
+
+elseif ( $uri == "Checklist/getFiltered" && $method == "POST")
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->checklistFieldGetFiltred($data['id']);
+
 }
 
 

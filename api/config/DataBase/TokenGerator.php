@@ -21,10 +21,10 @@ class Token
     public function gerarToken($userData)
     {
         $issuedAt = time();
-        $expirationTime = $issuedAt + 3600;
+        // $expirationTime = $issuedAt + 3600;
         $payload = [
             "iat" => $issuedAt,
-            "exp" => $expirationTime,
+            // "exp" => $expirationTime,
             "data" => $userData
         ];
 
