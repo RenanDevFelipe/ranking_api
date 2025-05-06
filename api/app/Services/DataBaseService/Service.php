@@ -41,7 +41,8 @@ class getDataBase
                 "email" => $user['email_user'],
                 "nome" => $user['nome_user'],
                 "setor" => $setor,
-                "id_ixc" => $user["id_ixc_user"]
+                "id_ixc" => $user["id_ixc_user"],
+                "role" => $user["role"]
             ]);
         } else {
             return (["erro:" => "Credenciais inválidas"]);
@@ -1301,13 +1302,21 @@ class getDataBase
 
                 $this->token->verificarToken();
 
+                $id = $_POST['id'];
                 $checklist_id = $_POST['checklist_id'] ?? null;
                 $label = $_POST['label'] ?? null;
                 $type = $_POST['type'] ?? null;
                 $max_score = $_POST['max_score'] ?? null;
                 $action = $_POST['action'];
 
-                if (!empty($checklist_id) || !empty($label) ||  !empty($type)) {
+                if ($checklist_id == null || $label== null ||  $type == null) {
+                    return [
+                        "status" => "error",
+                        "message" => "Preencha todos os campos"
+                    ];
+                    exit;
+                } else {
+                   
                     if ($action === "create") {
                         $add = $this->db->prepare("INSERT INTO checklist_fields (checklist_id, label, type, max_score) VALUES (:id, :label, :type, :max_score)");
                         $success = $add->execute([
@@ -1328,18 +1337,17 @@ class getDataBase
                                 "message" => "Erro ao adicionar field"
                             ];
                         }
-                    }
-
-                    elseif ($action === "update"){
-                        $update = $this->db->prepare("UPDATE checklist_fields  SET checklist_id = :id, label = :label, type = :type, max_score = :max_score");
+                    } elseif ($action === "update") {
+                        $update = $this->db->prepare("UPDATE checklist_fields  SET checklist_id = :id, label = :label, type = :type, max_score = :max_score WHERE id = :id_field");
                         $success = $update->execute([
                             ":id" => $checklist_id,
                             ":label" => $label,
                             ":type" => $type,
-                            ":max_score" => $max_score
+                            ":max_score" => $max_score,
+                            ":id_field" => $id
                         ]);
 
-                        if ($success){
+                        if ($success) {
                             return [
                                 "status" => "success",
                                 "message" => "Field atualizado"
@@ -1377,23 +1385,223 @@ class getDataBase
             $count = $getAll->rowCount();
             $checklist = $getAll->fetchAll(PDO::FETCH_ASSOC);
 
-            if( $count < 1 ){
-                return[
+            if ($count < 1) {
+                return [
                     "total" => $count,
                     "message" => "Nenhuma Field vinculada a esse assunto!"
                 ];
                 exit;
             }
 
-            return[
+            return [
                 "checklist" => $checklist
             ];
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return [
                 "status" => "error",
                 "message" => "Erro no banco de Dados: " . $e->getMessage()
             ];
         }
+    }
+
+    public function checklistFieldDelete($id)
+    {
+        try {
+
+            $verify = $this->db->prepare("SELECT * FROM checklist_fields");
+            $verify->execute();
+            $count = $verify->rowCount();
+
+            if ($count < 1) {
+                return [
+                    "status" => "error",
+                    "message" => "Field não encontrado"
+                ];
+                exit;
+            }
+
+            $delete = $this->db->prepare("DELETE FROM checklist_fields WHERE id = :id");
+            $success = $delete->execute([
+                ":id" => $id
+            ]);
+
+            if ($success) {
+                return [
+                    "status" => "success",
+                    "message" => "Field deletado!"
+                ];
+            } else {
+                return [
+                    "status" => "error",
+                    "message" => "Erro ao deletar Field"
+                ];
+            }
+        } catch (PDOException $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e->getMessage()
+            ];
+        }
+    }
+
+
+    function gerarPlanilhaRankingMensal($date)
+    {
+        $dados = $this->getRankingMensal($date);
+
+        $html = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:x="urn:schemas-microsoft-com:office:excel"
+        xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+        <meta charset="UTF-8">
+        <style>
+            .title { 
+                background-color: #4F81BD; 
+                color: #FFFFFF; 
+                font-weight: bold; 
+                font-size: 14pt;
+                text-align: center;
+                padding: 5px;
+            }
+            .header { 
+                background-color: #D6E3BC; 
+                font-weight: bold; 
+                border: 1px solid #000000;
+            }
+            .highlight {
+                font-weight: bold;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td {
+                padding: 5px;
+                border: 1px solid #CCCCCC;
+            }
+            .nested-table {
+                width: 100%;
+                border: none;
+                margin-top: 10px;
+            }
+        </style>
+        <!--[if gte mso 9]>
+        <xml>
+            <x:ExcelWorkbook>
+                <x:ExcelWorksheets>
+                    <x:ExcelWorksheet>
+                        <x:Name>Relatório Consolidado</x:Name>
+                        <x:WorksheetOptions>
+                            <x:DisplayGridlines/>
+                        </x:WorksheetOptions>
+                    </x:ExcelWorksheet>
+                </x:ExcelWorksheets>
+            </x:ExcelWorkbook>
+        </xml>
+        <![endif]-->
+        </head>
+        <body>';
+
+        // Cabeçalho principal
+        $html .= '<div style="text-align:center;margin-bottom:20px;">
+            <h1 style="color:#4F81BD;">Relatório Mensal Consolidado</h1>
+            <h3>' . date('F Y', strtotime($date)) . '</h3>
+          </div>';
+
+        // Quantidade de técnicos
+        $tecnicos = $dados['ranking_mensal'];
+        $colunas = count($tecnicos) * 2 - 1; // espaço entre técnicos
+
+        // Início da tabela
+        $html .= '<table style="width: 100%;">';
+
+        // Linha de nomes
+        $html .= '<tr>';
+        foreach ($tecnicos as $index => $item) {
+            $html .= '<td class="title" style="text-align:center; width:45%;">' . htmlspecialchars($item['tecnico']) . '</td>';
+            if ($index < count($tecnicos) - 1) {
+                $html .= '<td style="width:10%;"></td>'; // Espaço entre colunas
+            }
+        }
+        $html .= '</tr>';
+
+        // Linha de tabelas mensais
+        $html .= '<tr>';
+        foreach ($tecnicos as $index => $item) {
+            $html .= '<td style="vertical-align:top;">';
+            $html .= '<table class="nested-table">';
+            $html .= '
+            <tr>
+                <td class="header">Total Registros</td>
+                <td>' . $item['total_registros'] . '</td>
+            </tr>
+            <tr>
+                <td class="header">Média Mensal</td>
+                <td>' . number_format($item['media_mensal'], 2, ',', '.') . '</td>
+            </tr>
+            <tr>
+                <td class="header">Dias Nota 10</td>
+                <td>' . $item['meta_mensal']['total_dias_batidos'] . '</td>
+            </tr>
+            <tr>
+                <td class="header">Meta do Mês</td>
+                <td>' . $item['meta_mensal']['meta_do_mes'] . '</td>
+            </tr>
+            <tr>
+                <td class="header">Valor Receber</td>
+                <td class="highlight">R$ ' . number_format(($item['meta_mensal']['total_dias_batidos'] * 20), 2, ',', '.') . '</td>
+            </tr>';
+            $html .= '</table>';
+            $html .= '</td>';
+
+            if ($index < count($tecnicos) - 1) {
+                $html .= '<td></td>';
+            }
+        }
+        $html .= '</tr>';
+
+        // Linha de tabelas por setor
+        $html .= '<tr>';
+        foreach ($tecnicos as $index => $item) {
+            $html .= '<td style="vertical-align:top;">';
+            $html .= '<table class="nested-table">';
+            $html .= '
+            <tr>
+                <td colspan="3" class="header" style="text-align:center;">Desempenho por Setor</td>
+            </tr>
+            <tr>
+                <td class="header">Setor</td>
+                <td class="header">Total</td>
+                <td class="header">Média</td>
+            </tr>';
+            foreach ($item['media_setor'] as $setor) {
+                $html .= '
+            <tr>
+                <td>' . htmlspecialchars($setor['setor']) . '</td>
+                <td>' . $setor['total_registros'] . '</td>
+                <td>' . number_format($setor['media_mensal'], 2, ',', '.') . '</td>
+            </tr>';
+            }
+            $html .= '</table>';
+            $html .= '</td>';
+
+            if ($index < count($tecnicos) - 1) {
+                $html .= '<td></td>';
+            }
+        }
+        $html .= '</tr>';
+
+        $html .= '</table>';
+        $html .= '</body></html>';
+
+        // Forçar download
+        $filename = 'ranking_consolidado_' . date('Y-m-d') . '.xls';
+
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        echo $html;
+        exit;
     }
 }

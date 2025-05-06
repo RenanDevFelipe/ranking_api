@@ -16,6 +16,10 @@ class QtypeRiquisicoesIXC {
     public function cliente(){
         return "cliente";
     }
+
+    public function arquivo(){
+        return "su_oss_chamado_arquivos";
+    }
 }
 
 ?>

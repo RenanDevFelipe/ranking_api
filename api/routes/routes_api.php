@@ -157,7 +157,21 @@ elseif ($uri == "Ranking/RankingMensal" && $method == "POST") {
     $controller->getRankingMensal($data['data_request']);
 
 
-} elseif ($uri == "Meta/MetaMensal") {
+} 
+
+elseif ( $uri == "Ranking/relatorio" && $method == "POST")
+{
+    $data = $getInput->FileContets();
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->gerarPlanilhaRankingMensal($data['data_request']);
+}
+
+elseif ($uri == "Meta/MetaMensal") 
+{
     $data = $getInput->FileContets();
 
     $controller->getMentaMensal($data['id'], $data['data_request']);
@@ -216,6 +230,18 @@ elseif ( $uri == "Checklist/getFiltered" && $method == "POST")
 
 }
 
+elseif ( $uri == "Checklist/Delete" && $method == "DELETE" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->checklistFieldDelete($data['id']);
+}
+
 
 
 
@@ -268,10 +294,33 @@ elseif ($uri == "IXCSoft/Cliente" && $method == "POST") {
 }
 
 
+elseif ( $uri == "IXCSoft/Arquivo" && $method == "POST" ){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->arquivosOS($data['id_chamado']));
+}
+
+
 // elseif ( $uri == "IXCSoft/listOsFinTec" && $method == "POST" ){
 //     $data = json_decode(file_get_contents("php://input"), true);
 //     $ixcController->listarOsClienteTecnico($data['query']);
 // }
+
+elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->listarOsClienteTecnico($data['id'], $data['data_fechamento']));
+}
 
 else {
     echo json_encode([

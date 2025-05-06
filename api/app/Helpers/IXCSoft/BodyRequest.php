@@ -97,4 +97,18 @@ class ModelBodyRequest
 
         return $data;
     }
+
+    public function BodyRequestArquivo($id_chamado){
+        $data = [
+            "qtype" => "su_oss_chamado_arquivos.id_oss_chamado",
+            "query" => $id_chamado,
+            "oper" => "=",
+            "page" => "1",
+            "rp" => "1000",
+            "sortname" => "su_oss_chamado_arquivos.id",
+            "sortorder" => "desc"
+        ];
+
+        return $data;
+    }
 }

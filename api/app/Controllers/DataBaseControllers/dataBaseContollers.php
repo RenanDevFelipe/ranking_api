@@ -184,4 +184,16 @@ class DataBaseControllers
         $data = $this->service->checklistFieldGetFiltred($id);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function checklistFieldDelete($id)
+    {
+        $data = $this->service->checklistFieldDelete($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function gerarPlanilhaRankingMensal($date)
+    {
+        $data = $this->service->gerarPlanilhaRankingMensal($date);
+        ResponseHelper::jsonResponse($data);
+    }
 }

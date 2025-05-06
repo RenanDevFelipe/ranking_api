@@ -21,6 +21,10 @@ class DataApiIxc{
     public function Cliente($query){
         return $this->bodyRequest->bodyRequestCliente($query);
     }
+
+    public function arquivos($id){
+        return $this->bodyRequest->BodyRequestArquivo($id);
+    }
 }
 
 ?>

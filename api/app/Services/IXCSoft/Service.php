@@ -63,6 +63,20 @@ class ApiIXC
         );
     }
 
+    public function arquivosOS($id_chamado)
+    {
+        $body = $this->body->arquivos($id_chamado);
+        $method = $this->methodIXC->listarIXC();
+
+        return $this->request(
+            $this->queryIXC->arquivo(),
+            "POST",
+            $body,
+            $method
+        );
+
+    }
+
     // public function getOsList(){
     //     $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = :id")
     // }
@@ -100,10 +114,13 @@ class ApiIXC
                 $id = $os['id'];
                 $id_cliente = $os['id_cliente'];
                 $ticket = $os['id_ticket'];
+                $id_login = $os['id_login'];
 
                 // Passo 2: Usar a função cliente() que já existe no seu código
                 $clienteResponse = $this->cliente(['id' => $id_cliente]); // 👈 aqui a função cliente() é usada
                 $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
+                $arquivoResponse = $this->arquivosOS($id);
+                $arquivo = $arquivoResponse['registros'][0]['id'] ?? 'Arquivo não encontrado';
 
                 // Passo 3: Buscar checklist no banco de dados
                 $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
@@ -128,6 +145,7 @@ class ApiIXC
                 $resultadoFinal[] = [
                     'id' => $id,
                     'id_atendimento' => $ticket,
+                    'id_arquivo' => $arquivo,
                     'id_cliente' => $id_cliente,
                     'id_assunto' => $os['id_assunto'],
                     'cliente' => $razao,
@@ -144,16 +162,15 @@ class ApiIXC
 
 
 
+
+
+
         return ([
             "total_registros" => $total_registros,
             "total_os_finalizadas" => $total,
             "registros" => $resultadoFinal,
         ]);
     }
-
-
-
-
 
 
 
