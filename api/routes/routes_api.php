@@ -319,7 +319,7 @@ elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
         exit;
     }
 
-    echo json_encode($ixcController->listarOsClienteTecnico($data['id'], $data['data_fechamento']));
+    echo json_encode($ixcController->clienteRadio($data['id']));
 }
 
 else {

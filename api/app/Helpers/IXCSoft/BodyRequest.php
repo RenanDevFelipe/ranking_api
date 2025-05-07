@@ -28,22 +28,6 @@ class ModelBodyRequest
         return $data;
     }
 
-    // public function BodyRequestModelDinamic($qtype, $query, $oper, $sortname, $sortorder){
-    //     $data = [
-
-    //         "qtype" => $qtype,
-    //         "query" => $query,
-    //         "oper" => $oper,
-    //         "page" => "1",
-    //         "rp" => "10000",
-    //         "sortname" => $sortname,
-    //         "sortorder" => $sortorder
-
-    //     ];
-
-    //     return $data;
-    // }
-
     public function BodyRequestModelFinalTecnico($query, $data)
     {
         $data = [
@@ -67,21 +51,6 @@ class ModelBodyRequest
         return $data;
     }
 
-    // public function BodyAlmoxTecnico($query){
-    //     $data = [
-    //         "qtype" => $this->qtypeIXC->estoque_produtos_almox_filial().".id_almox",
-    //         "query" => $query,
-    //         "oper" => "=",
-    //         "page" => "1",
-    //         "rp" => "1000",
-    //         "sortname" => $this->qtypeIXC->estoque_produtos_almox_filial().".id",
-    //         "sortorder" => "desc",
-    //         "status" => "S",
-    //     ];
-
-    //     return $data;
-    // }
-
     public function bodyRequestCliente($query)
     {
         $data = [
@@ -98,7 +67,8 @@ class ModelBodyRequest
         return $data;
     }
 
-    public function BodyRequestArquivo($id_chamado){
+    public function BodyRequestArquivo($id_chamado)
+    {
         $data = [
             "qtype" => "su_oss_chamado_arquivos.id_oss_chamado",
             "query" => $id_chamado,
@@ -106,6 +76,51 @@ class ModelBodyRequest
             "page" => "1",
             "rp" => "1000",
             "sortname" => "su_oss_chamado_arquivos.id",
+            "sortorder" => "desc"
+        ];
+
+        return $data;
+    }
+
+    public function BodyRequestLogin($query)
+    {
+        $data = [
+            "qtype" => "radusuarios.id",
+            "query" => $query,
+            "oper" => "=",
+            "page" => "1",
+            "rp" => "20",
+            "sortname" => "radusuarios.id",
+            "sortorder" => "desc"
+        ];
+
+        return $data;
+    }
+
+    public function BodyRequestONU($query)
+    {
+        $data = [
+            "qtype" => "radpop_radio_cliente_fibra.id_login",
+            "query" => $query,
+            "oper" => "=",
+            "page" => "1",
+            "rp" => "1000",
+            "sortname" => "radpop_radio_cliente_fibra.id",
+            "sortorder" => "desc"
+        ];
+
+        return $data;
+    }
+
+    public function BodyRequestClienteRadio($query)
+    {
+        $data = [
+            "qtype" => "radpop_radio_cliente.id_radusuarios",
+            "query" => $query,
+            "oper" => "=",
+            "page" => "1",
+            "rp" => "1000",
+            "sortname" => "radpop_radio_cliente.id",
             "sortorder" => "desc"
         ];
 

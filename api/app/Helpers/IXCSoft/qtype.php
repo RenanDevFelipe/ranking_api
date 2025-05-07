@@ -20,6 +20,21 @@ class QtypeRiquisicoesIXC {
     public function arquivo(){
         return "su_oss_chamado_arquivos";
     }
+
+    public function raduser()
+    {
+        return "radusuarios";
+    }
+
+    public function clienteFibraOnu()
+    {
+        return "radpop_radio_cliente_fibra";
+    }
+
+    public function clienteRadio()
+    {
+        return "radpop_radio_cliente";
+    }
 }
 
 ?>

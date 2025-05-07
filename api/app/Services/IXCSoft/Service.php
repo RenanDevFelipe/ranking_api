@@ -74,25 +74,46 @@ class ApiIXC
             $body,
             $method
         );
-
     }
 
-    // public function getOsList(){
-    //     $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = :id")
-    // }
+    public function getIPraduser($id_login)
+    {
+        $body = $this->body->login($id_login);
+        $method = $this->methodIXC->listarIXC();
 
-    // public function testeAlmox($query){
-    //     $body = $this->body->testeAlmox($query);
-    //     $method = $this->methodIXC->listarIXC();
+        return $this->request(
+            $this->queryIXC->raduser(),
+            "POST",
+            $body,
+            $method
+        );
+    }
 
+    public function clienteFibraOnu($id_login)
+    {
+        $body = $this->body->clienteFibraOnu($id_login);
+        $method = $this->methodIXC->listarIXC();
 
-    //     return $this->request(
-    //         $this->queryIXC->estoque_produtos_almox_filial(),
-    //         "POST",
-    //         $body,
-    //         $method
-    //     );
-    // }
+        return $this->request(
+            $this->queryIXC->clienteFibraOnu(),
+            "POST",
+            $body,
+            $method
+        );
+    }
+
+    public function clienteRadio($id_login)
+    {
+        $body = $this->body->clienteRadio($id_login);
+        $method = $this->methodIXC->listarIXC();
+
+        return $this->request(
+            $this->queryIXC->clienteRadio(),
+            "POST",
+            $body,
+            $method
+        );
+    }
 
 
     public function obterChamadosCompletos($query, $data)
@@ -119,8 +140,22 @@ class ApiIXC
                 // Passo 2: Usar a função cliente() que já existe no seu código
                 $clienteResponse = $this->cliente(['id' => $id_cliente]); // 👈 aqui a função cliente() é usada
                 $razao = $clienteResponse['registros'][0]['razao'] ?? 'Cliente não encontrado';
+
                 $arquivoResponse = $this->arquivosOS($id);
                 $arquivo = $arquivoResponse['registros'][0]['id'] ?? 'Arquivo não encontrado';
+
+                $ipRequest = $this->getIPraduser($id_login);
+                $ip_login = $ipRequest['registros'][0]['ip'];
+
+                $potenciaRequest = $this->clienteFibraOnu($id_login);
+                $sinal_rx = $potenciaRequest['registros'][0]['sinal_rx'];
+                $sinal_tx = $potenciaRequest['registros'][0]['sinal_tx'];
+
+                $radioRequest = $this->clienteRadio($id_login);
+                $radio_ccq = $radioRequest['registros'][0]['ccq'];
+                $radio_sinal = $radioRequest['registros'][0]['sinal'];
+                $radio_ip = $radioRequest['registros'][0]['lastip'];
+
 
                 // Passo 3: Buscar checklist no banco de dados
                 $stmt = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = ?");
@@ -148,6 +183,19 @@ class ApiIXC
                     'id_arquivo' => $arquivo,
                     'id_cliente' => $id_cliente,
                     'id_assunto' => $os['id_assunto'],
+                    'ip_login' => $ip_login,
+                    'potencia' => [
+                        'fibra' => [
+                            "tx" => $sinal_tx,
+                            "rx" => $sinal_rx
+                        ],
+
+                        'radio' => [
+                            'ccq' => $radio_ccq,
+                            'sinal' => $radio_sinal,
+                            'ip' => $radio_ip
+                        ]
+                    ],
                     'cliente' => $razao,
                     'finalizacao' => $os['data_fechamento'] ?? '',
                     'mensagem' => $os['mensagem_resposta'] ?? '',
