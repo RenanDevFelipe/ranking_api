@@ -6,6 +6,11 @@ require_once __DIR__ . "/../../Helpers/IXCSoft/qtype.php";
 require_once __DIR__ . "/../../../config/ApiIxc/config.php";
 require_once __DIR__ . '/../../../config/DataBase/TokenGerator.php';
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+
 
 class ApiIXC
 {
@@ -219,6 +224,75 @@ class ApiIXC
             "registros" => $resultadoFinal,
         ]);
     }
+
+
+    // DATA BASE REQUEST AVALIACAO N3 //
+
+    public function avalicaoN3($method)
+    {
+        try {
+
+            if ($method !== "POSt"){
+                return ([
+                    'status' => 'error',
+                    'message' => 'Riquisição inválida'
+                ]);
+            }
+
+            $id_avaliacao = $_POST['id_avaliacao'];
+            $id_os = $_POST['id_os'];
+            $desc_os = $_POST['desc_os'];
+            $pontuacao_os = $_POST['pontuacao_os'];
+            $nota_os = $_POST['$nota_os'];
+            $data_finalizacao_os = $_POST['data_finalizacao_os'];
+            $data_finalizacao = $_POST['data_finalizacao'];
+            $id_tecnico = $_POST['id_tecnico'];
+            $id_setor = $_POST['id_setor'];
+            $avaliador = $_POST['avaliador'];
+            $check_list = $_POST['check_list'];
+
+            $verificar = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = :id");
+            $verificar->execute([':id' => $id_os]);
+            $count = $verificar->rowCount();
+
+            if ($count > 0) {
+            } else {
+                $insert = $this->db->prepare("INSERT INTO avaliacao_n3 (id_avaliacao, id_os, desc_os, pontuacao_os, nota_os, data_finalizacao_os, data_finalizacao, id_tecnico, id_setoravaliador, check_list) VALUES (:id_avaliacao, :id_os, :desc_os, :pontuacao_os, :nota_os, :data_finalizacao_os, :data_finalizacao, :id_tecnico, :id_setoravaliador, :check_list)");
+                $success = $insert->execute([
+                    ":id_avaliacao" => $id_avaliacao,
+                    ':id_os' => $id_os,
+                    ':desc_os' => $desc_os,
+                    ':pontuacao_os' => $pontuacao_os,
+                    ':nota_os' => $nota_os,
+                    ':data_finalizacao_os' => $data_finalizacao_os,
+                    ':data_finalizacao' => $data_finalizacao,
+                    ':id_tecnico' => $id_tecnico,
+                    ':id_setor' => $id_setor,
+                    'avaliador' => $avaliador,
+                    ':check_list' => $check_list
+                ]);
+
+                if ( $success ){
+                    return ([
+                        'status' => 'success',
+                        'message' => 'Avaliação inserida com sucesso'
+                    ]);
+                } else {
+                    return ([
+                        'status' => 'error',
+                        'message' => 'Erro ao inserir avaliação'
+                    ]);
+                }
+            }
+        } catch (PDOException $e) {
+            return [
+                "status" => "error",
+                "message" => "Erro no banco de dados: " . $e
+            ];
+        }
+    }
+
+    // DATA BASE REQUEST AVALIACAO N3 //
 
 
 

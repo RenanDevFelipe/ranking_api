@@ -1049,12 +1049,12 @@ class getDataBase
             }
 
             // Preparar update
-            $stmt = $this->db->prepare("UPDATE tutoriais 
-            SET title = :title, 
-                descricao = :descricao, 
-                url_view = :url_view, 
-                url_download = :url_download,  
-                name_icon = :nome_icon 
+            $stmt = $this->db->prepare("UPDATE tutoriais
+            SET title = :title,
+                descricao = :descricao,
+                url_view = :url_view,
+                url_download = :url_download,
+                name_icon = :nome_icon
             WHERE id = :id");
 
             // Sanitização dos dados
@@ -1316,7 +1316,7 @@ class getDataBase
                     ];
                     exit;
                 } else {
-                   
+
                     if ($action === "create") {
                         $add = $this->db->prepare("INSERT INTO checklist_fields (checklist_id, label, type, max_score) VALUES (:id, :label, :type, :max_score)");
                         $success = $add->execute([
@@ -1455,17 +1455,17 @@ class getDataBase
         <head>
         <meta charset="UTF-8">
         <style>
-            .title { 
-                background-color: #4F81BD; 
-                color: #FFFFFF; 
-                font-weight: bold; 
+            .title {
+                background-color: #4F81BD;
+                color: #FFFFFF;
+                font-weight: bold;
                 font-size: 14pt;
                 text-align: center;
                 padding: 5px;
             }
-            .header { 
-                background-color: #D6E3BC; 
-                font-weight: bold; 
+            .header {
+                background-color: #D6E3BC;
+                font-weight: bold;
                 border: 1px solid #000000;
             }
             .highlight {

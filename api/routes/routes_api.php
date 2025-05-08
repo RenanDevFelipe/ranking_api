@@ -322,6 +322,11 @@ elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
     echo json_encode($ixcController->clienteRadio($data['id']));
 }
 
+elseif ($uri == "Avaliacao/N3")
+{
+    echo json_encode($ixcController->avalicaoN3($method));
+}
+
 else {
     echo json_encode([
         "erro" => "Rota inexistente ou Requisição inválida"
