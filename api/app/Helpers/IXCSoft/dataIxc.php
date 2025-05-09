@@ -44,4 +44,9 @@ class DataApiIxc
     {
         return $this->bodyRequest->BodyRequestClienteRadio($query);
     }
+
+    public function FinalizarOS($id)
+    {
+        return $this->bodyRequest->FinalizarOS($id);
+    }
 }

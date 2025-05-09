@@ -319,7 +319,7 @@ elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
         exit;
     }
 
-    echo json_encode($ixcController->clienteRadio($data['id']));
+    echo json_encode($ixcController->finalizarOSVerificar($data['id']));
 }
 
 elseif ($uri == "Avaliacao/N3")

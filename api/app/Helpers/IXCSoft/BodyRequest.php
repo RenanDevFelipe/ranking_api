@@ -126,4 +126,43 @@ class ModelBodyRequest
 
         return $data;
     }
+
+    public function FinalizarOS($id)
+    {
+        $data = [
+            'qtype' => 'su_oss_chamado.id_ticket',
+            'query' => $id,
+            'oper' => '=',
+            'page' => '1',
+            'rp' => '20',
+            'sortname' => 'su_oss_chamado.id',
+            'sortorder' => 'desc',
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.setor', 'OP' => '=', 'P' => '7'),
+                array('TB' => 'su_oss_chamado.id_assunto', 'OP' => 'IN', 'P' => '264,453,358')
+            ))
+        ];
+
+        return $data;
+    }
+
+    public function FinalizarVerificar($id_os, $text_verificar, $id_troca, $id_ixc_user)
+    {
+        $currentDateTime = date('Y-m-d H:i:s');
+
+        $data = [
+            'id_chamado' => $id_os, // ID da O.S
+            'data_inicio' => $currentDateTime, // Data e Hora de Início da finalização
+            'data_final' => $currentDateTime, // Data e Hora de Final da finalização
+            'mensagem' => $text_verificar, // Mensagem
+            'gera_comissao' => '', // "N" para Não "S" para Sim
+            'id_su_diagnostico' => '', // ID do diagnóstico (não obrigatório)
+            'id_proxima_tarefa' => $id_troca,
+            'finaliza_processo' => 'N', // "S" para finalizar o processo
+            'status' => 'F', // Status "F" para finalizar
+            'id_tecnico' => $id_ixc_user // ID do técnico responsável
+        ];
+
+        return $data;
+    }
 }

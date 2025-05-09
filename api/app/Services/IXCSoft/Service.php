@@ -121,6 +121,15 @@ class ApiIXC
     }
 
 
+    public function getColaboradordb($id)
+    {
+        $select = $this->db->prepare("SELECT * FROM colaborador WHERE id_ixc = :id");
+        $select->execute([":id" => $id]);
+        $colaborador = $select->fetch(PDO::FETCH_ASSOC);
+
+        return $colaborador;
+    }
+
     public function obterChamadosCompletos($query, $data)
     {
         $this->token->verificarToken();
@@ -129,6 +138,9 @@ class ApiIXC
         $body = $this->body->ListAllOsTecnicoFin($query, $data);
         $methodH = $this->methodIXC->listarIXC();
         $response = $this->request($this->queryIXC->su_chamado_os(), "POST", $body, $methodH);
+        $colaboradorRequest = $this->getColaboradordb($query);
+        $id_colaborador = $colaboradorRequest['id_colaborador'];
+        $nome_colaborador = $colaboradorRequest['nome_colaborador'];
 
         $registros = $response['registros'] ?? [];
         $resultadoFinal = [];
@@ -221,8 +233,35 @@ class ApiIXC
         return ([
             "total_registros" => $total_registros,
             "total_os_finalizadas" => $total,
+            "id_tecnico" => $id_colaborador,
+            "nome_tecnico" => $nome_colaborador,
             "registros" => $resultadoFinal,
         ]);
+    }
+
+    public function finalizarOSVerificar($id_atendimento)
+    {
+        $body = $this->body->FinalizarOS($id_atendimento);
+        $method = $this->methodIXC->listarIXC();
+
+        $verificacoes = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            "POST",
+            $body,
+            $method
+        );
+
+        if ($verificacoes['total'] < 1)
+        {
+            return ([
+                "status" => "error",
+                "message" => "Erro ao finalizar no ixc, atendiemento: " . $id_atendimento . " não tem o.s de verificação"
+            ]);
+        }
+
+        $id_verificar = $verificacoes['registros'][0]['id'];
+
+        // return $id_verificar;
     }
 
 
@@ -232,18 +271,19 @@ class ApiIXC
     {
         try {
 
-            if ($method !== "POSt"){
+            if ($method !== "POST") {
                 return ([
                     'status' => 'error',
                     'message' => 'Riquisição inválida'
                 ]);
             }
 
-            $id_avaliacao = $_POST['id_avaliacao'];
+            $this->token->verificarToken();
+
             $id_os = $_POST['id_os'];
             $desc_os = $_POST['desc_os'];
             $pontuacao_os = $_POST['pontuacao_os'];
-            $nota_os = $_POST['$nota_os'];
+            $nota_os = $_POST['nota_os'];
             $data_finalizacao_os = $_POST['data_finalizacao_os'];
             $data_finalizacao = $_POST['data_finalizacao'];
             $id_tecnico = $_POST['id_tecnico'];
@@ -256,10 +296,35 @@ class ApiIXC
             $count = $verificar->rowCount();
 
             if ($count > 0) {
+
+                $update = $this->db->prepare("UPDATE avaliacao_n3 SET desc_os = :desc_os, pontuacao_os = :pontuacao_os, nota_os = :nota_os, data_finalizacao_os = :data_finalizacao_os, data_finalizacao = :data_finalizacao, id_tecnico = :id_tecnico, id_setor = :id_setor, avaliador = :avaliador, check_list = :check_list WHERE id_os = :id");
+                $success = $update->execute([
+                    ':id' => $id_os,
+                    ':desc_os' => $desc_os,
+                    ':pontuacao_os' => $pontuacao_os,
+                    ':nota_os' => $nota_os,
+                    ':data_finalizacao_os' => $data_finalizacao_os,
+                    ':data_finalizacao' => $data_finalizacao,
+                    ':id_tecnico' => $id_tecnico,
+                    ':id_setor' => $id_setor,
+                    ':avaliador' => $avaliador,
+                    ':check_list' => $check_list
+                ]);
+
+                if ($success) {
+                    return ([
+                        'status' => 'success',
+                        'message' => 'Avaliação atualizada com sucesso'
+                    ]);
+                } else {
+                    return ([
+                        'status' => 'error',
+                        'message' => 'Erro ao atualizar avaliação'
+                    ]);
+                }
             } else {
-                $insert = $this->db->prepare("INSERT INTO avaliacao_n3 (id_avaliacao, id_os, desc_os, pontuacao_os, nota_os, data_finalizacao_os, data_finalizacao, id_tecnico, id_setoravaliador, check_list) VALUES (:id_avaliacao, :id_os, :desc_os, :pontuacao_os, :nota_os, :data_finalizacao_os, :data_finalizacao, :id_tecnico, :id_setor, :avaliador, :check_list)");
+                $insert = $this->db->prepare("INSERT INTO avaliacao_n3 (id_os, desc_os, pontuacao_os, nota_os, data_finalizacao_os, data_finalizacao, id_tecnico, id_setor, avaliador, check_list) VALUES (:id_os, :desc_os, :pontuacao_os, :nota_os, :data_finalizacao_os, :data_finalizacao, :id_tecnico, :id_setor, :avaliador, :check_list)");
                 $success = $insert->execute([
-                    ":id_avaliacao" => $id_avaliacao,
                     ':id_os' => $id_os,
                     ':desc_os' => $desc_os,
                     ':pontuacao_os' => $pontuacao_os,
@@ -272,7 +337,7 @@ class ApiIXC
                     ':check_list' => $check_list
                 ]);
 
-                if ( $success ){
+                if ($success) {
                     return ([
                         'status' => 'success',
                         'message' => 'Avaliação inserida com sucesso'
