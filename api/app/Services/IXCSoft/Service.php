@@ -257,7 +257,7 @@ class ApiIXC
 
             if ($count > 0) {
             } else {
-                $insert = $this->db->prepare("INSERT INTO avaliacao_n3 (id_avaliacao, id_os, desc_os, pontuacao_os, nota_os, data_finalizacao_os, data_finalizacao, id_tecnico, id_setoravaliador, check_list) VALUES (:id_avaliacao, :id_os, :desc_os, :pontuacao_os, :nota_os, :data_finalizacao_os, :data_finalizacao, :id_tecnico, :id_setoravaliador, :check_list)");
+                $insert = $this->db->prepare("INSERT INTO avaliacao_n3 (id_avaliacao, id_os, desc_os, pontuacao_os, nota_os, data_finalizacao_os, data_finalizacao, id_tecnico, id_setoravaliador, check_list) VALUES (:id_avaliacao, :id_os, :desc_os, :pontuacao_os, :nota_os, :data_finalizacao_os, :data_finalizacao, :id_tecnico, :id_setor, :avaliador, :check_list)");
                 $success = $insert->execute([
                     ":id_avaliacao" => $id_avaliacao,
                     ':id_os' => $id_os,
@@ -268,7 +268,7 @@ class ApiIXC
                     ':data_finalizacao' => $data_finalizacao,
                     ':id_tecnico' => $id_tecnico,
                     ':id_setor' => $id_setor,
-                    'avaliador' => $avaliador,
+                    ':avaliador' => $avaliador,
                     ':check_list' => $check_list
                 ]);
 
