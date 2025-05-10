@@ -49,4 +49,9 @@ class DataApiIxc
     {
         return $this->bodyRequest->FinalizarOS($id);
     }
+
+    public function FinalizarVerificar($id_os, $text_verificar, $id_troca, $id_ixc_user)
+    {
+        return $this->bodyRequest->FinalizarVerificar($id_os, $text_verificar, $id_troca, $id_ixc_user);
+    }
 }
