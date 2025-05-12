@@ -165,4 +165,61 @@ class ModelBodyRequest
 
         return $data;
     }
+
+    public function BodyRequestosConferencia($atendimento)
+    {
+        $data = [
+            'qtype' => 'su_oss_chamado.id_ticket',
+            'query' => $atendimento,
+            'oper' => '=',
+            'page' => '1',
+            'rp' => '20',
+            'sortname' => 'su_oss_chamado.id',
+            'sortorder' => 'desc',
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.setor', 'OP' => '=', 'P' => '7'),
+                array('TB' => 'su_oss_chamado.id_assunto', 'OP' => 'IN', 'P' => '95,85,149,310,454,359,255,411')
+            ))
+        ];
+
+        return $data;
+    }
+
+    public function finalizarConferencia($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        $currentDateTime = date('Y-m-d H:i:s');
+
+        $data = [
+            'id_chamado' => $id_os_conferencia, // ID da O.S
+            'data_inicio' => $currentDateTime, // Data e Hora de Início da finalização
+            'data_final' => $currentDateTime, // Data e Hora de Final da finalização
+            'mensagem' => $evaluationText, // Mensagem
+            'gera_comissao' => '', // "N" para Não "S" para Sim
+            'id_su_diagnostico' => '', // ID do diagnóstico (não obrigatório)
+            'finaliza_processo' => 'S', // "S" para finalizar o processo
+            'status' => 'F', // Status "F" para finalizar
+            'id_tecnico' => $id_ixc_user // ID do técnico responsável
+        ];
+
+        return $data;
+    }
+
+    public function BodyRequestMudancaDeEndereco($atendimento)
+    {
+        $data = [
+            'qtype' => 'su_oss_chamado.id_ticket',
+            'query' => $atendimento,
+            'oper' => '=',
+            'page' => '1',
+            'rp' => '20',
+            'sortname' => 'su_oss_chamado.id',
+            'sortorder' => 'desc',
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.setor', 'OP' => '=', 'P' => '7'),
+                array('TB' => 'su_oss_chamado.id_assunto', 'OP' => '=', 'P' => '149')
+            ))
+        ];
+
+        return $data;
+    }
 }

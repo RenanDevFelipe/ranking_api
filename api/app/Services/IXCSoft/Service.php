@@ -239,7 +239,7 @@ class ApiIXC
         ]);
     }
 
-    public function finalizarOSVerificar($id_atendimento)
+    public function finalizarOSVerificar($id_atendimento, $text_verificar, $id_troca, $id_ixc_user, $check_list) // Etapa normal sem precisar ser modificado
     {
         $body = $this->body->FinalizarOS($id_atendimento);
         $method = $this->methodIXC->listarIXC();
@@ -251,8 +251,7 @@ class ApiIXC
             $method
         );
 
-        if ($verificacoes['total'] < 1)
-        {
+        if ($verificacoes['total'] < 1) {
             return ([
                 "status" => "error",
                 "message" => "Erro ao finalizar no ixc, atendiemento: " . $id_atendimento . " não tem o.s de verificação"
@@ -262,6 +261,48 @@ class ApiIXC
         $id_verificar = $verificacoes['registros'][0]['id'];
 
         // return $id_verificar;
+
+        $bodyFin = $this->body->FinalizarVerificar($id_verificar, $text_verificar, $id_troca, $id_ixc_user);
+
+        $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $bodyFin,
+            ''
+        );
+
+        // dps de finalizar o.s de verificar ele vem pra etapa de finalizar a de conferencia
+        $bodyRequestConferencia = $this->body->BodyRequestConferencia($id_atendimento);
+
+        $conferencias = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            "POST",
+            $bodyRequestConferencia,
+            $method
+        );
+
+        if ($conferencias['total'] < 1) {
+            return ([
+                "status" => "error",
+                "message" => "Erro ao finalizar no ixc, atendiemento: " . $id_atendimento . " não tem o.s de conferencia"
+            ]);
+        }
+
+        $id_conferencia = $conferencias['registros'][0]['id'];
+
+        $bodyFinalizarConferencia = $this->body->FinalizarConferencia($id_conferencia, $check_list, $id_ixc_user);
+
+        return $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $bodyFinalizarConferencia,
+            ''
+        );
+    }
+
+    public function mudancaDeEndereco()
+    {
+        
     }
 
 
@@ -290,6 +331,12 @@ class ApiIXC
             $id_setor = $_POST['id_setor'];
             $avaliador = $_POST['avaliador'];
             $check_list = $_POST['check_list'];
+            $id_assunto = $_POST['id_assunto'];
+            $id_atendimento = $_POST['id_atendimento'];
+            $observacao_troca = $_POST['observacao_troca'];
+            $troca = $_POST['troca'];
+            $id_ixc_user = $_POST['id_ixc'];
+
 
             $verificar = $this->db->prepare("SELECT * FROM avaliacao_n3 WHERE id_os = :id");
             $verificar->execute([':id' => $id_os]);
@@ -338,6 +385,15 @@ class ApiIXC
                 ]);
 
                 if ($success) {
+
+                    if ($id_assunto === '10') 
+                    {
+                    } elseif ($id_assunto === '5' || $id_assunto === '70') 
+                    {
+                    } else {
+                        return $this->finalizarOSVerificar($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
+                    }
+
                     return ([
                         'status' => 'success',
                         'message' => 'Avaliação inserida com sucesso'

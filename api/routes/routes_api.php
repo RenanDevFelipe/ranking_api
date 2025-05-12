@@ -319,7 +319,7 @@ elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
         exit;
     }
 
-    echo json_encode($ixcController->finalizarOSVerificar($data['id']));
+    echo json_encode($ixcController->finalizarOSVerificar($data['id'], $data['mensagem'], $data['id_proxima_os'], $data['id_ixc'], $data['checklist']));
 }
 
 elseif ($uri == "Avaliacao/N3")

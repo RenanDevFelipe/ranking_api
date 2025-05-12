@@ -35,6 +35,11 @@ class QtypeRiquisicoesIXC {
     {
         return "radpop_radio_cliente";
     }
+
+    public function os_finalizar()
+    {
+        return "su_oss_chamado_fechar";
+    }
 }
 
 ?>

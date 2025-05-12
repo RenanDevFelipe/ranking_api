@@ -54,4 +54,14 @@ class DataApiIxc
     {
         return $this->bodyRequest->FinalizarVerificar($id_os, $text_verificar, $id_troca, $id_ixc_user);
     }
+
+    public function BodyRequestConferencia($atendimento)
+    {
+        return $this->bodyRequest->BodyRequestosConferencia($atendimento);
+    }
+
+    public function FinalizarConferencia($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        return $this->bodyRequest->finalizarConferencia($id_os_conferencia, $evaluationText, $id_ixc_user);
+    }
 }
