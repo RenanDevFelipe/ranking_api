@@ -222,4 +222,64 @@ class ModelBodyRequest
 
         return $data;
     }
+
+    public function BodyRequestVerificarMudanca($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        $currentDateTime = date('Y-m-d H:i:s');
+
+        $data = [
+            'id_chamado' => $id_os_conferencia, // ID da O.S
+            'data_inicio' => $currentDateTime, // Data e Hora de Início da finalização
+            'data_final' => $currentDateTime, // Data e Hora de Final da finalização
+            'mensagem' => $evaluationText, // Mensagem
+            'gera_comissao' => '', // "N" para Não "S" para Sim
+            'id_su_diagnostico' => '', // ID do diagnóstico (não obrigatório)
+            'id_proxima_tarefa' => '50',
+            'proxima_sequencia_forcada' => '7',
+            'finaliza_processo' => 'N', // "S" para finalizar o processo
+            'status' => 'F', // Status "F" para finalizar
+            'id_tecnico' => $id_ixc_user // ID do técnico responsável
+        ];
+
+        return $data;
+    }
+
+    public function BodyRequestConferenciaInstalacao($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        $currentDateTime = date('Y-m-d H:i:s');
+
+        $data = [
+            'id_chamado' => $id_os_conferencia, // ID da O.S
+            'data_inicio' => $currentDateTime, // Data e Hora de Início da finalização
+            'data_final' => $currentDateTime, // Data e Hora de Final da finalização
+            'mensagem' => $evaluationText, // Mensagem
+            'gera_comissao' => '', // "N" para Não "S" para Sim
+            'id_su_diagnostico' => '', // ID do diagnóstico (não obrigatório)
+            'id_proxima_tarefa' => '478',
+            'finaliza_processo' => 'N', // "S" para finalizar o processo
+            'status' => 'F', // Status "F" para finalizar
+            'id_tecnico' => $id_ixc_user // ID do técnico responsável
+        ];
+
+        return $data;
+    }
+
+    public function BodyRequestConferenciaCamera($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        $currentDateTime = date('Y-m-d H:i:s');
+        $data = [
+            'id_chamado' => $id_os_conferencia, // ID da O.S
+            'data_inicio' => $currentDateTime, // Data e Hora de Início da finalização
+            'data_final' => $currentDateTime, // Data e Hora de Final da finalização
+            'mensagem' => $evaluationText, // Mensagem
+            'gera_comissao' => '', // "N" para Não "S" para Sim
+            'id_su_diagnostico' => '', // ID do diagnóstico (não obrigatório)
+            'id_proxima_tarefa' => '222',
+            'finaliza_processo' => 'N', // "S" para finalizar o processo
+            'status' => 'F', // Status "F" para finalizar
+            'id_tecnico' => $id_ixc_user // ID do técnico responsável
+        ];
+
+        return $data;
+    }
 }

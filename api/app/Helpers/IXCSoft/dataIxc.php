@@ -64,4 +64,24 @@ class DataApiIxc
     {
         return $this->bodyRequest->finalizarConferencia($id_os_conferencia, $evaluationText, $id_ixc_user);
     }
+
+    public function BodyRequestMudancaDeEndereco($atendimento)
+    {
+        return $this->bodyRequest->BodyRequestMudancaDeEndereco($atendimento);
+    }
+
+    public function BodyRequestVerificarMudanca($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        return $this->bodyRequest->BodyRequestVerificarMudanca($id_os_conferencia, $evaluationText, $id_ixc_user);
+    }
+
+    public function BodyRequestConferenciaInstalacao($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        return $this->bodyRequest->BodyRequestConferenciaInstalacao($id_os_conferencia, $evaluationText, $id_ixc_user);
+    }
+
+    public function BodyRequestConferenciaCamera($id_os_conferencia, $evaluationText, $id_ixc_user)
+    {
+        return $this->bodyRequest->BodyRequestConferenciaCamera($id_os_conferencia, $evaluationText, $id_ixc_user);
+    }
 }

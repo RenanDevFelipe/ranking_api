@@ -300,11 +300,168 @@ class ApiIXC
         );
     }
 
-    public function mudancaDeEndereco()
+    public function mudancaDeEndereco($id_atendimento, $evaluationText, $id_ixc_user, $text_verificar, $id_troca)
     {
+
+        $body = $this->body->FinalizarOS($id_atendimento);
+        $method = $this->methodIXC->listarIXC();
+
+        $verificacoes = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            "POST",
+            $body,
+            $method
+        );
+
+        if ($verificacoes['total'] < 1) {
+            return ([
+                "status" => "error",
+                "message" => "Erro ao finalizar no ixc, atendiemento: " . $id_atendimento . " não tem o.s de verificação"
+            ]);
+        }
+
+        $id_verificar = $verificacoes['registros'][0]['id'];
+
+        $bodyFin = $this->body->FinalizarVerificar($id_verificar, $text_verificar, $id_troca, $id_ixc_user);
+
+        $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $bodyFin,
+            ''
+        );
+
+
+
+        $body = $this->body->BodyRequestMudancaDeEndereco($id_atendimento);
+        $method = $this->methodIXC->listarIXC();
+
+        $verificacoes = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            'POST',
+            $body,
+            $method
+        );
+
+        if ($verificacoes['total'] < 1)
+        {
+            return ([
+                'status' => 'error',
+                'message' => 'Erro ao finalizar, não tem o.s de verificação para o id: ' . $id_atendimento
+            ]);
+
+            exit;
+        }
+
+        $id_verificar = $verificacoes['registros'][0]['id'];
+
+        $bodyFinVer = $this->body->BodyRequestVerificarMudanca($id_verificar, $evaluationText, $id_ixc_user);
+
+        return $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $bodyFinVer,
+            ''
+        );
+    }
+
+    public function instalacao($id_atendimento, $evaluationText, $id_ixc_user)
+    {
+        $body = $this->body->BodyRequestConferencia($id_atendimento);
+        $method = $this->methodIXC->listarIXC();
+
+        $conferencias = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            'POST',
+            $body,
+            $method
+        );
+
+        if ($conferencias['total'] < 1)
+        {
+            return ([
+                'status' => 'error',
+                'message' => 'Erro ao finalizar, não tem o.s de verificação para o id: ' . $id_atendimento
+            ]);
+
+            exit;
+        }
+
+        $id_conferencia = $conferencias['registros'][0]['id'];
+
+        $body = $this->body->BodyRequestConferenciaInstalacao($id_conferencia, $evaluationText, $id_ixc_user);
+
+        return $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $body,
+            ''
+        );
         
     }
 
+    public function camera($id_atendimento, $text_verificar, $id_troca, $id_ixc_user, $evaluationText)
+    {
+        $body = $this->body->FinalizarOS($id_atendimento);
+        $method = $this->methodIXC->listarIXC();
+
+        $verificacoes = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            "POST",
+            $body,
+            $method
+        );
+
+        if ($verificacoes['total'] < 1) {
+            return ([
+                "status" => "error",
+                "message" => "Erro ao finalizar no ixc, atendiemento: " . $id_atendimento . " não tem o.s de verificação"
+            ]);
+        }
+
+        $id_verificar = $verificacoes['registros'][0]['id'];
+
+        $bodyFin = $this->body->FinalizarVerificar($id_verificar, $text_verificar, $id_troca, $id_ixc_user);
+
+        $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $bodyFin,
+            ''
+        );
+
+
+        $body = $this->body->BodyRequestConferencia($id_atendimento);
+        $method = $this->methodIXC->listarIXC();
+
+        $conferencias = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            'POST',
+            $body,
+            $method
+        );
+
+        if ($conferencias['total'] < 1)
+        {
+            return ([
+                'status' => 'error',
+                'message' => 'Erro ao finalizar, não tem o.s de verificação para o id: ' . $id_atendimento
+            ]);
+
+            exit;
+        }
+
+        $id_conferencia = $conferencias['registros'][0]['id'];
+
+        $body = $this->body->BodyRequestConferenciaCamera($id_conferencia, $evaluationText, $id_ixc_user);
+
+        return $this->request(
+            $this->queryIXC->os_finalizar(),
+            'POST',
+            $body,
+            ''
+        );
+    }
 
     // DATA BASE REQUEST AVALIACAO N3 //
 
@@ -388,9 +545,20 @@ class ApiIXC
 
                     if ($id_assunto === '10') 
                     {
-                    } elseif ($id_assunto === '5' || $id_assunto === '70') 
+                        $this->instalacao($id_atendimento, $check_list, $id_ixc_user);
+                    }
+
+                    elseif ($id_assunto === '503' || $id_assunto === '421')
                     {
-                    } else {
+                        $this->camera($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
+                    }
+                    
+                    elseif ($id_assunto === '5' || $id_assunto === '70')
+                    {
+                        $this->mudancaDeEndereco($id_atendimento, $check_list, $id_ixc_user, $observacao_troca, $troca);
+                    } 
+                    
+                    else {
                         return $this->finalizarOSVerificar($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
                     }
 

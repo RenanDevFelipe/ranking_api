@@ -629,7 +629,7 @@ class getDataBase
 
             $sucesso = [
                 "id_setor" => 8,
-                "setor" => $setor_sucesso['nome_setor'],
+                "setor" => 'Sucesso ao cliente',
                 "total_registros" => $total_sucesso,
                 "media_diaria" => number_format($media_sucesso, 2),
                 "soma_pontuacao" => number_format($sum_ponts, 2),
@@ -708,7 +708,7 @@ class getDataBase
 
             $setor_nivel3 = [
                 "id_setor" => 5,
-                "setor" => $setor_Ni3['nome_setor'],
+                "setor" => 'Suporte Nível 3',
                 "total_registros" => $total_n3,
                 "media_diaria" => number_format($media_n3, 2),
                 "soma_pontuacao" => number_format($sum_ponts_n3, 2)
