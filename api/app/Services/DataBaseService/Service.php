@@ -75,6 +75,11 @@ class getDataBase
         return $registros;
     }
 
+    public function listOneUser()
+    {
+        $select = $this->db->prepare("SELECT * FROM users WHERE ");
+    }
+
     public function postUser($method)
     {
         try {
