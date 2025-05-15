@@ -1689,6 +1689,51 @@ class getDataBase
                 $avaliacao['id_avaliacao_n2']
             ]);
 
+            $inserirHistorico = $this->db->prepare("
+    INSERT INTO historico (
+        nome_avaliador,
+        data_avaliacao,
+        data_infracao,
+        pontuacao_anterior,
+        pontuacao_atual,
+        observacao,
+        nome_tecnico,
+        id_tecnico
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+");
+
+            // Você pode pegar esses dados do contexto
+            $nome_avaliador = $_POST['nome_avaliador'] ?? 'Sistema'; // ou pegue de sessão/token
+            $data_avaliacao = date('Y-m-d H:i:s');
+            $data_infracao = $data; // mesmo valor usado na avaliação
+            $observacao = $_POST['observacao'] ?? null;
+            $nome_tecnico = $_POST['nome_tecnico'] ?? 'Desconhecido';
+            $id_tecnico = $id_tecnico;
+
+            // Calcular a soma antes e depois
+            $pontuacao_anterior =
+                (int)$avaliacao['ponto_finalizacao_os'] +
+                (int)$avaliacao['ponto_lavagem_carro'] +
+                (int)$avaliacao['organizacao_material'] +
+                (int)$avaliacao['ponto_fardamento'];
+
+            $pontuacao_atual =
+                $ponto_finalizacao_os +
+                $ponto_lavagem_carro +
+                $organizacao_material +
+                $ponto_fardamento;
+
+            $inserirHistorico->execute([
+                $nome_avaliador,
+                $data_avaliacao,
+                $data_infracao,
+                $pontuacao_anterior,
+                $pontuacao_atual,
+                $observacao,
+                $nome_tecnico,
+                $id_tecnico
+            ]);
+
             return [
                 'status' => 'success',
                 'message' => 'Pontos atualizados com sucesso.',
