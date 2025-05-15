@@ -196,4 +196,10 @@ class DataBaseControllers
         $data = $this->service->gerarPlanilhaRankingMensal($date);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function avaliacao_n2($method)
+    {
+        $data = $this->service->avaliacao_n2($method);
+        ResponseHelper::jsonResponse($data);
+    }
 }

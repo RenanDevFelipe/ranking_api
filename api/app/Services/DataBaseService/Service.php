@@ -1314,7 +1314,7 @@ class getDataBase
                 $max_score = $_POST['max_score'] ?? null;
                 $action = $_POST['action'];
 
-                if ($checklist_id == null || $label== null ||  $type == null) {
+                if ($checklist_id == null || $label == null ||  $type == null) {
                     return [
                         "status" => "error",
                         "message" => "Preencha todos os campos"
@@ -1609,4 +1609,105 @@ class getDataBase
         echo $html;
         exit;
     }
+
+
+    /// SERVICE PONTO N2 ///
+
+    public function avaliacao_n2($method)
+    {
+        try {
+            if ($method != 'POST') {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ];
+            }
+
+            $this->token->verificarToken();
+
+            $data = $_POST['data_requisicao'] ?? date('Y-m-d');
+            $id_tecnico = $_POST['id_colaborador'];
+
+            // Buscar a avaliação existente
+            $stmt = $this->db->prepare("SELECT * FROM avaliacao WHERE id_tecnico_n2 = ? AND data_finalizacao = ?");
+            $stmt->execute([$id_tecnico, $data]);
+            $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$avaliacao) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Avaliação não encontrada.'
+                ];
+            }
+
+            // Função para ajustar ponto individualmente
+            function ajustarPonto($valorAtual, $add, $sub)
+            {
+                if ($add) return min(10, $valorAtual + 10);
+                if ($sub) return max(0, $valorAtual - 10);
+                return $valorAtual;
+            }
+
+            // Ajusta os pontos com base nos checkboxes recebidos
+            $ponto_finalizacao_os = ajustarPonto(
+                (int)$avaliacao['ponto_finalizacao_os'],
+                isset($_POST['finalizacao_os_add']),
+                isset($_POST['finalizacao_os_sub'])
+            );
+
+            $ponto_lavagem_carro = ajustarPonto(
+                (int)$avaliacao['ponto_lavagem_carro'],
+                isset($_POST['lavagem_carro_add']),
+                isset($_POST['lavagem_carro_sub'])
+            );
+
+            $organizacao_material = ajustarPonto(
+                (int)$avaliacao['organizacao_material'],
+                isset($_POST['organizacao_material_add']),
+                isset($_POST['organizacao_material_sub'])
+            );
+
+            $ponto_fardamento = ajustarPonto(
+                (int)$avaliacao['ponto_fardamento'],
+                isset($_POST['fardamento_add']),
+                isset($_POST['fardamento_sub'])
+            );
+
+            // Atualiza somente os campos individuais
+            $update = $this->db->prepare("UPDATE avaliacao SET 
+            ponto_finalizacao_os = ?, 
+            ponto_lavagem_carro = ?, 
+            organizacao_material = ?, 
+            ponto_fardamento = ?
+            WHERE id_avaliacao_n2 = ?");
+
+            $update->execute([
+                $ponto_finalizacao_os,
+                $ponto_lavagem_carro,
+                $organizacao_material,
+                $ponto_fardamento,
+                $avaliacao['id_avaliacao_n2']
+            ]);
+
+            return [
+                'status' => 'success',
+                'message' => 'Pontos atualizados com sucesso.',
+                'dados' => [
+                    'ponto_finalizacao_os' => $ponto_finalizacao_os,
+                    'ponto_lavagem_carro' => $ponto_lavagem_carro,
+                    'organizacao_material' => $organizacao_material,
+                    'ponto_fardamento' => $ponto_fardamento
+                    // ponto_total é omitido porque é automático no banco
+                ]
+            ];
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
+    }
+
+
+    /// SERVICE PONTO N2 ///
 }
