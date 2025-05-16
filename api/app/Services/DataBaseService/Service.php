@@ -1884,7 +1884,7 @@ class getDataBase
 
     public function logHistoricoN2($method, $id_colaborador, $data)
     {
-        try{
+        try {
 
             $this->token->verificarToken();
 
@@ -1896,8 +1896,7 @@ class getDataBase
             $total = $historicoRequest->rowCount();
             $historico = $historicoRequest->fetchAll(PDO::FETCH_ASSOC);
 
-            if ( $total < 1 )
-            {
+            if ($total < 1) {
                 return ([
                     'message' => 'Sem registros encontrado'
                 ]);
@@ -1908,9 +1907,7 @@ class getDataBase
                 'total' => $total,
                 'registros' => $historico
             ]);
-            
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return ([
                 'status' => 'error',
                 'message' => 'Erro no banco de dados: ' . $e
@@ -1918,7 +1915,158 @@ class getDataBase
         }
     }
 
-
-
     /// SERVICE PONTO N2 ///
+
+
+    /// SERVICE PONTO ESTOQUE ///
+
+    public function avaliacaoEstoque($method)
+    {
+        try {
+            if ($method != 'POST') {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ];
+            }
+
+            $this->token->verificarToken();
+
+            $data = $_POST['data_requisicao'] ?? date('Y-m-d');
+            $id_tecnico = $_POST['id_colaborador'];
+            $observacao = $_POST['observacao'];
+
+            // Valores originais máximos de cada campo
+            $maximos = [
+                'pnt_pedido' => 2,
+                'pnt_prazo' => 1,
+                'pnt_etiqueta' => 1,
+                'pnt_baixa_mat' => 2,
+                'pnt_troca_equip' => 2,
+                'pnt_transferencia' => 2
+            ];
+
+            // Buscar a avaliação existente
+            $stmt = $this->db->prepare("SELECT * FROM avaliacao_estoque WHERE id_tecnico_estoque = ? AND data_finalizacao = ?");
+            $stmt->execute([$id_tecnico, $data]);
+            $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$avaliacao) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Avaliação não encontrada.'
+                ];
+            }
+
+            function ajustarPontoEstoque($valorAtual, $valorOriginal, $add, $sub)
+            {
+                if ($add) return min($valorOriginal, $valorAtual + $valorOriginal);
+                if ($sub) return max(0, $valorAtual - $valorOriginal);
+                return $valorAtual;
+            }
+
+            $pnt_pedido = ajustarPontoEstoque((int)$avaliacao['pnt_pedido'], $maximos['pnt_pedido'], isset($_POST['pedido_add']), isset($_POST['pedido_sub']));
+            $pnt_prazo = ajustarPontoEstoque((int)$avaliacao['pnt_prazo'], $maximos['pnt_prazo'], isset($_POST['prazo_add']), isset($_POST['prazo_sub']));
+            $pnt_etiqueta = ajustarPontoEstoque((int)$avaliacao['pnt_etiqueta'], $maximos['pnt_etiqueta'], isset($_POST['etiqueta_add']), isset($_POST['etiqueta_sub']));
+            $pnt_baixa_mat = ajustarPontoEstoque((int)$avaliacao['pnt_baixa_mat'], $maximos['pnt_baixa_mat'], isset($_POST['baixa_mat_add']), isset($_POST['baixa_mat_sub']));
+            $pnt_troca_equip = ajustarPontoEstoque((int)$avaliacao['pnt_troca_equip'], $maximos['pnt_troca_equip'], isset($_POST['troca_equip_add']), isset($_POST['troca_equip_sub']));
+            $pnt_transferencia = ajustarPontoEstoque((int)$avaliacao['pnt_transferencia'], $maximos['pnt_transferencia'], isset($_POST['transferencia_add']), isset($_POST['transferencia_sub']));
+
+            // // Atualiza os pontos
+            $update = $this->db->prepare("UPDATE avaliacao_estoque SET 
+            pnt_pedido = ?, 
+            pnt_prazo = ?, 
+            pnt_etiqueta = ?, 
+            pnt_baixa_mat = ?, 
+            pnt_troca_equip = ?, 
+            pnt_transferencia = ?
+            WHERE id_avaliacao_estoque = ?");
+
+            $update->execute([
+                $pnt_pedido,
+                $pnt_prazo,
+                $pnt_etiqueta,
+                $pnt_baixa_mat,
+                $pnt_troca_equip,
+                $pnt_transferencia,
+                $avaliacao['id_avaliacao_estoque']
+            ]);
+
+
+            // // Antes de atualizar, salvar a pontuação anterior
+            $pontuacao_anterior = (int)$avaliacao['pnt_total_estoque']; // valor já existente no DB
+            // // Após atualizar os campos, o banco recalcula pnt_total_estoque automaticamente
+            // // Por isso vamos reconsultar
+
+            // // Buscar novamente após o UPDATE para pegar a pontuação atual
+            $consultaAtualizada = $this->db->prepare("SELECT pnt_total_estoque FROM avaliacao_estoque WHERE id_avaliacao_estoque = ?");
+            $consultaAtualizada->execute([$avaliacao['id_avaliacao_estoque']]);
+            $pontuacao_atual = (int)$consultaAtualizada->fetchColumn();
+
+            // // Descobrir qual campo foi alterado (opcional, mas bom para a observação)
+            // $observacoes = [];
+            // foreach ($_POST as $key => $value) {
+            //     if (str_ends_with($key, '_add')) {
+            //         $campo = ucfirst(str_replace('_add', '', $key));
+            //         $observacoes[] = "+ {$campo}";
+            //     } elseif (str_ends_with($key, '_sub')) {
+            //         $campo = ucfirst(str_replace('_sub', '', $key));
+            //         $observacoes[] = "- {$campo}";
+            //     }
+            // }
+            // $observacao = implode(', ', $observacoes) ?: 'Alteração manual';
+
+            // // Pegando nome do avaliador (supondo que vem no POST ou do token)
+            $nome_avaliador = $_POST['nome_avaliador'];
+            $nome_tecnico = $_POST['nome_tecnico'] ?? 'Desconhecido';
+
+
+            // // Inserir no histórico
+            $inserirHistorico = $this->db->prepare("INSERT INTO historico_estoque (
+                    nome_avaliador,
+                    data_avaliacao,
+                    data_infracao,
+                    pontuacao_anterior,
+                    pontuacao_atual,
+                    observacao,
+                    nome_tecnico,
+                    id_tecnico
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+
+            $inserirHistorico->execute([
+                $nome_avaliador,
+                date('Y-m-d H:i:s'),
+                $data,                  // data da infração (hoje)
+                $pontuacao_anterior,
+                $pontuacao_atual,
+                $observacao,
+                $nome_tecnico,
+                $id_tecnico
+            ]);
+
+
+            return [
+                'status' => 'success',
+                'message' => 'Pontuação atualizada com sucesso.',
+                'dados' => [
+                    'pnt_pedido' => $pnt_pedido,
+                    'pnt_prazo' => $pnt_prazo,
+                    'pnt_etiqueta' => $pnt_etiqueta,
+                    'pnt_baixa_mat' => $pnt_baixa_mat,
+                    'pnt_troca_equip' => $pnt_troca_equip,
+                    'pnt_transferencia' => $pnt_transferencia
+                    // pnt_total_estoque é calculado automaticamente no banco
+                ]
+            ];
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
+    }
+
+
+    /// SERVICE PONTO ESTOQUE ///
 }
