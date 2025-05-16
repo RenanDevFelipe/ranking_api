@@ -1886,13 +1886,6 @@ class getDataBase
     {
         try{
 
-            // if ($method === "POST"){
-            //     return ([
-            //         'status' => 'error',
-            //         'message' => 'Requisção inválida'
-            //     ]);
-            // }
-
             $this->token->verificarToken();
 
             $historicoRequest = $this->db->prepare('SELECT * FROM historico_n2 WHERE data_infracao = :data_requisicao AND id_tecnico = :id_tecnico');
