@@ -1755,92 +1755,92 @@ class getDataBase
 
 
     public function avaliacao_n2($method)
-{
-    try {
-        if ($method != 'POST') {
-            return [
-                'status' => 'error',
-                'message' => 'Requisição inválida'
-            ];
-        }
-
-        $this->token->verificarToken();
-
-        $data = $_POST['data_requisicao'] ?? date('Y-m-d');
-        $id_tecnico = $_POST['id_colaborador'];
-
-        // Buscar a avaliação existente
-        $stmt = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE id_tecnico_n2 = ? AND data_finalizacao = ?");
-        $stmt->execute([$id_tecnico, $data]);
-        $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$avaliacao) {
-            return [
-                'status' => 'error',
-                'message' => 'Avaliação não encontrada.'
-            ];
-        }
-
-        $pontuacao_anterior =
-            (int)$avaliacao['ponto_finalizacao_os'] +
-            (int)$avaliacao['ponto_lavagem_carro'] +
-            (int)$avaliacao['organizacao_material'] +
-            (int)$avaliacao['ponto_fardamento'];
-
-        $campos = [
-            'ponto_finalizacao_os' => ['add' => 'finalizacao_os_add', 'sub' => 'finalizacao_os_sub'],
-            'ponto_lavagem_carro'  => ['add' => 'lavagem_carro_add', 'sub' => 'lavagem_carro_sub'],
-            'organizacao_material' => ['add' => 'organizacao_material_add', 'sub' => 'organizacao_material_sub'],
-            'ponto_fardamento'     => ['add' => 'fardamento_add', 'sub' => 'fardamento_sub'],
-        ];
-
-        $camposAtualizados = [];
-        foreach ($campos as $campo => $acoes) {
-            $valorAtual = (int)$avaliacao[$campo];
-            if (isset($_POST[$acoes['add']])) {
-                $valorNovo = min(10, $valorAtual + 10);
-                $camposAtualizados[$campo] = $valorNovo;
-            } elseif (isset($_POST[$acoes['sub']])) {
-                $valorNovo = max(0, $valorAtual - 10);
-                $camposAtualizados[$campo] = $valorNovo;
+    {
+        try {
+            if ($method != 'POST') {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ];
             }
-        }
 
-        if (empty($camposAtualizados)) {
-            return [
-                'status' => 'error',
-                'message' => 'Nenhuma alteração foi enviada.'
+            $this->token->verificarToken();
+
+            $data = $_POST['data_requisicao'] ?? date('Y-m-d');
+            $id_tecnico = $_POST['id_colaborador'];
+
+            // Buscar a avaliação existente
+            $stmt = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE id_tecnico_n2 = ? AND data_finalizacao = ?");
+            $stmt->execute([$id_tecnico, $data]);
+            $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$avaliacao) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Avaliação não encontrada.'
+                ];
+            }
+
+            $pontuacao_anterior =
+                (int)$avaliacao['ponto_finalizacao_os'] +
+                (int)$avaliacao['ponto_lavagem_carro'] +
+                (int)$avaliacao['organizacao_material'] +
+                (int)$avaliacao['ponto_fardamento'];
+
+            $campos = [
+                'ponto_finalizacao_os' => ['add' => 'finalizacao_os_add', 'sub' => 'finalizacao_os_sub'],
+                'ponto_lavagem_carro'  => ['add' => 'lavagem_carro_add', 'sub' => 'lavagem_carro_sub'],
+                'organizacao_material' => ['add' => 'organizacao_material_add', 'sub' => 'organizacao_material_sub'],
+                'ponto_fardamento'     => ['add' => 'fardamento_add', 'sub' => 'fardamento_sub'],
             ];
-        }
 
-        // Monta dinamicamente o SQL
-        $setSQL = '';
-        $params = [];
-        foreach ($camposAtualizados as $campo => $valor) {
-            $setSQL .= "$campo = :$campo, ";
-            $params[":$campo"] = $valor;
-        }
-        $setSQL = rtrim($setSQL, ', ');
+            $camposAtualizados = [];
+            foreach ($campos as $campo => $acoes) {
+                $valorAtual = (int)$avaliacao[$campo];
+                if (isset($_POST[$acoes['add']])) {
+                    $valorNovo = min(10, $valorAtual + 10);
+                    $camposAtualizados[$campo] = $valorNovo;
+                } elseif (isset($_POST[$acoes['sub']])) {
+                    $valorNovo = max(0, $valorAtual - 10);
+                    $camposAtualizados[$campo] = $valorNovo;
+                }
+            }
 
-        $params[':id'] = $avaliacao['id_avaliacao_n2'];
+            if (empty($camposAtualizados)) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Nenhuma alteração foi enviada.'
+                ];
+            }
 
-        // Atualiza somente os campos alterados
-        $update = $this->db->prepare("UPDATE avaliacao_n2 SET $setSQL WHERE id_avaliacao_n2 = :id");
-        $update->execute($params);
+            // Monta dinamicamente o SQL
+            $setSQL = '';
+            $params = [];
+            foreach ($camposAtualizados as $campo => $valor) {
+                $setSQL .= "$campo = :$campo, ";
+                $params[":$campo"] = $valor;
+            }
+            $setSQL = rtrim($setSQL, ', ');
 
-        // Buscar os dados atualizados
-        $stmtNew = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE id_avaliacao_n2 = ?");
-        $stmtNew->execute([$avaliacao['id_avaliacao_n2']]);
-        $avaliacaoAtualizada = $stmtNew->fetch(PDO::FETCH_ASSOC);
+            $params[':id'] = $avaliacao['id_avaliacao_n2'];
 
-        $pontuacao_atual =
-            (int)$avaliacaoAtualizada['ponto_finalizacao_os'] +
-            (int)$avaliacaoAtualizada['ponto_lavagem_carro'] +
-            (int)$avaliacaoAtualizada['organizacao_material'] +
-            (int)$avaliacaoAtualizada['ponto_fardamento'];
+            // Atualiza somente os campos alterados
+            $update = $this->db->prepare("UPDATE avaliacao_n2 SET $setSQL WHERE id_avaliacao_n2 = :id");
+            $update->execute($params);
 
-        // Inserir no histórico
-        $inserirHistorico = $this->db->prepare("
+            // Buscar os dados atualizados
+            $stmtNew = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE id_avaliacao_n2 = ?");
+            $stmtNew->execute([$avaliacao['id_avaliacao_n2']]);
+            $avaliacaoAtualizada = $stmtNew->fetch(PDO::FETCH_ASSOC);
+
+            $pontuacao_atual =
+                (int)$avaliacaoAtualizada['ponto_finalizacao_os'] +
+                (int)$avaliacaoAtualizada['ponto_lavagem_carro'] +
+                (int)$avaliacaoAtualizada['organizacao_material'] +
+                (int)$avaliacaoAtualizada['ponto_fardamento'];
+
+            // Inserir no histórico
+            $inserirHistorico = $this->db->prepare("
             INSERT INTO historico_n2 (
                 nome_avaliador,
                 data_avaliacao,
@@ -1853,34 +1853,77 @@ class getDataBase
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
 
-        $inserirHistorico->execute([
-            $_POST['nome_avaliador'] ?? 'Sistema',
-            date('Y-m-d H:i:s'),
-            $data,
-            $pontuacao_anterior,
-            $pontuacao_atual,
-            $_POST['observacao'] ?? null,
-            $_POST['nome_tecnico'] ?? 'Desconhecido',
-            $id_tecnico
-        ]);
+            $inserirHistorico->execute([
+                $_POST['nome_avaliador'] ?? 'Sistema',
+                date('Y-m-d H:i:s'),
+                $data,
+                $pontuacao_anterior,
+                $pontuacao_atual,
+                $_POST['observacao'] ?? null,
+                $_POST['nome_tecnico'] ?? 'Desconhecido',
+                $id_tecnico
+            ]);
 
-        return [
-            'status' => 'success',
-            'message' => 'Pontos atualizados com sucesso.',
-            'dados' => [
-                'ponto_finalizacao_os' => $avaliacaoAtualizada['ponto_finalizacao_os'],
-                'ponto_lavagem_carro' => $avaliacaoAtualizada['ponto_lavagem_carro'],
-                'organizacao_material' => $avaliacaoAtualizada['organizacao_material'],
-                'ponto_fardamento' => $avaliacaoAtualizada['ponto_fardamento']
-            ]
-        ];
-    } catch (PDOException $e) {
-        return [
-            'status' => 'error',
-            'message' => 'Erro no banco de dados: ' . $e->getMessage()
-        ];
+            return [
+                'status' => 'success',
+                'message' => 'Pontos atualizados com sucesso.',
+                'dados' => [
+                    'ponto_finalizacao_os' => $avaliacaoAtualizada['ponto_finalizacao_os'],
+                    'ponto_lavagem_carro' => $avaliacaoAtualizada['ponto_lavagem_carro'],
+                    'organizacao_material' => $avaliacaoAtualizada['organizacao_material'],
+                    'ponto_fardamento' => $avaliacaoAtualizada['ponto_fardamento']
+                ]
+            ];
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
     }
-}
+
+    public function logHistoricoN2($method, $id_colaborador, $data)
+    {
+        try{
+
+            // if ($method === "POST"){
+            //     return ([
+            //         'status' => 'error',
+            //         'message' => 'Requisção inválida'
+            //     ]);
+            // }
+
+            $this->token->verificarToken();
+
+            $historicoRequest = $this->db->prepare('SELECT * FROM historico_n2 WHERE data_infracao = :data_requisicao AND id_tecnico = :id_tecnico');
+            $historicoRequest->execute([
+                ':id_tecnico' => $id_colaborador,
+                ':data_requisicao' => $data
+            ]);
+            $total = $historicoRequest->rowCount();
+            $historico = $historicoRequest->fetchAll(PDO::FETCH_ASSOC);
+
+            if ( $total < 1 )
+            {
+                return ([
+                    'message' => 'Sem registros encontrado'
+                ]);
+                exit;
+            }
+
+            return ([
+                'total' => $total,
+                'registros' => $historico
+            ]);
+            
+
+        } catch (PDOException $e){
+            return ([
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e
+            ]);
+        }
+    }
 
 
 

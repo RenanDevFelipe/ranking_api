@@ -249,6 +249,19 @@ elseif ( $uri == "Avaliacao/N2" )
     $controller->avaliacao_n2($method);
 }
 
+elseif ( $uri == "Historico/N2" && $method == "POST"){
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->logHistoricoN2($method, $data['id_colaborador'], $data['data_requisicao']);
+
+    // echo json_encode($method);
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

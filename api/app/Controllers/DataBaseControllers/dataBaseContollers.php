@@ -202,4 +202,10 @@ class DataBaseControllers
         $data = $this->service->avaliacao_n2($method);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function logHistoricoN2($method, $id_colaborador, $data)
+    {
+        $data = $this->service->logHistoricoN2($method, $id_colaborador, $data);
+        ResponseHelper::jsonResponse($data);
+    }
 }
