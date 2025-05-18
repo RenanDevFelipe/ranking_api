@@ -2333,3 +2333,227 @@ Stack trace:
 #4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
 #5 {main}
   thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[28-Apr-2025 14:19:51 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(1178): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(156): getDataBase->postAssuntoOs('POST')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(169): DataBaseControllers->postAssuntoOS('POST')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[28-Apr-2025 14:24:49 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1305
+[28-Apr-2025 14:26:26 America/Fortaleza] PHP Parse error:  syntax error, unexpected end of file in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1190
+[28-Apr-2025 15:09:00 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(911): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(107): getDataBase->getAllTutoriais()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(105): DataBaseControllers->getAllTutorias()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[28-Apr-2025 15:09:08 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(1139): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(161): getDataBase->getAllAssuntoOs()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(174): DataBaseControllers->getAllAssuntoOs()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[28-Apr-2025 17:06:13 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(1373): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(184): getDataBase->checklistFieldGetFiltred('10')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(215): DataBaseControllers->checklistFieldGetFiltred('10')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[28-Apr-2025 17:06:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(1373): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(184): getDataBase->checklistFieldGetFiltred(10)
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(215): DataBaseControllers->checklistFieldGetFiltred(10)
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[28-Apr-2025 17:06:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(1373): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(184): getDataBase->checklistFieldGetFiltred(10)
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(215): DataBaseControllers->checklistFieldGetFiltred(10)
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[30-Apr-2025 09:57:41 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(831): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(113): getDataBase->getRankingMensal('2025-04')
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(157): DataBaseControllers->getRankingMensal('2025-04')
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[30-Apr-2025 10:09:59 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1408
+[30-Apr-2025 10:18:56 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1428
+[30-Apr-2025 10:42:17 America/Fortaleza] PHP Parse error:  syntax error, unexpected ')' in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 162
+[30-Apr-2025 10:42:20 America/Fortaleza] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 164
+[30-Apr-2025 10:43:07 America/Fortaleza] PHP Parse error:  syntax error, unexpected ')' in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 162
+[30-Apr-2025 10:43:28 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 171
+[30-Apr-2025 10:43:36 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 171
+[30-Apr-2025 10:45:18 America/Fortaleza] PHP Warning:  ZipArchive::close(): Failure to create temporary file: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1537
+[30-Apr-2025 11:00:21 America/Fortaleza] PHP Parse error:  syntax error, unexpected '":id"' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1339
+[30-Apr-2025 11:29:52 America/Fortaleza] PHP Warning:  ZipArchive::close(): Failure to create temporary file: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1580
+[30-Apr-2025 11:30:56 America/Fortaleza] PHP Warning:  ZipArchive::close(): Failure to create temporary file: No such file or directory in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1580
+[30-Apr-2025 13:03:00 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(100): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(33): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 13:12:56 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1476
+[30-Apr-2025 14:01:41 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1534
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:22:43 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1484
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:18 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:27:36 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:28:26 America/Fortaleza] PHP Warning:  preg_replace(): Unknown modifier ':' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1483
+[30-Apr-2025 14:40:25 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Firebase\JWT\ExpiredException' not found in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php:176
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/config/DataBase/TokenGerator.php(57): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php(100): Token->verificarToken()
+#2 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(54): getDataBase->AllColaborador()
+#3 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(33): DataBaseControllers->getAllColaborador()
+#4 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#5 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/utils/jwt/JWT.php on line 176
+[30-Apr-2025 15:23:16 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'getDataBase' not found in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php:13
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(7): DataBaseControllers->__construct()
+#1 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#2 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 13
+[30-Apr-2025 16:34:50 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1360
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[05-May-2025 12:21:25 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[06-May-2025 09:29:46 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[06-May-2025 09:50:59 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[06-May-2025 11:42:24 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 67
+[06-May-2025 11:43:28 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 67
+[06-May-2025 11:59:57 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 67
+[06-May-2025 12:09:47 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 73
+[06-May-2025 12:09:49 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 73
+[06-May-2025 12:09:51 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 73
+[06-May-2025 12:12:09 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 73
+[06-May-2025 12:12:11 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 73
+[06-May-2025 12:20:56 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' or ',' in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 306
+[06-May-2025 15:41:26 America/Fortaleza] PHP Parse error:  syntax error, unexpected ')', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php on line 322
+[07-May-2025 08:47:57 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[07-May-2025 09:40:53 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[07-May-2025 09:44:39 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1577
+[08-May-2025 14:51:07 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'getDataBase' not found in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php:13
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(7): DataBaseControllers->__construct()
+#1 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#2 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php on line 13
+[09-May-2025 10:02:00 America/Fortaleza] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC), expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 233
+[09-May-2025 10:02:03 America/Fortaleza] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC), expecting '(' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 233
+[09-May-2025 10:06:23 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 232
+[09-May-2025 14:07:27 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 248
+[09-May-2025 14:07:30 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 248
+[09-May-2025 14:07:53 America/Fortaleza] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 248
+[12-May-2025 12:40:16 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 277
+[12-May-2025 12:40:18 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 277
+[12-May-2025 12:40:20 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 277
+[12-May-2025 12:40:21 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}' in /home1/ticonnec/public_html/ranking_api/api/app/Services/IXCSoft/Service.php on line 277
+[13-May-2025 16:37:21 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$action' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 91
+[13-May-2025 16:37:21 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$action' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 91
+[13-May-2025 16:37:24 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$action' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 91
+[13-May-2025 16:37:24 America/Fortaleza] PHP Parse error:  syntax error, unexpected '$action' (T_VARIABLE) in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 91
+[13-May-2025 16:37:32 America/Fortaleza] PHP Parse error:  syntax error, unexpected end of file in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1268
+[13-May-2025 16:37:32 America/Fortaleza] PHP Parse error:  syntax error, unexpected end of file in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1268
+[14-May-2025 16:55:44 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 1582
+[16-May-2025 16:28:22 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function str_ends_with() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:2008
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(214): getDataBase->avaliacaoEstoque('POST')
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(267): DataBaseControllers->avaliacaoEstoque('POST')
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 2008
+[16-May-2025 16:30:15 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function str_ends_with() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:2008
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(214): getDataBase->avaliacaoEstoque('POST')
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(267): DataBaseControllers->avaliacaoEstoque('POST')
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 2008
+[16-May-2025 16:30:52 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function str_ends_with() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:2008
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(214): getDataBase->avaliacaoEstoque('POST')
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(267): DataBaseControllers->avaliacaoEstoque('POST')
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 2008
+[16-May-2025 16:31:08 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function str_ends_with() in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php:2008
+Stack trace:
+#0 /home1/ticonnec/public_html/ranking_api/api/app/Controllers/DataBaseControllers/dataBaseContollers.php(214): getDataBase->avaliacaoEstoque('POST')
+#1 /home1/ticonnec/public_html/ranking_api/api/routes/routes_api.php(267): DataBaseControllers->avaliacaoEstoque('POST')
+#2 /home1/ticonnec/public_html/ranking_api/api/public/index.php(4): require_once('/home1/ticonnec...')
+#3 {main}
+  thrown in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 2008
+[16-May-2025 16:38:39 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 2061
+[16-May-2025 16:38:39 America/Fortaleza] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home1/ticonnec/public_html/ranking_api/api/app/Services/DataBaseService/Service.php on line 2061

@@ -214,4 +214,10 @@ class DataBaseControllers
         $data = $this->service->avaliacaoEstoque($method);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function logHistoricoEstoque($id, $data)
+    {
+        $data = $this->service->logHistoricoEstoque($id, $data);
+        ResponseHelper::jsonResponse($data);
+    }
 }

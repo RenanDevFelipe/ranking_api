@@ -1,0 +1,603 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+                xmlns:x="urn:schemas-microsoft-com:office:excel"
+                xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                <style>
+                    .title { 
+                        background-color: #4F81BD; 
+                        color: #FFFFFF; 
+                        font-weight: bold; 
+                        font-size: 14pt;
+                        text-align: center;
+                        padding: 5px;
+                    }
+                    .header { 
+                        background-color: #D6E3BC; 
+                        font-weight: bold; 
+                        border: 1px solid #000000;
+                    }
+                    .highlight {
+                        font-weight: bold;
+                    }
+                    table {
+                        border-collapse: collapse;
+                    }
+                    td {
+                        padding: 3px;
+                        border: 1px solid #CCCCCC;
+                    }
+                </style>
+                <!--[if gte mso 9]>
+                <xml>
+                    <x:ExcelWorkbook>
+                        <x:ExcelWorksheets>
+                            <x:ExcelWorksheet>
+                                <x:Name>Relatório</x:Name>
+                                <x:WorksheetOptions>
+                                    <x:DisplayGridlines/>
+                                </x:WorksheetOptions>
+                            </x:ExcelWorksheet>
+                        </x:ExcelWorksheets>
+                    </x:ExcelWorkbook>
+                </xml>
+                <![endif]-->
+                </head>
+                <body>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Jadson Daniel</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>173</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>9,81</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>53.85%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 280,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>44</td>
+                    <td>9,96</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>39</td>
+                    <td>9,36</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,75</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>JOÃO PAULO</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>149</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>9,59</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>3.85%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 20,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>30</td>
+                    <td>9,52</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>29</td>
+                    <td>8,45</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Marcos Venícios</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>151</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>9,34</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>11.54%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 60,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>31</td>
+                    <td>9,26</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>30</td>
+                    <td>7,67</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,83</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>9,93</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Robson Augusto</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>193</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>9,30</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>11.54%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 60,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>54</td>
+                    <td>9,12</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>49</td>
+                    <td>7,45</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,92</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Luis Eduardo</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>8,91</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>3.85%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 20,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>31</td>
+                    <td>8,42</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>29</td>
+                    <td>6,38</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,83</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>9,93</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Paulo Ricardo</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>204</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>8,87</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>0.00%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 0,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>58</td>
+                    <td>9,05</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>56</td>
+                    <td>5,54</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,75</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Rubens Matheus</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>8,71</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>3.85%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 20,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>53</td>
+                    <td>8,67</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>47</td>
+                    <td>5,21</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,67</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Madson Araújo</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>171</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>8,61</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>7.69%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 40,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>42</td>
+                    <td>9,09</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>39</td>
+                    <td>4,23</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,75</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>9,97</td>
+                </tr></table><br><br>
+            <table>
+                <tr>
+                    <td colspan="2" class="title">Relatório Mensal</td>
+                </tr>
+                <tr>
+                    <td class="header">Colaborador</td>
+                    <td>Gleyson Carlos</td>
+                </tr>
+                <tr>
+                    <td class="header">Total Registros</td>
+                    <td>212</td>
+                </tr>
+                <tr>
+                    <td class="header">Média Mensal</td>
+                    <td>8,04</td>
+                </tr>
+                <tr>
+                    <td class="header">Dias com Nota 10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="header">Meta do Mês</td>
+                    <td>0.00%</td>
+                </tr>
+                <tr>
+                    <td class="header">Valor a Receber</td>
+                    <td class="highlight">R$ 0,00</td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2" class="title">Desempenho por Setor</td>
+                </tr>
+                <tr>
+                    <td class="header">Setor</td>
+                    <td class="header">Total</td>
+                    <td class="header">Média</td>
+                </tr>
+                <tr>
+                    <td>Suporte Nível 3</td>
+                    <td>63</td>
+                    <td>8,41</td>
+                </tr>
+                <tr>
+                    <td>Sucesso ao cliente</td>
+                    <td>59</td>
+                    <td>2,12</td>
+                </tr>
+                <tr>
+                    <td>Avaliadores suporte Nível 2</td>
+                    <td>30</td>
+                    <td>9,75</td>
+                </tr>
+                <tr>
+                    <td>Recursos Humanos</td>
+                    <td>30</td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>Estoque</td>
+                    <td>30</td>
+                    <td>9,90</td>
+                </tr></table><br><br></body></html>

@@ -2067,6 +2067,41 @@ class getDataBase
         }
     }
 
+    public function logHistoricoEstoque($id_colaborador, $data)
+    {
+        try{
+
+            $this->token->verificarToken();
+
+            $historicoRequest = $this->db->prepare("SELECT * FROM historico_estoque WHERE id_tecnico = :id AND data_infracao = :data_requisicao");
+            $historicoRequest->execute([
+                ':id' => $id_colaborador,
+                ':data_requisicao' => $data
+            ]);
+            $total = $historicoRequest->rowCount();
+            $historico = $historicoRequest->fetchAll(PDO::FETCH_ASSOC);
+            
+            if ( $total < 1 ){
+                return ([
+                    'message' => 'Nenhum registros encontrado'
+                ]);
+            }
+
+            $registros = [
+                'total' => $total,
+                'registros' => $historico
+            ];
+
+            return  $registros;
+
+        } catch (PDOException $e){
+            return ([
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ]);
+        }
+    }
+
 
     /// SERVICE PONTO ESTOQUE ///
 }
