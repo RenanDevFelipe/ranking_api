@@ -220,4 +220,16 @@ class DataBaseControllers
         $data = $this->service->logHistoricoEstoque($id, $data);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function avaliacao_rh($method)
+    {
+        $data = $this->service->avaliacao_rh($method);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function logHistoricoRh($method, $id_colaborador, $data)
+    {
+        $data = $this->service->logHistoricoRh($method, $id_colaborador, $data);
+        ResponseHelper::jsonResponse($data);
+    }
 }

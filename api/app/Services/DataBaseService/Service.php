@@ -1929,7 +1929,7 @@ class getDataBase
 
     public function logHistoricoEstoque($id_colaborador, $data)
     {
-        try{
+        try {
 
             $this->token->verificarToken();
 
@@ -1940,8 +1940,8 @@ class getDataBase
             ]);
             $total = $historicoRequest->rowCount();
             $historico = $historicoRequest->fetchAll(PDO::FETCH_ASSOC);
-            
-            if ( $total < 1 ){
+
+            if ($total < 1) {
                 return ([
                     'message' => 'Nenhum registros encontrado'
                 ]);
@@ -1953,8 +1953,7 @@ class getDataBase
             ];
 
             return  $registros;
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return ([
                 'status' => 'error',
                 'message' => 'Erro no banco de dados: ' . $e->getMessage()
@@ -1970,9 +1969,9 @@ class getDataBase
 
     public function avaliacao_rh($method)
     {
-        try{
+        try {
 
-            if($method !== "POST"){
+            if ($method !== "POST") {
                 return ([
                     'status' => 'error',
                     'message' => 'Requisição inválida'
@@ -1987,17 +1986,151 @@ class getDataBase
             $stmt = $this->db->prepare("SELECT * FROM avaliacao_rh WHERE id_tecnico = :id AND data_avaliacao = :data_requisicao");
             $stmt->execute([
                 ':id' => $id_tecnico,
-                ':data_requisicao' => $data 
+                ':data_requisicao' => $data
             ]);
             $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if (!$avaliacao){
-                return ([
+            if (!$avaliacao) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Avaliação não encontrada.'
+                ];
+            }
 
+            $pontuacao_anterior =
+                (int)$avaliacao['pnt_ponto'] +
+                (int)$avaliacao['pnt_atestado'] +
+                (int)$avaliacao['pnt_falta'];
+
+            $campos = [
+                'pnt_ponto' => ['add' => 'ponto_add', 'sub' => 'ponto_sub'],
+                'pnt_atestado' => ['add' => 'atestado_add', 'sub' => 'atestado_sub'],
+                'pnt_falta' => ['add' => 'falta_add', 'sub' => 'atestado_sub'],
+            ];
+
+
+            $camposAtualizados = [];
+            foreach ($campos as $campo => $acoes) {
+                $valorAtual = (int)$avaliacao[$campo];
+                if (isset($_POST[$acoes['add']])) {
+                    $valorNovo = min(10, $valorAtual + 10);
+                    $camposAtualizados[$campo] = $valorNovo;
+                } elseif (isset($_POST[$acoes['sub']])) {
+                    $valorNovo = max(0, $valorAtual - 10);
+                    $camposAtualizados[$campo] = $valorNovo;
+                }
+            }
+
+            if (empty($camposAtualizados)) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Nenhuma alteração foi enviada.'
+                ];
+            }
+
+            // MONTA DINAMICAMENTE O SQL
+            $setSQL = '';
+            $params = [];
+            foreach ($camposAtualizados as $campo => $valor) {
+                $setSQL .= "$campo = :$campo, ";
+                $params[":$campo"] = $valor;
+            }
+
+            $setSQL = rtrim($setSQL, ', ');
+            $params[':id'] = $avaliacao['id_avaliacao_rh'];
+
+            // ATUALIZA SOMENTE OS CAMPOS ALTERADOS
+            $update = $this->db->prepare("UPDATE avaliacao_rh SET $setSQL WHERE id_avaliacao_rh = :id");
+            $update->execute($params);
+
+            // BUSCAR OS DADOS ATUALIZADOS
+            $stmtNew = $this->db->prepare("SELECT * FROM avaliacao_rh WHERE id_avaliacao_rh = ?");
+            $stmtNew->execute([$avaliacao['id_avaliacao_rh']]);
+            $avaliacaoAtualizada = $stmtNew->fetch(PDO::FETCH_ASSOC);
+
+            $pontuacao_atual =
+                (int)$avaliacaoAtualizada['pnt_ponto'] +
+                (int)$avaliacaoAtualizada['pnt_atestado'] +
+                (int)$avaliacaoAtualizada['pnt_falta'];
+
+
+            $inserirHistorico = $this->db->prepare("
+            INSERT INTO historico_rh (
+                nome_avaliador,
+                data_avaliacao,
+                data_infracao,
+                pontuacao_anterior,
+                pontuacao_atual,
+                observacao,
+                nome_tecnico,
+                id_tecnico
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ");
+
+            $inserirHistorico->execute([
+                $_POST['nome_avaliador'] ?? 'Sistema',
+                date('Y-m-d H:i:s'),
+                $data,
+                $pontuacao_anterior,
+                $pontuacao_atual,
+                $_POST['observacao'] ?? null,
+                $_POST['nome_tecnico'] ?? 'Desconhecido',
+                $id_tecnico
+            ]);
+
+
+            return [
+                'status' => 'success',
+                'message' => 'Pontos atualizados com sucesso.',
+                'dados' => [
+                    'pnt_ponto' => $avaliacaoAtualizada['pnt_ponto'],
+                    'pnt_atestado' => $avaliacaoAtualizada['pnt_atestado'],
+                    'pnt_falta' => $avaliacaoAtualizada['pnt_falta']
+                ]
+            ];
+        } catch (PDOException $e) {
+            return ([
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ]);
+        }
+    }
+
+    public function logHistoricoRh($method, $id_colaborador, $data)
+    {
+        try {
+
+            if ($method !== "POST") {
+                return ([
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
                 ]);
             }
 
-        } catch (PDOException $e){
+            $this->token->verificarToken();
+
+            $stmt = $this->db->prepare("SELECT * FROM historico_rh WHERE data_infracao = :data_requisicao AND id_tecnico = :id");
+            $stmt->execute([
+                ':data_requisicao' => $data,
+                ':id' => $id_colaborador
+            ]);
+            $historico = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (!$historico){
+                return [
+                    'message' => 'Registros não encontrados'
+                ];
+            }
+
+            $registros = [
+                'status' => 'success',
+                'total' => $stmt->rowCount(),
+                'registros' => $historico
+            ];
+
+            return $registros;
+
+        } catch (PDOException $e) {
             return ([
                 'status' => 'error',
                 'message' => 'Erro no banco de dados: ' . $e->getMessage()

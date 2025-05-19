@@ -277,7 +277,25 @@ elseif ( $uri == "Historico/Estoque"  && $method == "POST")
     }
 
     $controller->logHistoricoEstoque($data['id_colaborador'], $data['data_requisicao']);
-} 
+}
+
+
+elseif ($uri == "Avaliacao/Rh")
+{
+    $controller->avaliacao_rh($method);
+}
+
+elseif ( $uri == "Historico/Rh" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->logHistoricoRh($method, $data['id_colaborador'], $data['data_requisicao']);
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
