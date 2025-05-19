@@ -1613,146 +1613,6 @@ class getDataBase
 
     /// SERVICE PONTO N2 ///
 
-    // public function avaliacao_n2($method)
-    // {
-    //     try {
-    //         if ($method != 'POST') {
-    //             return [
-    //                 'status' => 'error',
-    //                 'message' => 'Requisição inválida'
-    //             ];
-    //         }
-
-    //         $this->token->verificarToken();
-
-    //         $data = $_POST['data_requisicao'] ?? date('Y-m-d');
-    //         $id_tecnico = $_POST['id_colaborador'];
-
-    //         // Buscar a avaliação existente
-    //         $stmt = $this->db->prepare("SELECT * FROM avaliacao_n2 WHERE id_tecnico_n2 = ? AND data_finalizacao = ?");
-    //         $stmt->execute([$id_tecnico, $data]);
-    //         $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    //         if (!$avaliacao) {
-    //             return [
-    //                 'status' => 'error',
-    //                 'message' => 'Avaliação não encontrada.'
-    //             ];
-    //         }
-
-    //         // Função para ajustar ponto individualmente
-    //         function ajustarPonto($valorAtual, $add, $sub)
-    //         {
-    //             if ($add) return min(10, $valorAtual + 10);
-    //             if ($sub) return max(0, $valorAtual - 10);
-    //             return $valorAtual;
-    //         }
-
-    //         // Ajusta os pontos com base nos checkboxes recebidos
-    //         $ponto_finalizacao_os = ajustarPonto(
-    //             (int)$avaliacao['ponto_finalizacao_os'],
-    //             isset($_POST['finalizacao_os_add']),
-    //             isset($_POST['finalizacao_os_sub'])
-    //         );
-
-    //         $ponto_lavagem_carro = ajustarPonto(
-    //             (int)$avaliacao['ponto_lavagem_carro'],
-    //             isset($_POST['lavagem_carro_add']),
-    //             isset($_POST['lavagem_carro_sub'])
-    //         );
-
-    //         $organizacao_material = ajustarPonto(
-    //             (int)$avaliacao['organizacao_material'],
-    //             isset($_POST['organizacao_material_add']),
-    //             isset($_POST['organizacao_material_sub'])
-    //         );
-
-    //         $ponto_fardamento = ajustarPonto(
-    //             (int)$avaliacao['ponto_fardamento'],
-    //             isset($_POST['fardamento_add']),
-    //             isset($_POST['fardamento_sub'])
-    //         );
-
-    //         // Atualiza somente os campos individuais
-    //         $update = $this->db->prepare("UPDATE avaliacao_n2 SET 
-    //         ponto_finalizacao_os = ?, 
-    //         ponto_lavagem_carro = ?, 
-    //         organizacao_material = ?, 
-    //         ponto_fardamento = ?
-    //         WHERE id_avaliacao_n2 = ?");
-
-    //         $update->execute([
-    //             $ponto_finalizacao_os,
-    //             $ponto_lavagem_carro,
-    //             $organizacao_material,
-    //             $ponto_fardamento,
-    //             $avaliacao['id_avaliacao_n2']
-    //         ]);
-
-    //         $inserirHistorico = $this->db->prepare("
-    //             INSERT INTO historico_n2 (
-    //                 nome_avaliador,
-    //                 data_avaliacao,
-    //                 data_infracao,
-    //                 pontuacao_anterior,
-    //                 pontuacao_atual,
-    //                 observacao,
-    //                 nome_tecnico,
-    //                 id_tecnico
-    //             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    //         ");
-
-    //         // Você pode pegar esses dados do contexto
-    //         $nome_avaliador = $_POST['nome_avaliador'] ?? 'Sistema'; // ou pegue de sessão/token
-    //         $data_avaliacao = date('Y-m-d H:i:s');
-    //         $data_infracao = $data; // mesmo valor usado na avaliação
-    //         $observacao = $_POST['observacao'] ?? null;
-    //         $nome_tecnico = $_POST['nome_tecnico'] ?? 'Desconhecido';
-    //         $id_tecnico = $id_tecnico;
-
-    //         // Calcular a soma antes e depois
-    //         $pontuacao_anterior =
-    //             (int)$avaliacao['ponto_finalizacao_os'] +
-    //             (int)$avaliacao['ponto_lavagem_carro'] +
-    //             (int)$avaliacao['organizacao_material'] +
-    //             (int)$avaliacao['ponto_fardamento'];
-
-    //         $pontuacao_atual =
-    //             $ponto_finalizacao_os +
-    //             $ponto_lavagem_carro +
-    //             $organizacao_material +
-    //             $ponto_fardamento;
-
-    //         $inserirHistorico->execute([
-    //             $nome_avaliador,
-    //             $data_avaliacao,
-    //             $data_infracao,
-    //             $pontuacao_anterior,
-    //             $pontuacao_atual,
-    //             $observacao,
-    //             $nome_tecnico,
-    //             $id_tecnico
-    //         ]);
-
-    //         return [
-    //             'status' => 'success',
-    //             'message' => 'Pontos atualizados com sucesso.',
-    //             'dados' => [
-    //                 'ponto_finalizacao_os' => $ponto_finalizacao_os,
-    //                 'ponto_lavagem_carro' => $ponto_lavagem_carro,
-    //                 'organizacao_material' => $organizacao_material,
-    //                 'ponto_fardamento' => $ponto_fardamento
-    //                 // ponto_total é omitido porque é automático no banco
-    //             ]
-    //         ];
-    //     } catch (PDOException $e) {
-    //         return [
-    //             'status' => 'error',
-    //             'message' => 'Erro no banco de dados: ' . $e->getMessage()
-    //         ];
-    //     }
-    // }
-
 
     public function avaliacao_n2($method)
     {
@@ -2104,4 +1964,46 @@ class getDataBase
 
 
     /// SERVICE PONTO ESTOQUE ///
+
+
+    /// SERVICE PONTO RH ///
+
+    public function avaliacao_rh($method)
+    {
+        try{
+
+            if($method !== "POST"){
+                return ([
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ]);
+            }
+
+            $this->token->verificarToken();
+
+            $data = $_POST['data_requisicao'] ?? date('Y-m-d');
+            $id_tecnico = $_POST['id_colaborador'];
+
+            $stmt = $this->db->prepare("SELECT * FROM avaliacao_rh WHERE id_tecnico = :id AND data_avaliacao = :data_requisicao");
+            $stmt->execute([
+                ':id' => $id_tecnico,
+                ':data_requisicao' => $data 
+            ]);
+            $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$avaliacao){
+                return ([
+
+                ]);
+            }
+
+        } catch (PDOException $e){
+            return ([
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ]);
+        }
+    }
+
+    /// SERVICE PONTO RH ///
 }
