@@ -16,7 +16,38 @@ $uri = trim(parse_url($uri, PHP_URL_PATH), "/");
 
 if ($uri == "User/listAll" && $method == "GET") {
     $controller->getAllUser();
-} elseif ($uri == "Account/login") {
+}
+
+elseif ( $uri == "User/getOne" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getOneUser($data['id'], $method);
+}
+
+elseif ( $uri == "User/Delete" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->deleteUser($data['id'], $method);
+}
+
+elseif ($uri == "User/Post")
+{
+    $controller->postUser($method);
+}
+
+elseif ($uri == "Account/login") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
@@ -309,18 +340,6 @@ elseif ( $uri == "Historico/Rh" )
 //Rotas Api IXCSoft
 
 
-// ROTA LISTAGEM DE O.S FINALIZADA DO TECNICO DO DIA ESPECIFICADO
-// elseif ($uri == "IXCSoft/listOSFinTec" && $method == "POST") {
-
-//     $data = json_decode(file_get_contents("php://input"), true);
-//     if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
-//         echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
-//         exit;
-//     }
-
-//     echo json_encode($ixcController->listarOsClienteTecnico($data['query'], $data['data_fechamento']));
-// }
-
 elseif ($uri == "IXCSoft/listOSFinTec" && $method == "POST") {
 
     $data = json_decode(file_get_contents("php://input"), true);
@@ -377,6 +396,18 @@ elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
 elseif ($uri == "Avaliacao/N3")
 {
     echo json_encode($ixcController->avalicaoN3($method));
+}
+
+else if ($uri == "IXCSoft/ListIpAux")
+{
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+    
+    echo json_encode($ixcController->ipaux($data['ip_aux']));
 }
 
 else {

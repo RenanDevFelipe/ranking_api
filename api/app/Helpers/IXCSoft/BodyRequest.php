@@ -97,6 +97,21 @@ class ModelBodyRequest
         return $data;
     }
 
+    public function BodyRequestLoginIpAux($query)
+    {
+        $data = [
+            "qtype" => "radusuarios.ip_aux",
+            "query" => $query,
+            "oper" => "=",
+            "page" => "1",
+            "rp" => "20",
+            "sortname" => "radusuarios.id",
+            "sortorder" => "desc"
+        ];
+
+        return $data;
+    }
+
     public function BodyRequestONU($query)
     {
         $data = [

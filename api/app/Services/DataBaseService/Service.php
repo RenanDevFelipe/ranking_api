@@ -75,23 +75,149 @@ class getDataBase
         return $registros;
     }
 
-    public function listOneUser()
-    {
-        $select = $this->db->prepare("SELECT * FROM users WHERE ");
-    }
-
-    public function postUser($method)
+    public function listOneUser($id, $method)
     {
         try {
 
             if ($method !== "POST") {
                 return [
-                    "status" => "error",
-                    "message" => "Riquisição inválida"
+                    'status' => 'error',
+                    'message' => 'Requisicao inválida'
                 ];
             }
 
+            $this->token->verificarToken();
+
+            $select = $this->db->prepare("SELECT * FROM users WHERE id_user = :id");
+            $select->execute([
+                ':id' => $id
+            ]);
+            $user = $select->fetch(PDO::FETCH_ASSOC);
+
+            if (!$user) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Erro ao buscar usuário, usuário não encontrado'
+                ];
+            }
+
+            return [
+                'registros' => $user
+            ];
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
+    }
+
+    public function postUser($method)
+    {
+        try {
+            if ($method !== "POST") {
+                return [
+                    "status" => "error",
+                    "message" => "Requisição inválida"
+                ];
+            }
+
+            $this->token->verificarToken();
+
+            // Recebendo e validando os dados
             $action = $_POST['action'] ?? null;
+            $nome   = trim($_POST['nome_user'] ?? '');
+            $id_ixc = trim($_POST['id_ixc_user'] ?? '');
+            $email  = trim($_POST['email_user'] ?? '');
+            $senha  = $_POST['senha_user'] ?? '';
+            $role   = trim($_POST['role'] ?? '');
+            $setor  = trim($_POST['setor_user'] ?? '');
+
+
+
+            if (!$action || !in_array($action, ['create', 'update'])) {
+                return [
+                    "status" => "error",
+                    "message" => "Ação inválida"
+                ];
+            }
+
+            if (empty($nome) || empty($id_ixc) || empty($email) || empty($senha) || empty($role) || empty($setor)) {
+                return [
+                    "status" => "error",
+                    "message" => "Todos os campos são obrigatórios"
+                ];
+            }
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return [
+                    "status" => "error",
+                    "message" => "E-mail inválido"
+                ];
+            }
+
+            if (!$this->validarSenhaSegura($senha)) {
+                return [
+                    "status" => "error",
+                    "message" => "A senha deve conter ao menos uma letra maiúscula, um número, um símbolo e não conter sequências como '123' ou 'abc'"
+                ];
+            }
+
+            // Criptografar a senha
+            $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+            $pdo = $this->db;
+
+            if ($action === 'create') {
+                $check = $this->db->prepare("SELECT * FROM users WHERE email_user = ? AND id_ixc_user = ?");
+                $check->execute([$email, $id_ixc]);
+
+                if ($check->rowCount() > 0) {
+                    return [
+                        'status' => 'error',
+                        'message' => 'Erro ao criar usuário, email ou ID IXC já vinculado'
+                    ];
+                }
+                
+                $stmt = $pdo->prepare("INSERT INTO users (nome_user, id_ixc_user, email_user, senha_user, role, setor_user) VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$nome, $id_ixc, $email, $senhaHash, $role, $setor]);
+
+                return [
+                    "status" => "success",
+                    "message" => "Usuário criado com sucesso"
+                ];
+            }
+
+            if ($action === 'update') {
+                $id_user = $_POST['id_user'] ?? null;
+
+                if (!$id_user || !is_numeric($id_user)) {
+                    return [
+                        "status" => "error",
+                        "message" => "ID do usuário inválido para atualização"
+                    ];
+                }
+
+                // Verificar se o usuário existe (opcional, mas recomendado)
+                $check = $pdo->prepare("SELECT id_user FROM users WHERE id_user = ?");
+                $check->execute([$id_user]);
+
+                if ($check->rowCount() === 0) {
+                    return [
+                        "status" => "error",
+                        "message" => "Usuário não encontrado para atualização"
+                    ];
+                }
+
+                // Atualizar dados
+                $stmt = $pdo->prepare("UPDATE users SET nome_user = ?, id_ixc_user = ?, email_user = ?, senha_user = ?, role = ?, setor_user = ? WHERE id_user = ?");
+                $stmt->execute([$nome, $id_ixc, $email, $senhaHash, $role, $setor, $id_user]);
+
+                return [
+                    "status" => "success",
+                    "message" => "Usuário atualizado com sucesso"
+                ];
+            }
         } catch (PDOException $e) {
             return [
                 "status" => "error",
@@ -99,6 +225,71 @@ class getDataBase
             ];
         }
     }
+
+    public function deleteUser($id, $method)
+    {
+        try {
+
+            if ($method !== "DELETE")
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ];
+            }
+
+            $this->token->verificarToken();
+
+            $verification = $this->db->prepare("SELECT * FROM users WHERE id_user = :id");
+            $verification->execute([
+                ':id' => $id
+            ]);
+            $user = $verification->fetch(PDO::FETCH_ASSOC);
+
+            if (!$user)
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Nenhum usuario encontrado'
+                ];
+            }
+
+            $delete = $this->db->prepare("DELETE FROM users WHERE id_user = :id");
+            $success = $delete->execute(
+                [':id' => $id]
+            );
+
+            if ($success){
+                return [
+                    'status' => 'success',
+                    'message' => 'Usuario deletado'
+                ];
+            } else {
+                return [
+                    'status' => 'error',
+                    'message' => 'Erro ao deletar usuario'
+                ];
+            }
+
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
+    }
+
+
+    private function validarSenhaSegura($senha)
+    {
+        $hasUppercase = preg_match('/[A-Z]/', $senha);
+        $hasNumber    = preg_match('/\d/', $senha);
+        $hasSymbol    = preg_match('/[\W_]/', $senha);
+        $temSequencia = preg_match('/123|234|345|abc|bcd|cde/i', $senha);
+
+        return $hasUppercase && $hasNumber && $hasSymbol && !$temSequencia;
+    }
+
 
 
     public function AllColaborador()
@@ -2116,7 +2307,7 @@ class getDataBase
             ]);
             $historico = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            if (!$historico){
+            if (!$historico) {
                 return [
                     'message' => 'Registros não encontrados'
                 ];
@@ -2129,7 +2320,6 @@ class getDataBase
             ];
 
             return $registros;
-
         } catch (PDOException $e) {
             return ([
                 'status' => 'error',

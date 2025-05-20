@@ -84,4 +84,9 @@ class DataApiIxc
     {
         return $this->bodyRequest->BodyRequestConferenciaCamera($id_os_conferencia, $evaluationText, $id_ixc_user);
     }
+
+    public function BodyRequestLoginIpAux($query)
+    {
+        return $this->bodyRequest->BodyRequestLoginIpAux($query);
+    }
 }

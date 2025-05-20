@@ -543,7 +543,7 @@ class ApiIXC
 
                 if ($success) {
 
-                    if ($id_assunto === '10') 
+                    if ($id_assunto === '10' || $id_assunto === '187') 
                     {
                         $this->instalacao($id_atendimento, $check_list, $id_ixc_user);
                     }
@@ -584,6 +584,18 @@ class ApiIXC
     // DATA BASE REQUEST AVALIACAO N3 //
 
 
+    public function ipaux($query)
+    {
+        $body = $this->body->BodyRequestLoginIpAux($query);
+        $method= $this->methodIXC->listarIXC();
+
+        return $this->request(
+            $this->queryIXC->raduser(),
+            'POST',
+            $body,
+            $method
+        );
+    }
 
     private function request($endpoint, $method = "GET", $data = [], $methodHeader)
     {

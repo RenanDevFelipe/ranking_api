@@ -39,15 +39,23 @@ class DataBaseControllers
         ResponseHelper::jsonResponse($data);
     }
 
-    // public function getRankingDiarioGeral($data_request){
-    //     if (!isset($data_request) || empty($data_request)){
-    //         $message = ["erro" => "campo data_request obrigatório na requisição"];
-    //         ResponseHelper::jsonResponse($message);
-    //     }
+    public function getOneUser($id, $method)
+    {
+        $data = $this->service->listOneUser($id, $method);
+        ResponseHelper::jsonResponse($data);
+    }
 
-    //     $data = $this->service->RankingDiarioGeral($data_request);
-    //     ResponseHelper::jsonResponse($data);
-    // }
+    public function postUser($method)
+    {
+        $data = $this->service->postUser($method);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function deleteUser($id, $method)
+    {
+        $data = $this->service->deleteUser($id, $method);
+        ResponseHelper::jsonResponse($data);
+    }
 
     public function getAllColaborador()
     {
