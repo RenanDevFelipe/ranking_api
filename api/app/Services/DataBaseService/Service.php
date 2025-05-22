@@ -142,7 +142,7 @@ class getDataBase
                 ];
             }
 
-            if (empty($nome) || empty($id_ixc) || empty($email) || empty($senha) || empty($role) || empty($setor)) {
+            if (empty($nome) || empty($id_ixc) || empty($email) || empty($role) || empty($setor)) {
                 return [
                     "status" => "error",
                     "message" => "Todos os campos são obrigatórios"
@@ -153,13 +153,6 @@ class getDataBase
                 return [
                     "status" => "error",
                     "message" => "E-mail inválido"
-                ];
-            }
-
-            if (!$this->validarSenhaSegura($senha)) {
-                return [
-                    "status" => "error",
-                    "message" => "A senha deve conter ao menos uma letra maiúscula, um número, um símbolo e não conter sequências como '123' ou 'abc'"
                 ];
             }
 
@@ -178,7 +171,21 @@ class getDataBase
                         'message' => 'Erro ao criar usuário, email ou ID IXC já vinculado'
                     ];
                 }
-                
+
+                if (empty($senha)) {
+                    return [
+                        "status" => "error",
+                        "message" => "Todos os campos são obrigatórios"
+                    ];
+                }
+
+                if (!$this->validarSenhaSegura($senha)) {
+                    return [
+                        "status" => "error",
+                        "message" => "A senha deve conter ao menos uma letra maiúscula, um número, um símbolo e não conter sequências como '123' ou 'abc'"
+                    ];
+                }
+
                 $stmt = $pdo->prepare("INSERT INTO users (nome_user, id_ixc_user, email_user, senha_user, role, setor_user) VALUES (?, ?, ?, ?, ?, ?)");
                 $stmt->execute([$nome, $id_ixc, $email, $senhaHash, $role, $setor]);
 
@@ -187,7 +194,6 @@ class getDataBase
                     "message" => "Usuário criado com sucesso"
                 ];
             }
-
             if ($action === 'update') {
                 $id_user = $_POST['id_user'] ?? null;
 
@@ -198,7 +204,7 @@ class getDataBase
                     ];
                 }
 
-                // Verificar se o usuário existe (opcional, mas recomendado)
+                // Verificar se o usuário existe
                 $check = $pdo->prepare("SELECT id_user FROM users WHERE id_user = ?");
                 $check->execute([$id_user]);
 
@@ -209,9 +215,22 @@ class getDataBase
                     ];
                 }
 
-                // Atualizar dados
-                $stmt = $pdo->prepare("UPDATE users SET nome_user = ?, id_ixc_user = ?, email_user = ?, senha_user = ?, role = ?, setor_user = ? WHERE id_user = ?");
-                $stmt->execute([$nome, $id_ixc, $email, $senhaHash, $role, $setor, $id_user]);
+                // Atualiza a senha apenas se foi informada
+                if (!empty($senha)) {
+                    if (!$this->validarSenhaSegura($senha)) {
+                        return [
+                            "status" => "error",
+                            "message" => "A senha deve conter ao menos uma letra maiúscula, um número, um símbolo e não conter sequências como '123' ou 'abc'"
+                        ];
+                    }
+
+                    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+                    $stmt = $pdo->prepare("UPDATE users SET nome_user = ?, id_ixc_user = ?, email_user = ?, senha_user = ?, role = ?, setor_user = ? WHERE id_user = ?");
+                    $stmt->execute([$nome, $id_ixc, $email, $senhaHash, $role, $setor, $id_user]);
+                } else {
+                    $stmt = $pdo->prepare("UPDATE users SET nome_user = ?, id_ixc_user = ?, email_user = ?, role = ?, setor_user = ? WHERE id_user = ?");
+                    $stmt->execute([$nome, $id_ixc, $email, $role, $setor, $id_user]);
+                }
 
                 return [
                     "status" => "success",
@@ -230,8 +249,7 @@ class getDataBase
     {
         try {
 
-            if ($method !== "DELETE")
-            {
+            if ($method !== "DELETE") {
                 return [
                     'status' => 'error',
                     'message' => 'Requisição inválida'
@@ -246,8 +264,7 @@ class getDataBase
             ]);
             $user = $verification->fetch(PDO::FETCH_ASSOC);
 
-            if (!$user)
-            {
+            if (!$user) {
                 return [
                     'status' => 'error',
                     'message' => 'Nenhum usuario encontrado'
@@ -259,7 +276,7 @@ class getDataBase
                 [':id' => $id]
             );
 
-            if ($success){
+            if ($success) {
                 return [
                     'status' => 'success',
                     'message' => 'Usuario deletado'
@@ -270,7 +287,6 @@ class getDataBase
                     'message' => 'Erro ao deletar usuario'
                 ];
             }
-
         } catch (PDOException $e) {
             return [
                 'status' => 'error',
@@ -546,6 +562,96 @@ class getDataBase
         $setor = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $setor;
+    }
+
+    public function postDepartament($method)
+    {
+        try {
+
+            if ($method !== "POST") {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisção inválida'
+                ];
+            }
+
+            $this->token->verificarToken();
+
+            $action = $_POST['action'];
+            $nome_setor = strip_tags($_POST['nome_setor']);
+
+            if (!$action || !in_array($action, ['create', 'update'])) {
+                return [
+                    "status" => "error",
+                    "message" => "Ação inválida"
+                ];
+            }
+
+            if (empty($nome_setor))
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Todos os campos devem ser preenchidos'
+                ];
+            }
+
+
+            if ($action === 'create'){
+                $create = $this->db->prepare("INSERT INTO setor (nome_setor) VALUES (:nome_setor)");
+                $success = $create->execute([
+                    ':nome_setor' => $nome_setor
+                ]);
+
+                if (!$success)
+                {
+                    return [
+                        'status' => 'error',
+                        'message' => 'Erro ao inserir setor'
+                    ];
+                } else {
+                    return [
+                        'status' => 'error',
+                        'message' => 'Setor inserido com sucesso'
+                    ];
+                }
+            }
+
+            if ($action === 'update')
+            {
+                $id = $_POST['id_setor'];
+
+                if (empty($id))
+                {
+                    return [
+                        'status' => 'error',
+                        'message' => 'id do setor não fornecido'
+                    ];
+                }
+
+                $verification = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
+                $success = $verification->execute([
+                    ':id' => $id
+                ]);
+
+                if (!$success)
+                {
+                    return [
+                        'status' => 'error',
+                        'message' => 'Erro ao atualizar o setor'
+                    ];
+                } else {
+                    return [
+                        'status' => 'success',
+                        'message' => 'Setor atualizado com sucesso'
+                    ];
+                }
+            }
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
     }
 
 
