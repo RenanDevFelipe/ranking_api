@@ -240,4 +240,10 @@ class DataBaseControllers
         $data = $this->service->logHistoricoRh($method, $id_colaborador, $data);
         ResponseHelper::jsonResponse($data);
     }
+
+    public function postDepartament($method)
+    {
+        $data = $this->service->postDepartament($method);
+        ResponseHelper::jsonResponse($data);
+    }
 }
