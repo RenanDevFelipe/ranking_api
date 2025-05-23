@@ -123,6 +123,30 @@ elseif ( $uri == "Departamento/Post" )
 {
     $controller->postDepartament($method);
 }
+
+elseif ( $uri == "Departamento/getOne" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->getOneDepartament($data['id_setor']);
+}
+
+elseif ( $uri == "Departamento/Delete" )
+{
+    $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    $controller->deleteDepartament($method, $data['id_setor']);
+}
  
 elseif ($uri == "Ranking/MediaMensal" && $method == "POST") 
 {

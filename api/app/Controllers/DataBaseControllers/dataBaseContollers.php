@@ -246,4 +246,16 @@ class DataBaseControllers
         $data = $this->service->postDepartament($method);
         ResponseHelper::jsonResponse($data);
     }
+    
+    public function getOneDepartament($id)
+    {
+        $data = $this->service->getOneDepartament($id);
+        ResponseHelper::jsonResponse($data);
+    }
+
+    public function deleteDepartament($method, $id)
+    {
+        $data = $this->service->deleteDepartament($method, $id);
+        ResponseHelper::jsonResponse($data);
+    }
 }
