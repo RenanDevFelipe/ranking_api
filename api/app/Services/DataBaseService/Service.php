@@ -555,13 +555,31 @@ class getDataBase
 
     public function getOneDepartament($id)
     {
-        $stmt = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
-        $stmt->execute([
-            ":id" => $id
-        ]);
-        $setor = $stmt->fetch(PDO::FETCH_ASSOC);
+        try {
 
-        return $setor;
+
+            $stmt = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
+            $stmt->execute([
+                ":id" => $id
+            ]);
+            $setor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$setor)
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Nenhum setor encontrado com o id informado'
+                ];
+            }
+
+            return $setor;
+
+        } catch (PDOException $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
     }
 
     public function postDepartament($method)
@@ -587,8 +605,7 @@ class getDataBase
                 ];
             }
 
-            if (empty($nome_setor))
-            {
+            if (empty($nome_setor)) {
                 return [
                     'status' => 'error',
                     'message' => 'Todos os campos devem ser preenchidos'
@@ -596,32 +613,29 @@ class getDataBase
             }
 
 
-            if ($action === 'create'){
+            if ($action === 'create') {
                 $create = $this->db->prepare("INSERT INTO setor (nome_setor) VALUES (:nome_setor)");
                 $success = $create->execute([
                     ':nome_setor' => $nome_setor
                 ]);
 
-                if (!$success)
-                {
+                if (!$success) {
                     return [
                         'status' => 'error',
                         'message' => 'Erro ao inserir setor'
                     ];
                 } else {
                     return [
-                        'status' => 'error',
+                        'status' => 'success',
                         'message' => 'Setor inserido com sucesso'
                     ];
                 }
             }
 
-            if ($action === 'update')
-            {
+            if ($action === 'update') {
                 $id = $_POST['id_setor'];
 
-                if (empty($id))
-                {
+                if (empty($id)) {
                     return [
                         'status' => 'error',
                         'message' => 'id do setor não fornecido'
@@ -629,12 +643,24 @@ class getDataBase
                 }
 
                 $verification = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
-                $success = $verification->execute([
+                $verification->execute([
                     ':id' => $id
                 ]);
 
-                if (!$success)
-                {
+                if ($verification->rowCount() < 1) {
+                    return [
+                        'status' => 'error',
+                        'message' => 'Erro ao deletar setor, id não encontrado'
+                    ];
+                }
+
+                $update = $this->db->prepare("UPDATE setor SET nome_setor = :nome_setor WHERE id_setor = :id_setor");
+                $success = $update->execute([
+                    ':nome_setor' => $nome_setor,
+                    ':id_setor' => $id
+                ]);
+
+                if (!$success) {
                     return [
                         'status' => 'error',
                         'message' => 'Erro ao atualizar o setor'
@@ -653,7 +679,62 @@ class getDataBase
             ];
         }
     }
+    
+    public function deleteDepartament($method, $id)
+    {
+        try {
 
+            if ($method !== "DELETE")
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ];
+
+
+            }
+
+            $this->token->verificarToken();
+
+            $verification = $this->db->prepare("SELECT * FROM setor WHERE id_setor = :id");
+            $verification->execute([':id' => $id]);
+
+            if ($verification->rowCount() < 1)
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Setor não encontrado'
+                ];
+            }
+
+            $delete = $this->db->prepare("DELETE FROM setor WHERE id_setor = :id");
+            $success = $delete->execute([':id' => $id]);
+
+            if (!$success)
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Erro ao deletar setor'
+                ];
+            } elseif ($success){
+                return [
+                    'status' => 'success',
+                    'message' => 'Setor deletado'
+                ];
+            } else {
+                return [
+                    'status' => 'error',
+                    'message' => 'Erro desconhecido'
+                ];
+            }
+
+        } catch(PDOException $e){
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
+    }
 
     public function getMediaMensal($date, $id)
     {
