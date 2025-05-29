@@ -543,7 +543,7 @@ class ApiIXC
 
                 if ($success) {
 
-                    if ($id_assunto === '10' || $id_assunto === '187') 
+                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314') 
                     {
                         $this->instalacao($id_atendimento, $check_list, $id_ixc_user);
                     }
