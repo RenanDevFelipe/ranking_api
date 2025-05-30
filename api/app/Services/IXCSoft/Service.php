@@ -148,7 +148,7 @@ class ApiIXC
         $total_registros = $response['total'];
 
         foreach ($registros as $os) {
-            if ($os['id_assunto'] != 2 AND $os['id_assunto'] != 380) {
+            if ($os['id_assunto'] != 2 and $os['id_assunto'] != 380) {
                 $id = $os['id'];
                 $id_cliente = $os['id_cliente'];
                 $ticket = $os['id_ticket'];
@@ -163,10 +163,15 @@ class ApiIXC
 
                 $ipRequest = $this->getIPraduser($id_login);
                 $ip_login = $ipRequest['registros'][0]['ip'];
+                $contrato = $ipRequest['registros'][0]['id_contrato'];
+
+                $plano = $this->ClienteContrato($contrato);
 
                 $potenciaRequest = $this->clienteFibraOnu($id_login);
                 $sinal_rx = $potenciaRequest['registros'][0]['sinal_rx'];
                 $sinal_tx = $potenciaRequest['registros'][0]['sinal_tx'];
+                $caixa_FTTH = $potenciaRequest['registros'][0]['id_caixa_ftth'];
+                $porta_FTTH = $potenciaRequest['registros'][0]['porta_ftth'];
 
                 $radioRequest = $this->clienteRadio($id_login);
                 $radio_ccq = $radioRequest['registros'][0]['ccq'];
@@ -201,8 +206,11 @@ class ApiIXC
                     'id_cliente' => $id_cliente,
                     'id_assunto' => $os['id_assunto'],
                     'ip_login' => $ip_login,
+                    'plano_cliente' => $plano,
                     'potencia' => [
                         'fibra' => [
+                            "id_caixa_ftth" => $caixa_FTTH,
+                            "porta_ftth" => $porta_FTTH,
                             "tx" => $sinal_tx,
                             "rx" => $sinal_rx
                         ],
@@ -343,8 +351,7 @@ class ApiIXC
             $method
         );
 
-        if ($verificacoes['total'] < 1)
-        {
+        if ($verificacoes['total'] < 1) {
             return ([
                 'status' => 'error',
                 'message' => 'Erro ao finalizar, não tem o.s de verificação para o id: ' . $id_atendimento
@@ -377,8 +384,7 @@ class ApiIXC
             $method
         );
 
-        if ($conferencias['total'] < 1)
-        {
+        if ($conferencias['total'] < 1) {
             return ([
                 'status' => 'error',
                 'message' => 'Erro ao finalizar, não tem o.s de verificação para o id: ' . $id_atendimento
@@ -397,7 +403,6 @@ class ApiIXC
             $body,
             ''
         );
-        
     }
 
     public function camera($id_atendimento, $text_verificar, $id_troca, $id_ixc_user, $evaluationText)
@@ -441,8 +446,7 @@ class ApiIXC
             $method
         );
 
-        if ($conferencias['total'] < 1)
-        {
+        if ($conferencias['total'] < 1) {
             return ([
                 'status' => 'error',
                 'message' => 'Erro ao finalizar, não tem o.s de verificação para o id: ' . $id_atendimento
@@ -543,22 +547,13 @@ class ApiIXC
 
                 if ($success) {
 
-                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314') 
-                    {
+                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314') {
                         $this->instalacao($id_atendimento, $check_list, $id_ixc_user);
-                    }
-
-                    elseif ($id_assunto === '503' || $id_assunto === '421')
-                    {
+                    } elseif ($id_assunto === '503' || $id_assunto === '421') {
                         $this->camera($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
-                    }
-                    
-                    elseif ($id_assunto === '5' || $id_assunto === '70')
-                    {
+                    } elseif ($id_assunto === '5' || $id_assunto === '70') {
                         $this->mudancaDeEndereco($id_atendimento, $check_list, $id_ixc_user, $observacao_troca, $troca);
-                    } 
-                    
-                    else {
+                    } else {
                         return $this->finalizarOSVerificar($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
                     }
 
@@ -587,7 +582,7 @@ class ApiIXC
     public function ipaux($query)
     {
         $body = $this->body->BodyRequestLoginIpAux($query);
-        $method= $this->methodIXC->listarIXC();
+        $method = $this->methodIXC->listarIXC();
 
         return $this->request(
             $this->queryIXC->raduser(),
@@ -595,6 +590,44 @@ class ApiIXC
             $body,
             $method
         );
+    }
+
+    public function ClienteContrato($id_contrato)
+    {
+        $body = $this->body->BodyRequestContrato($id_contrato);
+        $method = $this->methodIXC->listarIXC();
+        $request = $this->request(
+            $this->queryIXC->cliente_contrato(),
+            "POST",
+            $body,
+            $method
+        );
+
+        $contrato = $request['registros'][0]['contrato'];
+
+        return $this->extrairCidadeVelocidade($contrato);
+    }
+
+    function extrairCidadeVelocidade($contrato)
+    {
+        $partes = explode('_', $contrato);
+
+        // Cidade: primeiras duas partes separadas por espaço
+        $cidade = $partes[0] . ' ' . $partes[1];
+
+        // Velocidade: parte que contém 'MEGA' ou 'MB'
+        $velocidade = null;
+        foreach ($partes as $parte) {
+            if (stripos($parte, 'MEGA') !== false || stripos($parte, 'MB') !== false) {
+                $velocidade = $parte;
+                break;
+            }
+        }
+
+        return [
+            'cidade' => $cidade,
+            'velocidade' => $velocidade
+        ];
     }
 
     private function request($endpoint, $method = "GET", $data = [], $methodHeader)

@@ -40,6 +40,11 @@ class QtypeRiquisicoesIXC {
     {
         return "su_oss_chamado_fechar";
     }
+
+    public function cliente_contrato()
+    {
+        return "cliente_contrato";
+    }
 }
 
 ?>

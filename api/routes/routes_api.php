@@ -433,7 +433,29 @@ elseif ($uri == "IXCSoft/Teste" && $method == "POST"){
         exit;
     }
 
-    echo json_encode($ixcController->finalizarOSVerificar($data['id'], $data['mensagem'], $data['id_proxima_os'], $data['id_ixc'], $data['checklist']));
+    echo json_encode($ixcController->getIPraduser($data['id_login']));
+}
+
+elseif ($uri == "IXCSoft/Teste2" && $method == "POST"){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->clienteFibraOnu($data['id_login']));
+}
+
+elseif ($uri == "IXCSoft/Teste3" && $method == "POST"){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->ClienteContrato($data['id_contrato']));
 }
 
 elseif ($uri == "Avaliacao/N3")

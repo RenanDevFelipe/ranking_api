@@ -297,4 +297,19 @@ class ModelBodyRequest
 
         return $data;
     }
+
+    public function BodyRequestContrato($id_contrato)
+    {
+        $data = [
+            'qtype' => 'cliente_contrato.id', //campo de filtro
+            'query' => $id_contrato, //valor para consultar
+            'oper' => '=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '20', //quantidade de registros por página
+            'sortname' => 'cliente_contrato.id', //campo para ordenar a consulta
+            'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        ];
+
+        return $data;
+    }
 }

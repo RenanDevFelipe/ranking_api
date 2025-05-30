@@ -89,4 +89,9 @@ class DataApiIxc
     {
         return $this->bodyRequest->BodyRequestLoginIpAux($query);
     }
+
+    public function BodyRequestContrato($id_contrato)
+    {
+        return $this->bodyRequest->BodyRequestContrato($id_contrato);
+    }
 }
