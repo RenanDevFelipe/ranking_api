@@ -148,7 +148,7 @@ class ApiIXC
         $total_registros = $response['total'];
 
         foreach ($registros as $os) {
-            if ($os['id_assunto'] != 2 and $os['id_assunto'] != 380) {
+            if ($os['id_assunto'] != 2 and $os['id_assunto'] != 380 and $os['id_assunto'] != 79) {
                 $id = $os['id'];
                 $id_cliente = $os['id_cliente'];
                 $ticket = $os['id_ticket'];
