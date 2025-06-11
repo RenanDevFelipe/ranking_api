@@ -193,7 +193,7 @@ class ModelBodyRequest
             'sortorder' => 'desc',
             'grid_param' => json_encode(array(
                 array('TB' => 'su_oss_chamado.setor', 'OP' => '=', 'P' => '7'),
-                array('TB' => 'su_oss_chamado.id_assunto', 'OP' => 'IN', 'P' => '95,85,149,310,454,359,255,411')
+                array('TB' => 'su_oss_chamado.id_assunto', 'OP' => 'IN', 'P' => '95,85,149,310,454,359,255,411,422')
             ))
         ];
 
