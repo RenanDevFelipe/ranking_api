@@ -547,7 +547,7 @@ class ApiIXC
 
                 if ($success) {
 
-                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314') {
+                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314' || $id_assunto === '419' || $id_assunto === '189') {
                         $this->instalacao($id_atendimento, $check_list, $id_ixc_user);
                     } elseif ($id_assunto === '503' || $id_assunto === '421') {
                         $this->camera($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
