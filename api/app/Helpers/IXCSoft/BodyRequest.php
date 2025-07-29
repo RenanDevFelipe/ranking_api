@@ -312,4 +312,37 @@ class ModelBodyRequest
 
         return $data;
     }
+
+    public function listSoDepartament($query)
+    {
+        $params = array(
+            'qtype' => 'su_oss_chamado.setor', //campo de filtro
+            'query' => $query, //valor para consultar
+            'oper' => '=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '1000', //quantidade de registros por página
+            'sortname' => 'su_oss_chamado.id', //campo para ordenar a consulta
+            'sortorder' => 'desc', //ordenação (asc= crescente | desc=decrescente)
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.status', 'OP' => '!=', 'P' => 'F')
+            ))
+        );
+
+        return $params;
+    }
+
+    public function listAssunto($query)
+    {
+        $params = array(
+            'qtype' => 'su_oss_assunto.id', //campo de filtro
+            'query' => $query, //valor para consultar
+            'oper' => '=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '20', //quantidade de registros por página
+            'sortname' => 'su_oss_assunto.id', //campo para ordenar a consulta
+            'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        );
+
+        return $params;
+    }
 }

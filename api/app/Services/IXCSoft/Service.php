@@ -670,4 +670,147 @@ class ApiIXC
 
         // return $data;
     }
+
+
+    // TI CONNECT BI //
+    public function listSoAssunto($query)
+    {
+        $body = $this->body->listAssunto($query);
+        $method = $this->methodIXC->listarIXC();
+        $return = $this->request(
+            $this->queryIXC->su_oss_assunto(),
+            "POST",
+            $body,
+            $method
+        );
+
+        return $return['registros'][0]['assunto'];
+    }
+
+    public function connectBiListSo($query)
+    {
+        $this->token->verificarToken();
+
+        $body = $this->body->listSoDepartament($query);
+        $method = $this->methodIXC->listarIXC();
+        $return = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            "POST",
+            $body,
+            $method
+        );
+
+        $serviceOrdens = $return['registros'] ?? [];
+        $total = $return['total'];
+        $total_aberta = [];
+        $total_Analise = [];
+        $total_Encaminhada = [];
+        $total_Assumida = [];
+        $total_Agendada = [];
+        $total_Deslocamento = [];
+        $total_Execucao = [];
+        $total_reagendamento = [];
+
+        // COUNT SERVICE ORDEM //
+        $aberta = 0;
+        $Analise = 0;
+        $Encaminhada = 0;
+        $Assumida = 0;
+        $Agendada = 0;
+        $Execucao = 0;
+        $Deslocamento = 0;
+        $reagendamento = 0;
+        // COUNT SERVICE ORDEM //
+
+        // ✅ CONTAGEM GLOBAL DE id_assunto
+        $contagem_id_assunto = [];
+
+        foreach ($serviceOrdens as $SO) {
+            // contagem de id_assunto sem filtro
+            $id_assunto = $this->listSoAssunto($SO['id_assunto']);;
+            if (!isset($contagem_id_assunto[$id_assunto])) {
+                $contagem_id_assunto[$id_assunto] = 0;
+            }
+            $contagem_id_assunto[$id_assunto]++;
+
+            // contagem por status
+            if ($SO['status'] == 'A') {
+                $total_aberta[] = $SO;
+                $aberta++;
+            }
+
+            if ($SO['status'] == 'AN') {
+                $total_Analise[] = $SO;
+                $Analise++;
+            }
+            if ($SO['status'] == 'EN') {
+                $total_Encaminhada[] = $SO;
+                $Encaminhada++;
+            }
+            if ($SO['status'] == 'AS') {
+                $total_Assumida[] = $SO;
+                $Assumida++;
+            }
+            if ($SO['status'] == 'AG') {
+                $total_Agendada[] = $SO;
+                $Agendada++;
+            }
+            if ($SO['status'] == 'DS') {
+                $total_Deslocamento[] = $SO;
+                $Deslocamento++;
+            }
+            if ($SO['status'] == 'EX') {
+                $total_Execucao[] = $SO;
+                $Execucao++;
+            }
+            if ($SO['status'] == 'RAG') {
+                $total_reagendamento[] = $SO;
+                $reagendamento++;
+            }
+        }
+
+        $serviceOrdemSetor = [
+            'total' => $total,
+            'id_assunto_count' => $contagem_id_assunto, // 👈 Contagem global aqui
+            'registros' => [
+                'aberta' => [
+                    'total' => $aberta,
+                    'services_ordem' => $total_aberta
+                ],
+                'analise' => [
+                    'total' => $Analise,
+                    'services_ordem' => $total_Analise
+                ],
+                'encaminhada' => [
+                    'total' => $Encaminhada,
+                    'services_ordem' => $total_Encaminhada
+                ],
+                'assumida' => [
+                    'total' => $Assumida,
+                    'services_ordem' => $total_Assumida
+                ],
+                'agendada' => [
+                    'total' => $Agendada,
+                    'services_ordem' => $total_Agendada
+                ],
+                'deslocamento' => [
+                    'total' => $Deslocamento,
+                    'services_ordem' => $total_Deslocamento
+                ],
+                'execucao' => [
+                    'total' => $Execucao,
+                    'services_ordem' => $total_Execucao
+                ],
+                'reagendamento' => [
+                    'total' => $reagendamento,
+                    'services_ordem' => $total_reagendamento
+                ]
+            ]
+        ];
+
+        return $serviceOrdemSetor;
+    }
+    // TI CONNECT BI //
+
+
 }

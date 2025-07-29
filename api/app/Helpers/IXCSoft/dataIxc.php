@@ -94,4 +94,13 @@ class DataApiIxc
     {
         return $this->bodyRequest->BodyRequestContrato($id_contrato);
     }
+
+    public function listSoDepartament($query){
+        return $this->bodyRequest->listSoDepartament($query);
+    }
+
+    public function listAssunto($query)
+    {
+        return $this->bodyRequest->listAssunto($query);
+    }
 }

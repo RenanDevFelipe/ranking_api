@@ -475,6 +475,28 @@ else if ($uri == "IXCSoft/ListIpAux")
     echo json_encode($ixcController->ipaux($data['ip_aux']));
 }
 
+else if($uri == "IXCSoft/ListSoDepartament"){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->connectBiListSo($data['id_setor']));
+}
+
+else if($uri == "IXCSoft/ListSoAssunto"){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->listSoAssunto($data['id_assunto']));
+}
+
 else {
     echo json_encode([
         "erro" => "Rota inexistente ou Requisição inválida"

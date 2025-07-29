@@ -45,6 +45,11 @@ class QtypeRiquisicoesIXC {
     {
         return "cliente_contrato";
     }
+
+    public function su_oss_assunto()
+    {
+        return "su_oss_assunto";
+    }
 }
 
 ?>
