@@ -24,6 +24,8 @@ class ApiIXC
     private $db;
     private $serviceDB;
 
+    
+
     public function __construct()
     {
         $this->body = new DataApiIXC();
@@ -633,42 +635,87 @@ class ApiIXC
     private function request($endpoint, $method = "GET", $data = [], $methodHeader)
     {
         $url = $this->baseURL . $endpoint;
-
         $ch = curl_init($url);
 
-        //configurar Basic Auth
         curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
 
-        //configurar Cabeçalhos
         $headers = [
             "Accept: application/json",
             "Content-Type: application/json",
+            "Accept-Encoding: gzip", // gzip
             $methodHeader
         ];
 
         if ($method !== "GET") {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data)); //envia o json no corpo
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         }
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_ENCODING, ""); // ativa gzip
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
-        // Executa requisiçao
+        $start = microtime(true);
         $response = curl_exec($ch);
+        $duration = microtime(true) - $start;
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            return [
+                "erro" => "Erro cURL: $error",
+                "status" => 0
+            ];
+        }
+
         curl_close($ch);
 
+        error_log("IXC API [$method $url] - Tempo: " . round($duration, 2) . "s - Status: $httpCode");
+
         if ($httpCode !== 200) {
-            return ([
-                "erro" => "Erro ao conectar com a API do IXCSoft.",
-                "status" => $httpCode
-            ]);
+            return [
+                "erro" => "Erro HTTP $httpCode ao acessar a API do IXC.",
+                "status" => $httpCode,
+                "resposta" => $response
+            ];
         }
 
         return json_decode($response, true);
+    }
 
-        // return $data;
+    private function getCachedData($key, callable $callback, $ttl = 600)
+    {
+        $cacheDir = __DIR__. "/../../../cache/ixc";
+        if (!is_dir($cacheDir)) {
+            mkdir($cacheDir, 0777, true);
+        }
+
+        $file = $cacheDir . '/' . md5($key) . '.json';
+
+        if (file_exists($file) && (time() - filemtime($file)) < $ttl) {
+            return json_decode(file_get_contents($file), true);
+        }
+
+        $data = $callback();
+        file_put_contents($file, json_encode($data));
+        return $data;
+    }
+
+    private function getAssuntoCached($id)
+    {
+        return $this->getCachedData("assunto_{$id}", function () use ($id) {
+            return $this->listSoAssunto($id);
+        });
+    }
+
+    private function getTecnicoCached($id)
+    {
+        return $this->getCachedData("tecnico_{$id}", function () use ($id) {
+            return $this->colaboratorApi($id);
+        });
     }
 
 
@@ -716,171 +763,83 @@ class ApiIXC
 
         $serviceOrdens = $return['registros'] ?? [];
         $total = $return['total'];
-        $total_aberta = [];
-        $total_Analise = [];
-        $total_Encaminhada = [];
-        $total_Assumida = [];
-        $total_Agendada = [];
-        $total_Deslocamento = [];
-        $total_Execucao = [];
-        $total_reagendamento = [];
 
-        // COUNT SERVICE ORDEM //
-        $aberta = 0;
-        $Analise = 0;
-        $Encaminhada = 0;
-        $Assumida = 0;
-        $Agendada = 0;
-        $Execucao = 0;
-        $Deslocamento = 0;
-        $reagendamento = 0;
-        // COUNT SERVICE ORDEM //
-
-        // ✅ CONTAGEM GLOBAL DE id_assunto
         $contagem_id_assunto = [];
+        $statusCounts = [
+            'A' => ['total' => 0, 'dados' => []],
+            'AN' => ['total' => 0, 'dados' => []],
+            'EN' => ['total' => 0, 'dados' => []],
+            'AS' => ['total' => 0, 'dados' => []],
+            'AG' => ['total' => 0, 'dados' => []],
+            'DS' => ['total' => 0, 'dados' => []],
+            'EX' => ['total' => 0, 'dados' => []],
+            'RAG' => ['total' => 0, 'dados' => []]
+        ];
 
         foreach ($serviceOrdens as $SO) {
-            // contagem de id_assunto sem filtro
-            $id_assunto = $this->listSoAssunto($SO['id_assunto']);;
-            if (!isset($contagem_id_assunto[$id_assunto])) {
-                $contagem_id_assunto[$id_assunto] = 0;
-            }
-            $contagem_id_assunto[$id_assunto]++;
+            $id_assunto = $SO['id_assunto'];
+            $id_tecnico = $SO['id_tecnico'];
+            $status = $SO['status'];
 
-            // contagem por status
-            if ($SO['status'] == 'A') {
-                $total_aberta[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $aberta++;
-            }
+            $assunto = $this->getAssuntoCached($id_assunto);
+            $tecnico = $this->getTecnicoCached($id_tecnico);
 
-            if ($SO['status'] == 'AN') {
-                $total_Analise[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $Analise++;
+            if (!isset($contagem_id_assunto[$assunto])) {
+                $contagem_id_assunto[$assunto] = 0;
             }
-            if ($SO['status'] == 'EN') {
-                $total_Encaminhada[] = [
+            $contagem_id_assunto[$assunto]++;
+
+            if (isset($statusCounts[$status])) {
+                $statusCounts[$status]['dados'][] = [
                     'id' => $SO['id'],
                     'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
+                    'id_tecnico' => $tecnico,
+                    'status' => $status,
                     'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                    'assunto' => $assunto
                 ];
-                $Encaminhada++;
-            }
-            if ($SO['status'] == 'AS') {
-                $total_Assumida[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $Assumida++;
-            }
-            if ($SO['status'] == 'AG') {
-                $total_Agendada[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $Agendada++;
-            }
-            if ($SO['status'] == 'DS') {
-                $total_Deslocamento[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $Deslocamento++;
-            }
-            if ($SO['status'] == 'EX') {
-                $total_Execucao[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $Execucao++;
-            }
-            if ($SO['status'] == 'RAG') {
-                $total_reagendamento[] = [
-                    'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
-                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
-                    'status' => $SO['status'],
-                    'prioridade' => $SO['prioridade'],
-                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
-                ];
-                $reagendamento++;
+                $statusCounts[$status]['total']++;
             }
         }
 
-        $serviceOrdemSetor = [
+        return [
             'total' => $total,
-            'id_assunto_count' => $contagem_id_assunto, // 👈 Contagem global aqui
+            'id_assunto_count' => $contagem_id_assunto,
             'registros' => [
                 'aberta' => [
-                    'total' => $aberta,
-                    'services_ordem' => $total_aberta
+                    'total' => $statusCounts['A']['total'],
+                    'services_ordem' => $statusCounts['A']['dados']
                 ],
                 'analise' => [
-                    'total' => $Analise,
-                    'services_ordem' => $total_Analise
+                    'total' => $statusCounts['AN']['total'],
+                    'services_ordem' => $statusCounts['AN']['dados']
                 ],
                 'encaminhada' => [
-                    'total' => $Encaminhada,
-                    'services_ordem' => $total_Encaminhada
+                    'total' => $statusCounts['EN']['total'],
+                    'services_ordem' => $statusCounts['EN']['dados']
                 ],
                 'assumida' => [
-                    'total' => $Assumida,
-                    'services_ordem' => $total_Assumida
+                    'total' => $statusCounts['AS']['total'],
+                    'services_ordem' => $statusCounts['AS']['dados']
                 ],
                 'agendada' => [
-                    'total' => $Agendada,
-                    'services_ordem' => $total_Agendada
+                    'total' => $statusCounts['AG']['total'],
+                    'services_ordem' => $statusCounts['AG']['dados']
                 ],
                 'deslocamento' => [
-                    'total' => $Deslocamento,
-                    'services_ordem' => $total_Deslocamento
+                    'total' => $statusCounts['DS']['total'],
+                    'services_ordem' => $statusCounts['DS']['dados']
                 ],
                 'execucao' => [
-                    'total' => $Execucao,
-                    'services_ordem' => $total_Execucao
+                    'total' => $statusCounts['EX']['total'],
+                    'services_ordem' => $statusCounts['EX']['dados']
                 ],
                 'reagendamento' => [
-                    'total' => $reagendamento,
-                    'services_ordem' => $total_reagendamento
+                    'total' => $statusCounts['RAG']['total'],
+                    'services_ordem' => $statusCounts['RAG']['dados']
                 ]
             ]
         ];
-
-        return $serviceOrdemSetor;
     }
-    // TI CONNECT BI //
-
-
 }
+    // TI CONNECT BI //
