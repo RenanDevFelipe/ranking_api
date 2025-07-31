@@ -497,6 +497,18 @@ else if($uri == "IXCSoft/ListSoAssunto"){
     echo json_encode($ixcController->listSoAssunto($data['id_assunto']));
 }
 
+else if ($uri == "IXCSoft/ListColaborator")
+{
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->colaboratorApi($data['id_tecnico']));
+}
+
 else {
     echo json_encode([
         "erro" => "Rota inexistente ou Requisição inválida"

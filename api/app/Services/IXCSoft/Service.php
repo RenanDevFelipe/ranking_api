@@ -547,7 +547,7 @@ class ApiIXC
 
                 if ($success) {
 
-                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314' || $id_assunto === '419' || $id_assunto === '189') {
+                    if ($id_assunto === '10' || $id_assunto === '187' || $id_assunto === '425' || $id_assunto === '308' || $id_assunto === '420' || $id_assunto === '314' || $id_assunto === '419' || $id_assunto === '189' || $id_assunto === '503') {
                         $this->instalacao($id_atendimento, $check_list, $id_ixc_user);
                     } elseif ($id_assunto === '503' || $id_assunto === '421') {
                         $this->camera($id_atendimento, $observacao_troca, $troca, $id_ixc_user, $check_list);
@@ -687,6 +687,20 @@ class ApiIXC
         return $return['registros'][0]['assunto'];
     }
 
+    public function colaboratorApi($query)
+    {
+        $body = $this->body->searchColaboratorApi($query);
+        $method = $this->methodIXC->listarIXC();
+        $return = $this->request(
+            $this->queryIXC->funcionarios(),
+            "POST",
+            $body,
+            $method
+        );
+
+        return $return['registros'][0]['funcionario'];
+    }
+
     public function connectBiListSo($query)
     {
         $this->token->verificarToken();
@@ -735,36 +749,92 @@ class ApiIXC
 
             // contagem por status
             if ($SO['status'] == 'A') {
-                $total_aberta[] = $SO;
+                $total_aberta[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $aberta++;
             }
 
             if ($SO['status'] == 'AN') {
-                $total_Analise[] = $SO;
+                $total_Analise[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $Analise++;
             }
             if ($SO['status'] == 'EN') {
-                $total_Encaminhada[] = $SO;
+                $total_Encaminhada[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $Encaminhada++;
             }
             if ($SO['status'] == 'AS') {
-                $total_Assumida[] = $SO;
+                $total_Assumida[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $Assumida++;
             }
             if ($SO['status'] == 'AG') {
-                $total_Agendada[] = $SO;
+                $total_Agendada[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $Agendada++;
             }
             if ($SO['status'] == 'DS') {
-                $total_Deslocamento[] = $SO;
+                $total_Deslocamento[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $Deslocamento++;
             }
             if ($SO['status'] == 'EX') {
-                $total_Execucao[] = $SO;
+                $total_Execucao[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $Execucao++;
             }
             if ($SO['status'] == 'RAG') {
-                $total_reagendamento[] = $SO;
+                $total_reagendamento[] = [
+                    'id' => $SO['id'],
+                    'mensagem' => $SO['mensagem'],
+                    'id_tecnico' => $this->colaboratorApi($SO['id_tecnico']),
+                    'status' => $SO['status'],
+                    'prioridade' => $SO['prioridade'],
+                    'assunto' => $this->listSoAssunto($SO['id_assunto'])
+                ];
                 $reagendamento++;
             }
         }

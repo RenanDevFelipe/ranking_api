@@ -50,6 +50,11 @@ class QtypeRiquisicoesIXC {
     {
         return "su_oss_assunto";
     }
+
+    public function funcionarios()
+    {
+        return "funcionarios";
+    }
 }
 
 ?>

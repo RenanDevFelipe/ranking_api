@@ -345,4 +345,19 @@ class ModelBodyRequest
 
         return $params;
     }
+
+    public function searchColaboratorApi($query)
+    {
+        $params = array(
+            'qtype' => 'funcionarios.id', //campo de filtro
+            'query' => $query, //valor para consultar
+            'oper' => '=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '20', //quantidade de registros por página
+            'sortname' => 'funcionarios.id', //campo para ordenar a consulta
+            'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        );
+
+        return $params;
+    }
 }

@@ -103,4 +103,9 @@ class DataApiIxc
     {
         return $this->bodyRequest->listAssunto($query);
     }
+
+    public function searchColaboratorApi($query)
+    {
+        return $this->bodyRequest->searchColaboratorApi($query);
+    }
 }
