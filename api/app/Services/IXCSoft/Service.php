@@ -24,7 +24,7 @@ class ApiIXC
     private $db;
     private $serviceDB;
 
-    
+
 
     public function __construct()
     {
@@ -686,37 +686,37 @@ class ApiIXC
         return json_decode($response, true);
     }
 
-    private function getCachedData($key, callable $callback, $ttl = 600)
-    {
-        $cacheDir = __DIR__. "/../../../cache/ixc";
-        if (!is_dir($cacheDir)) {
-            mkdir($cacheDir, 0777, true);
-        }
+    // private function getCachedData($key, callable $callback, $ttl = 600)
+    // {
+    //     $cacheDir = __DIR__. "/../../../cache/ixc";
+    //     if (!is_dir($cacheDir)) {
+    //         mkdir($cacheDir, 0777, true);
+    //     }
 
-        $file = $cacheDir . '/' . md5($key) . '.json';
+    //     $file = $cacheDir . '/' . md5($key) . '.json';
 
-        if (file_exists($file) && (time() - filemtime($file)) < $ttl) {
-            return json_decode(file_get_contents($file), true);
-        }
+    //     if (file_exists($file) && (time() - filemtime($file)) < $ttl) {
+    //         return json_decode(file_get_contents($file), true);
+    //     }
 
-        $data = $callback();
-        file_put_contents($file, json_encode($data));
-        return $data;
-    }
+    //     $data = $callback();
+    //     file_put_contents($file, json_encode($data));
+    //     return $data;
+    // }
 
-    private function getAssuntoCached($id)
-    {
-        return $this->getCachedData("assunto_{$id}", function () use ($id) {
-            return $this->listSoAssunto($id);
-        });
-    }
+    // private function getAssuntoCached($id)
+    // {
+    //     return $this->getCachedData("assunto_{$id}", function () use ($id) {
+    //         return $this->listSoAssunto($id);
+    //     });
+    // }
 
-    private function getTecnicoCached($id)
-    {
-        return $this->getCachedData("tecnico_{$id}", function () use ($id) {
-            return $this->colaboratorApi($id);
-        });
-    }
+    // private function getTecnicoCached($id)
+    // {
+    //     return $this->getCachedData("tecnico_{$id}", function () use ($id) {
+    //         return $this->colaboratorApi($id);
+    //     });
+    // }
 
 
     // TI CONNECT BI //
@@ -764,6 +764,11 @@ class ApiIXC
         $serviceOrdens = $return['registros'] ?? [];
         $total = $return['total'];
 
+        // Cache para evitar chamadas duplicadas
+        $cacheAssuntos = [];
+        $cacheTecnicos = [];
+
+        // Contadores
         $contagem_id_assunto = [];
         $statusCounts = [
             'A' => ['total' => 0, 'dados' => []],
@@ -781,14 +786,25 @@ class ApiIXC
             $id_tecnico = $SO['id_tecnico'];
             $status = $SO['status'];
 
-            $assunto = $this->getAssuntoCached($id_assunto);
-            $tecnico = $this->getTecnicoCached($id_tecnico);
+            // Cache de assunto
+            if (!isset($cacheAssuntos[$id_assunto])) {
+                $cacheAssuntos[$id_assunto] = $this->listSoAssunto($id_assunto);
+            }
+            $assunto = $cacheAssuntos[$id_assunto];
 
+            // Cache de técnico
+            if (!isset($cacheTecnicos[$id_tecnico])) {
+                $cacheTecnicos[$id_tecnico] = $this->colaboratorApi($id_tecnico);
+            }
+            $tecnico = $cacheTecnicos[$id_tecnico];
+
+            // Contagem por assunto
             if (!isset($contagem_id_assunto[$assunto])) {
                 $contagem_id_assunto[$assunto] = 0;
             }
             $contagem_id_assunto[$assunto]++;
 
+            // Adiciona aos dados conforme status
             if (isset($statusCounts[$status])) {
                 $statusCounts[$status]['dados'][] = [
                     'id' => $SO['id'],
