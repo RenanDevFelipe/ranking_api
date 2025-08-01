@@ -788,13 +788,15 @@ class ApiIXC
 
             // Cache de assunto
             if (!isset($cacheAssuntos[$id_assunto])) {
-                $cacheAssuntos[$id_assunto] = $this->listSoAssunto($id_assunto);
+                $assunto_id = $this->dbIXCSubject($id_assunto);
+                $cacheAssuntos[$id_assunto] = $assunto_id['assunto'];
             }
             $assunto = $cacheAssuntos[$id_assunto];
 
             // Cache de técnico
             if (!isset($cacheTecnicos[$id_tecnico])) {
-                $cacheTecnicos[$id_tecnico] = $this->colaboratorApi($id_tecnico);
+                $tecnico_id = $this->dbIXCFuncionarios($id_tecnico);
+                $cacheTecnicos[$id_tecnico] = $tecnico_id['colaborador'];
             }
             $tecnico = $cacheTecnicos[$id_tecnico];
 
@@ -856,6 +858,242 @@ class ApiIXC
                 ]
             ]
         ];
+    }
+
+    public function getSoAllDepartament()
+    {
+        $body = $this->body->listAllSoDepartament();
+        $method = $this->methodIXC->listarIXC();
+        $return = $this->request(
+            $this->queryIXC->su_chamado_os(),
+            "POST",
+            $body,
+            $method
+        );
+
+        return $return;
+    }
+
+    public function getSoGroupedByStatus()
+    {
+        $original = $this->getSoAllDepartament();
+        $registros = $original['registros'] ?? [];
+
+        $resultado = [
+            'total' => count($registros),
+            'registros' => []
+        ];
+
+        foreach ($registros as $os) {
+            $assunto_id = $this->dbIXCSubject($os['id_assunto']);
+            $tecnico_id = $this->dbIXCFuncionarios($os['id_tecnico']);
+
+            $setor = $os['setor'] ?? 'indefinido';
+            $status = $os['status'] ?? 'indefinido';
+            $assunto = $assunto_id['assunto'] ?? 'indefinido';
+            $descrition = $os['mensagem'];
+            $data_abertura = $os['data_abertura'];
+            $status = $os['status'];
+
+            // Inicializa o setor
+            if (!isset($resultado['registros'][$setor])) {
+                $resultado['registros'][$setor] = [
+                    'total' => 0,
+                    'status' => []
+                ];
+            }
+
+            // Inicializa o status dentro do setor
+            if (!isset($resultado['registros'][$setor]['status'][$status])) {
+                $resultado['registros'][$setor]['status'][$status] = [
+                    'total' => 0,
+                    'assuntos' => []
+                ];
+            }
+
+            // Inicializa o assunto dentro do status
+            if (!isset($resultado['registros'][$setor]['status'][$status]['assuntos'][$assunto])) {
+                $resultado['registros'][$setor]['status'][$status]['assuntos'][$assunto] = [
+                    'total' => 0,
+                    'services_ordem' => []
+                ];
+            }
+
+            // Adiciona a ordem de serviço
+            $resultado['registros'][$setor]['status'][$status]['assuntos'][$assunto]['services_ordem'][] = [
+                'id' => $os['id'],
+                'setor' => $setor,
+                'id_tecnico' => $tecnico_id['colaborador'],
+                'assunto' => $assunto,
+                'descricao' => $descrition,
+                'data_abertura' => $data_abertura,
+                'status' => $status
+            ];
+
+            // Incrementa os totais
+            $resultado['registros'][$setor]['total']++;
+            $resultado['registros'][$setor]['status'][$status]['total']++;
+            $resultado['registros'][$setor]['status'][$status]['assuntos'][$assunto]['total']++;
+        }
+
+        return $resultado;
+    }
+
+    public function listAllAssunto($page = 1, $limit = 100)
+    {
+        $body = $this->body->listAllAssunto();
+
+        $method = $this->methodIXC->listarIXC(); // Autenticação/token se necessário
+
+        $return = $this->request(
+            $this->queryIXC->su_oss_assunto(), // Sem query string na URL
+            "POST", // Troca de GET para POST
+            $body,
+            $method
+        );
+
+        return $return;
+    }
+
+    public function insertSubjectIXC()
+    {
+        $return = $this->listAllAssunto();
+        $subjects = $return['registros'];
+
+        $successCount = 0;
+        $failures = [];
+
+        foreach ($subjects as $sub) {
+            try {
+                $stmt = $this->db->prepare("INSERT IGNORE INTO assuntos_ixc (name, id_ixc) VALUES (:name, :id_ixc)");
+                $stmt->execute([
+                    ':name' => $sub['assunto'],
+                    ':id_ixc' => $sub['id']
+                ]);
+
+                if ($stmt->rowCount() > 0) {
+                    $successCount++;
+                }
+            } catch (PDOException $e) {
+                $failures[] = [
+                    'id' => $sub['id'],
+                    'error' => $e->getMessage()
+                ];
+            }
+        }
+
+        return [
+            'status' => empty($failures) ? 'success' : 'partial',
+            'message' => "Foram inseridos $successCount assuntos.",
+            'failures' => $failures
+        ];
+    }
+
+    public function searchAllColaboratorApi()
+    {
+        $body = $this->body->searchAllColaboratorApi();
+        $method = $this->methodIXC->listarIXC();
+        return $this->request(
+            $this->queryIXC->funcionarios(),
+            "POST",
+            $body,
+            $method
+        );
+    }
+
+    public function insertColaboratorIxc()
+    {
+        $return = $this->searchAllColaboratorApi();
+        $subjects = $return['registros'];
+
+        $successCount = 0;
+        $failures = [];
+
+        foreach ($subjects as $sub) {
+            try {
+                $stmt = $this->db->prepare("INSERT IGNORE INTO funcionarios_ixc (name, id_ixc, email_ixc) VALUES (:name, :id_ixc, :email_ixc)");
+                $stmt->execute([
+                    ':name' => $sub['funcionario'],
+                    ':id_ixc' => $sub['id'],
+                    ':email_ixc' => $sub['email']
+                ]);
+
+                if ($stmt->rowCount() > 0) {
+                    $successCount++;
+                }
+            } catch (PDOException $e) {
+                $failures[] = [
+                    'id' => $sub['id'],
+                    'error' => $e->getMessage()
+                ];
+            }
+        }
+
+        return [
+            'status' => empty($failures) ? 'success' : 'partial',
+            'message' => "Foram inseridos $successCount assuntos.",
+            'failures' => $failures
+        ];
+    }
+
+    public function dbIXCFuncionarios($id)
+    {
+        try {
+
+            $stmt = $this->db->prepare("SELECT * FROM funcionarios_ixc WHERE id_ixc = :id_ixc");
+            $stmt->execute([
+                ':id_ixc' => $id
+            ]);
+
+            $colaborator = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($stmt->rowCount() > 0){
+                return [
+                    'colaborador' => $colaborator['name']
+                ];
+            } else {
+                return [
+                    'colaborador' => 'Não atribuido'
+                ];
+            }
+
+
+        } catch (PDOException $e){
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
+    }
+
+    public function dbIXCSubject($id)
+    {
+        try {
+
+            $stmt = $this->db->prepare("SELECT * FROM assuntos_ixc WHERE id_ixc = :id_ixc");
+            $stmt->execute([
+                ':id_ixc' => $id
+            ]);
+
+            $subject = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($stmt->rowCount() > 0){
+                return [
+                    'assunto' => $subject['name']
+                ];
+            } else {
+                return [
+                    'assunto' => 'Não atribuido'
+                ];
+            }
+
+
+        } catch (PDOException $e){
+            return [
+                'status' => 'error',
+                'message' => 'Erro no banco de dados: ' . $e->getMessage()
+            ];
+        }
     }
 }
     // TI CONNECT BI //

@@ -509,6 +509,39 @@ else if ($uri == "IXCSoft/ListColaborator")
     echo json_encode($ixcController->colaboratorApi($data['id_tecnico']));
 }
 
+else if ($uri == "IXCSoft/ListSo")
+{
+    // $data = $data = $getInput->FileContets();
+
+    // if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+    //     echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+    //     exit;
+    // }
+
+    echo json_encode($ixcController->getSoGroupedByStatus());
+}
+
+else if ( $uri == "IXCSoft/ListAllSubject" )
+{
+    echo json_encode($ixcController->insertSubjectIXC());
+}
+
+else if ( $uri == "IXCSoft/InsertColaborator" )
+{
+    echo json_encode($ixcController->insertColaboratorIxc());
+}
+
+else if ($uri == "routes/test"){
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->dbIXCSubject($data['id']));
+}
+
 else {
     echo json_encode([
         "erro" => "Rota inexistente ou Requisição inválida"

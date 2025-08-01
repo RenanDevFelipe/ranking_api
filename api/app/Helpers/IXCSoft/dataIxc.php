@@ -108,4 +108,19 @@ class DataApiIxc
     {
         return $this->bodyRequest->searchColaboratorApi($query);
     }
+
+    public function listAllSoDepartament()
+    {
+        return $this->bodyRequest->listAllSoDepartament();
+    }
+
+    public function listAllAssunto()
+    {
+        return $this->bodyRequest->listAllAssunto();
+    }
+
+    public function searchAllColaboratorApi()
+    {
+        return $this->bodyRequest->searchAllColaboratorApi();
+    }
 }

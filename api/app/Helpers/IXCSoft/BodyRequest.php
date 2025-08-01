@@ -346,6 +346,21 @@ class ModelBodyRequest
         return $params;
     }
 
+    public function listAllAssunto()
+    {
+        $params = array(
+            'qtype' => 'su_oss_assunto.id', //campo de filtro
+            'query' => '1', //valor para consultar
+            'oper' => '>=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '1000', //quantidade de registros por página
+            'sortname' => 'su_oss_assunto.id', //campo para ordenar a consulta
+            'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        );
+
+        return $params;
+    }
+
     public function searchColaboratorApi($query)
     {
         $params = array(
@@ -356,6 +371,39 @@ class ModelBodyRequest
             'rp' => '20', //quantidade de registros por página
             'sortname' => 'funcionarios.id', //campo para ordenar a consulta
             'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        );
+
+        return $params;
+    }
+
+    public function searchAllColaboratorApi()
+    {
+        $params = array(
+            'qtype' => 'funcionarios.id', //campo de filtro
+            'query' => '1', //valor para consultar
+            'oper' => '>=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '1000', //quantidade de registros por página
+            'sortname' => 'funcionarios.id', //campo para ordenar a consulta
+            'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        );
+
+        return $params;
+    }
+
+    public function listAllSoDepartament()
+    {
+        $params = array(
+            'qtype' => 'su_oss_chamado.id', //campo de filtro
+            'query' => '1', //valor para consultar
+            'oper' => '>=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '1500', //quantidade de registros por página
+            'sortname' => 'su_oss_chamado.id', //campo para ordenar a consulta
+            'sortorder' => 'desc', //ordenação (asc= crescente | desc=decrescente)
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.status', 'OP' => '!=', 'P' => 'F')
+            ))
         );
 
         return $params;
