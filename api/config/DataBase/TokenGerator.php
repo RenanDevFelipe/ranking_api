@@ -39,6 +39,14 @@ class Token
         $headers = getallheaders();
 
         if (!isset($headers["Authorization"])) {
+            if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+                $headers["Authorization"] = $_SERVER['HTTP_AUTHORIZATION'];
+            } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+                $headers["Authorization"] = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+            }
+        }
+
+        if (!isset($headers["Authorization"])) {
             http_response_code(401);
             echo json_encode(["erro" => "Token não fornecido"]);
             exit;

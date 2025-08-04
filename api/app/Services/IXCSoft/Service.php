@@ -1,14 +1,24 @@
 <?php
 
+// CORS headers
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Trata requisição OPTIONS imediatamente
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
+
+
 require_once __DIR__ . "/../../Helpers/IXCSoft/dataIxc.php";
 require_once __DIR__ . "/../../Helpers/IXCSoft/method.php";
 require_once __DIR__ . "/../../Helpers/IXCSoft/qtype.php";
 require_once __DIR__ . "/../../../config/ApiIxc/config.php";
 require_once __DIR__ . '/../../../config/DataBase/TokenGerator.php';
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 
 
 
@@ -876,6 +886,7 @@ class ApiIXC
 
     public function getSoGroupedByStatus()
     {
+        $this->token->verificarToken();
         $original = $this->getSoAllDepartament();
         $registros = $original['registros'] ?? [];
 
