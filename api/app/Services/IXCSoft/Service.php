@@ -820,7 +820,7 @@ class ApiIXC
             if (isset($statusCounts[$status])) {
                 $statusCounts[$status]['dados'][] = [
                     'id' => $SO['id'],
-                    'mensagem' => $SO['mensagem'],
+                    'descricao' => $SO['mensagem'],
                     'id_tecnico' => $tecnico,
                     'status' => $status,
                     'prioridade' => $SO['prioridade'],
@@ -1106,5 +1106,24 @@ class ApiIXC
             ];
         }
     }
+
+
+    //ATENDIMENTO REPARTIÇÃO
+
+    public function getAllDepartamentAPi()
+    {
+        $body = $this->body->getAllDepartamento();
+        $method = $this->methodIXC->listarIXC();
+        $return = $this->request(
+            $this->queryIXC->su_ticket_setor(),
+            "POST",
+            $body,
+            $method
+        );
+
+        return $return;
+    }
+
+    //ATENDIMENTO REPARTIÇÃO
 }
     // TI CONNECT BI //

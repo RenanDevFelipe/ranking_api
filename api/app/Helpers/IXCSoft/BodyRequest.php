@@ -408,4 +408,24 @@ class ModelBodyRequest
 
         return $params;
     }
+
+
+    //GET SETOR PELO 
+
+    public function getAllDepartamento()
+    {
+        $params = [
+            'qtype' => 'su_ticket_setor.id', //campo de filtro
+            'query' => '1', //valor para consultar
+            'oper' => '>=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '200', //quantidade de registros por página
+            'sortname' => 'su_ticket_setor.id', //campo para ordenar a consulta
+            'sortorder' => 'desc' //ordenação (asc= crescente | desc=decrescente)
+        ];
+
+        return $params;
+    }
+
+    //GET SETOR PELO 
 }

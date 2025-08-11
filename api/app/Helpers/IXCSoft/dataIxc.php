@@ -123,4 +123,13 @@ class DataApiIxc
     {
         return $this->bodyRequest->searchAllColaboratorApi();
     }
+
+    // CONNECT BI
+
+    public function getAllDepartamento()
+    {
+        return $this->bodyRequest->getAllDepartamento();
+    }
+
+    // CONNECT BI
 }

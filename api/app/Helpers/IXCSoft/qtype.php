@@ -55,6 +55,11 @@ class QtypeRiquisicoesIXC {
     {
         return "funcionarios";
     }
+
+    public function su_ticket_setor()
+    {
+        return "su_ticket_setor";
+    }
 }
 
 ?>

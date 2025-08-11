@@ -532,14 +532,14 @@ else if ( $uri == "IXCSoft/InsertColaborator" )
 }
 
 else if ($uri == "routes/test"){
-    $data = $data = $getInput->FileContets();
+    // $data = $data = $getInput->FileContets();
 
-    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
-        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
-        exit;
-    }
+    // if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+    //     echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+    //     exit;
+    // }
 
-    echo json_encode($ixcController->dbIXCSubject($data['id']));
+    echo json_encode($ixcController->getAllDepartamentAPi());
 }
 
 else {
