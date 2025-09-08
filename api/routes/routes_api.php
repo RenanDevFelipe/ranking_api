@@ -543,7 +543,7 @@ else if ($uri == "routes/test")
     // echo json_encode($ixcController->countOSN3($method, $data['id_tecnico'], $data['data']));
 }
 
-else if ($uri == "IXCSoft/FinOsN3")
+else if ($uri == "IXCSoft/FinOs")
 {
     $data = $data = $getInput->FileContets();
 
