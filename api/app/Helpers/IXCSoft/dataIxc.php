@@ -131,5 +131,10 @@ class DataApiIxc
         return $this->bodyRequest->getAllDepartamento();
     }
 
+    public function countOsN3($query, $data)
+    {
+        return $this->bodyRequest->countOsN3($query, $data);
+    }
+
     // CONNECT BI
 }

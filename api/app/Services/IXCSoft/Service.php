@@ -696,39 +696,6 @@ class ApiIXC
         return json_decode($response, true);
     }
 
-    // private function getCachedData($key, callable $callback, $ttl = 600)
-    // {
-    //     $cacheDir = __DIR__. "/../../../cache/ixc";
-    //     if (!is_dir($cacheDir)) {
-    //         mkdir($cacheDir, 0777, true);
-    //     }
-
-    //     $file = $cacheDir . '/' . md5($key) . '.json';
-
-    //     if (file_exists($file) && (time() - filemtime($file)) < $ttl) {
-    //         return json_decode(file_get_contents($file), true);
-    //     }
-
-    //     $data = $callback();
-    //     file_put_contents($file, json_encode($data));
-    //     return $data;
-    // }
-
-    // private function getAssuntoCached($id)
-    // {
-    //     return $this->getCachedData("assunto_{$id}", function () use ($id) {
-    //         return $this->listSoAssunto($id);
-    //     });
-    // }
-
-    // private function getTecnicoCached($id)
-    // {
-    //     return $this->getCachedData("tecnico_{$id}", function () use ($id) {
-    //         return $this->colaboratorApi($id);
-    //     });
-    // }
-
-
     // TI CONNECT BI //
     public function listSoAssunto($query)
     {
@@ -1108,7 +1075,7 @@ class ApiIXC
     }
 
 
-    //ATENDIMENTO REPARTIÇÃO
+        //ATENDIMENTO REPARTIÇÃO
 
     public function getAllDepartamentAPi()
     {
@@ -1124,6 +1091,51 @@ class ApiIXC
         return $return;
     }
 
-    //ATENDIMENTO REPARTIÇÃO
-}
+        //ATENDIMENTO REPARTIÇÃO
+
     // TI CONNECT BI //
+
+
+    // COUNT O.S Fin N3
+    public function countOSN3($method, $query, $data)
+    {
+        try {
+
+            if ($method !== "POST")
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida'
+                ];
+            }
+
+            if (empty($query) || empty($data))
+            {
+                return [
+                    'status' => 'error',
+                    'message' => 'Todos os itens devem ser passados corretamente'
+                ];
+            }
+
+            $body = $this->body->countOsN3($query, $data);
+            $method  = $this->methodIXC->listarIXC();
+            $return = $this->request(
+                $this->queryIXC->su_chamado_os(),
+                "POST",
+                $body,
+                $method
+            );
+
+            return $return;
+
+
+        } catch (Exception $e){
+            return [
+                'status' => 'error',
+                'message' => 'Erro Desconhecido: ' . $e->getMessage()
+            ];
+        }
+    }
+    // COUNT O.S Fin N3
+}
+   

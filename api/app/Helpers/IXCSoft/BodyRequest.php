@@ -428,4 +428,26 @@ class ModelBodyRequest
     }
 
     //GET SETOR PELO 
+
+    //GET O.S N3
+    public function countOsN3($query, $data)
+    {
+        $params = array(
+            'qtype' => 'su_oss_chamado.id_tecnico', //campo de filtro
+            'query' => $query, //valor para consultar
+            'oper' => '=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '200', //quantidade de registros por página
+            'sortname' => 'su_oss_chamado.id', //campo para ordenar a consulta
+            'sortorder' => 'desc', //ordenação (asc= crescente | desc=decrescente)
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.status', 'OP' => '=', 'P' => 'F'),
+                array("TB" => "su_oss_chamado.data_fechamento", "OP" => ">=", "P" => $data . " 00:00:00"),
+                array("TB" => "su_oss_chamado.data_fechamento", "OP" => "<=", "P" => $data . " 23:59:59")
+            ))
+        );
+
+        return $params;
+    }
+    //GET O.S N3
 }
