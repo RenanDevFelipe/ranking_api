@@ -1097,6 +1097,8 @@ class ApiIXC
     {
         try {
 
+            $this->token->verificarToken();
+
             if ($method !== "POST") {
                 return [
                     'status' => 'error',
@@ -1131,14 +1133,17 @@ class ApiIXC
 
     public function countOSN3M($method, $query, $date)
     {
-        if ($method !== "POST") {
-            return [
-                'status' => 'error',
-                'message' => 'Requisição inválida!'
-            ];
-        }
 
         try {
+
+            $this->token->verificarToken();
+
+            if ($method !== "POST") {
+                return [
+                    'status' => 'error',
+                    'message' => 'Requisição inválida!'
+                ];
+            }
 
             if (empty($method) || empty($query) || empty($date)) {
                 return [
@@ -1157,7 +1162,6 @@ class ApiIXC
             );
 
             return $request;
-            
         } catch (Exception $e) {
             return [
                 'status' => 'error',
