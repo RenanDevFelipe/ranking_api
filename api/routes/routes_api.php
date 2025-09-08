@@ -555,6 +555,18 @@ else if ($uri == "IXCSoft/FinOs")
     echo json_encode($ixcController->countOSN3($method, $data['id_tecnico'], $data['data']));
 }
 
+else if ($uri == "IXCSoft/FinOsM")
+{
+    $data = $data = $getInput->FileContets();
+
+    if ($data == null && json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["erro" => "Erro ao processar JSON: " . json_last_error_msg()]);
+        exit;
+    }
+
+    echo json_encode($ixcController->countOSN3M($method, $data['id_tecnico'], $data['data']));
+}
+
 else {
     echo json_encode([
         "erro" => "Rota inexistente ou Requisição inválida"

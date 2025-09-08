@@ -449,5 +449,29 @@ class ModelBodyRequest
 
         return $params;
     }
+
+    public function countOsN3M($query, $date)
+    {
+        $data = new DateTime($date);
+        $data_start = $data->format("Y-m-01");
+        $data_end = $data->format("Y-m-t");
+
+        $params = array(
+            'qtype' => 'su_oss_chamado.id_tecnico', //campo de filtro
+            'query' => $query, //valor para consultar
+            'oper' => '=', //operador da consulta
+            'page' => '1', //página a ser mostrada
+            'rp' => '200', //quantidade de registros por página
+            'sortname' => 'su_oss_chamado.id', //campo para ordenar a consulta
+            'sortorder' => 'desc', //ordenação (asc= crescente | desc=decrescente)
+            'grid_param' => json_encode(array(
+                array('TB' => 'su_oss_chamado.status', 'OP' => '=', 'P' => 'F'),
+                array("TB" => "su_oss_chamado.data_fechamento", "OP" => ">=", "P" => $data_start . " 00:00:00"),
+                array("TB" => "su_oss_chamado.data_fechamento", "OP" => "<=", "P" => $data_end . " 23:59:59")
+            ))
+        );
+
+        return $params;
+    }
     //GET O.S N3
 }

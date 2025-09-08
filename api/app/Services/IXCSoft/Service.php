@@ -1025,7 +1025,7 @@ class ApiIXC
 
             $colaborator = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if($stmt->rowCount() > 0){
+            if ($stmt->rowCount() > 0) {
                 return [
                     'colaborador' => $colaborator['name']
                 ];
@@ -1034,9 +1034,7 @@ class ApiIXC
                     'colaborador' => 'Não atribuido'
                 ];
             }
-
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return [
                 'status' => 'error',
                 'message' => 'Erro no banco de dados: ' . $e->getMessage()
@@ -1055,7 +1053,7 @@ class ApiIXC
 
             $subject = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if($stmt->rowCount() > 0){
+            if ($stmt->rowCount() > 0) {
                 return [
                     'assunto' => $subject['name']
                 ];
@@ -1064,9 +1062,7 @@ class ApiIXC
                     'assunto' => 'Não atribuido'
                 ];
             }
-
-
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             return [
                 'status' => 'error',
                 'message' => 'Erro no banco de dados: ' . $e->getMessage()
@@ -1075,7 +1071,7 @@ class ApiIXC
     }
 
 
-        //ATENDIMENTO REPARTIÇÃO
+    //ATENDIMENTO REPARTIÇÃO
 
     public function getAllDepartamentAPi()
     {
@@ -1091,7 +1087,7 @@ class ApiIXC
         return $return;
     }
 
-        //ATENDIMENTO REPARTIÇÃO
+    //ATENDIMENTO REPARTIÇÃO
 
     // TI CONNECT BI //
 
@@ -1101,16 +1097,14 @@ class ApiIXC
     {
         try {
 
-            if ($method !== "POST")
-            {
+            if ($method !== "POST") {
                 return [
                     'status' => 'error',
                     'message' => 'Requisição inválida'
                 ];
             }
 
-            if (empty($query) || empty($data))
-            {
+            if (empty($query) || empty($data)) {
                 return [
                     'status' => 'error',
                     'message' => 'Todos os itens devem ser passados corretamente'
@@ -1127,9 +1121,44 @@ class ApiIXC
             );
 
             return $return;
+        } catch (Exception $e) {
+            return [
+                'status' => 'error',
+                'message' => 'Erro Desconhecido: ' . $e->getMessage()
+            ];
+        }
+    }
 
+    public function countOSN3M($method, $query, $date)
+    {
+        if ($method !== "POST") {
+            return [
+                'status' => 'error',
+                'message' => 'Requisição inválida!'
+            ];
+        }
 
-        } catch (Exception $e){
+        try {
+
+            if (empty($method) || empty($query) || empty($date)) {
+                return [
+                    'status' => 'error',
+                    'message' => 'Campos necessários não foram preenchidos!'
+                ];
+            }
+
+            $body = $this->body->countOSN3M($query, $date);
+            $method = $this->methodIXC->listarIXC();
+            $request = $this->request(
+                $this->queryIXC->su_chamado_os(),
+                "POST",
+                $body,
+                $method
+            );
+
+            return $request;
+            
+        } catch (Exception $e) {
             return [
                 'status' => 'error',
                 'message' => 'Erro Desconhecido: ' . $e->getMessage()
@@ -1138,4 +1167,3 @@ class ApiIXC
     }
     // COUNT O.S Fin N3
 }
-   

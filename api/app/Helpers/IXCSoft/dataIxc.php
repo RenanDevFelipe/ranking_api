@@ -136,5 +136,10 @@ class DataApiIxc
         return $this->bodyRequest->countOsN3($query, $data);
     }
 
+    public function countOsN3M($query, $date)
+    {
+        return $this->bodyRequest->countOsN3M($query, $date);
+    }
+
     // CONNECT BI
 }
